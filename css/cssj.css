@@ -1,0 +1,12 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+	background: #5086C1;
+	font-family: 'Anton', sans-serif;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
