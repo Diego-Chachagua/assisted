@@ -4,9 +4,27 @@
 }
 
 body{
+<<<<<<< HEAD
 	background: #5086C1;
+=======
+	background: rgb(230, 230, 233);
+>>>>>>> 1193902ae5960471fe9bc3ecf843d77f058200f5
 	font-family: 'Anton', sans-serif;
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+<<<<<<< HEAD
+=======
+}
+
+.cabecera{
+    overflow: hidden;
+    background-color: #0099FF;
+}
+
+#i{
+    font-size: 20px;
+    color: white;
+    
+>>>>>>> 1193902ae5960471fe9bc3ecf843d77f058200f5
 }
