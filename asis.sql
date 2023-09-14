@@ -1,8 +1,8 @@
 CREATE TABLE estudiantes(
     nie varchar(10),
-    nombre varchar(10) not null,
-    genero char(10) not null,
-    foto varchar(10) not null,
+    nombre varchar(70) not null,
+    genero char(1) not null,
+    foto varchar(70) not null,
     descriptores longblob not null,
     PRIMARY KEY(nie)
 );
