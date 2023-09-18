@@ -53,7 +53,7 @@ CREATE TABLE materia(
 
 CREATE TABLE anio(
     c_anio smallint AUTO_INCREMENT,
-    anio char(1) not null,
+    anio char(4) not null,
     PRIMARY KEY(c_anio)
 );
 
