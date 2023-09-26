@@ -1,0 +1,62 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+	background: #5086C1;
+	font-family: 'Anton', sans-serif;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.imagen{
+    width: 600px;
+    height: 200px;
+    float: left;
+}
+
+.imagens{
+    width: 680px;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: 60px;
+
+}
+
+.textoi{
+    color: white;
+    font-size: 20PX;
+}
+
+.textop{
+    margin-left: 670px;
+}
+
+.cuadro-gris {
+    background-color: #ccc;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+
+.cuadro-gris img {
+    background-color: white;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.grid-layout1{
+    display: grid;
+     grid-template-columns: 35% 35% 35%;
+}

@@ -1,62 +1,522 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-
-
 *{
     margin: 0%;
     padding: 0%;
 }
-
-body{
-	background: #5086C1;
+/* pantalla modificar asistencia*/
+.body1{
+	background: rgb(247, 247, 249);
 	font-family: 'Anton', sans-serif;
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
 }
 
-.imagen{
-    width: 600px;
-    height: 200px;
-    float: left;
+.cabecera{
+    overflow: hidden;
+    background-color: #5086C1;
+    height: 105px;
+    position: relative;
 }
 
-.imagens{
-    width: 680px;
-    height: 120px;
-    margin-top: 10px;
-    margin-left: 60px;
-
+#i{
+    font-size: 20px;
+    color: #FBF7F7;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    top: -40px;
+    left: 20px;
 }
 
-.textoi{
+.as{
+    position: relative;
+    top: -15px;
+}
+
+#c{
+    position: relative;
+    left: 910px;
+    top: 10px;
+}
+
+#tit{
+    position: relative;
+    left: 1270px;
+    top: -90px;
+    font-size: 22px;
+}
+
+#e{
+    position: relative;
+    left: 1430px;
+    top: -90px;
+    height: 40px;
+}
+
+.sesion{
+    position: relative;
+    top: -130px;
+    left: 1310px;
     color: white;
-    font-size: 20PX;
+    font-size: 20px;
 }
 
-.textop{
-    margin-left: 670px;
+.modasis{
+    overflow: hidden;
+    position: relative;
+    background-color: #5086C1;
+    width: 1455px;
+    left: 20px;
+    border-radius: 5px;
+    height: 250px;
 }
 
-.cuadro-gris {
-    background-color: #ccc;
+.modasis2{
+    overflow: hidden;
+    position: relative;
+    background-color: #5086C1;
+    width: 1455px;
+    left: 20px;
+    border-radius: 5px;
+    height: 270px;
+}
+
+.ra{
+    color: #ffff;
+    font-size: 38px;
+    position: relative;
+    left: 10px;
+}
+
+.but{
+    position:relative ;
+    border-radius: none;
+    top: 50px;
+    left: 100px;
+    background-color: #f9f6f6;
+    height: 50px;
+    width: 160px;
+    font-size: 24px;
+    border-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.b{
+    position:relative ;
+    border-radius: none;
+    top: 50px;
+    left: 450px;
+    background-color: #f9f6f6;
+    height: 50px;
+    width: 170px;
+    font-size: 24px;
+    border-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.bu{
+    position:relative ;
+    border-radius: none;
+    top: 50px;
+    left: 800px;
+    background-color: #f9f6f6;
+    height: 50px;
+    width: 160px;
+    font-size: 24px;
+    border-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.ma{
+    color: #ffff;
+    font-size: 22px;
+    position: relative;
+    left: 20px;
+}
+
+#container{
+    overflow: hidden;
+    position: relative;
+    background-color: #5086C1;
+    width: 215px;
+    left: 20px;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.mo{
+    position: relative;
+    top: 10px;
+    left: 5px;
+}
+
+.anio{
+    width: 70px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    position: relative;
+    top: -40px;
+    left: 215px;
+}
+
+.sec{
+    width: 95px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    position: relative;
+    top: -40px;
+    left: 220px;
+}
+
+.modi{
+    position:relative ;
+    border-radius: none;
+    top: -40px;
+    left:225px;
+    background-color: #08c42d;
+    height: 40px;
+    width: 100px;
+    font-size: 20px; 
+    border-color: #08c42d;
+    cursor: pointer;
+}
+
+#fecha{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 150px;
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+
+#fecha::before{
+    
+            display: block;
+            margin-bottom: 5px;
+}
+/*Fin de pantalla mod*/
+/*Inicio pantalla estu*/
+.body2{
+    background: #5086C1;
+	font-family: 'Anton', sans-serif;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.seccion{
+    font-size: 62px;
+    color: #f1f1f1;
+    position: relative;
+    left: 10px;
+    top: 5px;
+}
+
+.secc{
+    font-size: 32px;
+    color: #f1f1f1;
+    position: relative;
+    left: 10px;
+}
+
+table {
+    width: 1450px;
+    height: auto;
+    border-collapse: collapse;
+    position: absolute;
+    left: 20px;
+  }
+  
+  table, td {
+    border: 1px solid rgb(6, 6, 6);
+    padding: 15px;
+    text-align: left;
+    text-align: center;
+    background-color: #f1f1f1;
+  }
+  
+  .nie{
+    width: 40px;
+  }
+
+  .nom{
+    width: 400px;
+  }
+
+  .fecha{
+    width: 150px;
+  }
+
+  .gen{
+    width: 50px;
+  }
+
+  .edit{
+    width: 70px;
+  }
+
+  .lapiz{
+    height: 30px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    right: 10px;
+    
+  }
+
+  .drop{
+    height: 30px;
+    border: none;
+    position: relative;
+    left: 30px;
+    top: -35px;
+    cursor: pointer;
+  }
+
+  form{
+    height: 1px;
+  }
+
+  .elimina{
+    position: relative;
+    top: 500px;
+    left: 20px;
+    height: 45px;
+    width: 150px;
+    background-color: #E2504C;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .elimi{
+    height: 20px;
+  }
+
+  .agregar{
+    position: relative;
+    top: 430px;
+    left: 1350px;
+    background-color: #5086C1;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .agre{
+    height: 60px;
+  }
+
+  #mostrarVentana {
+    margin-top: 20px;
+    position: relative;
+    top: 500px;
+    left: 150px; 
+}
+
+/* Estilos para la ventana flotante */
+.ventana {
+display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #5086C1;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
     width: 300px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 50px;
+    height: auto;
+    z-index: 1000;
+    border-radius: 10px;
 }
 
+/* Estilos para el contenido de la ventana */
+.contenido {
+    text-align: center;
+}
 
-.cuadro-gris img {
+/* Estilos para el botón de cerrar la ventana */
+
+#imageContainer{
+    height: auto;
+    width: 150px;
+    position: relative;
+    left: 80px;
+    background-color: #5086C1;
+}
+
+.ad{
+    height: 150px;
+    width: auto;
+}
+
+.img{
+    left: -5px;
+    cursor: pointer;
+    background-color: #5086C1;
+    border: none;
+    height: auto;
+}
+
+.datos{
+    height: 1px;
+}
+
+#nie {
+    width: 120px; 
+    padding: 10px; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    color: #333; 
+    position: relative;
+    right: 75px;
+}
+
+#nom {
+    width: 120px; 
+    padding: 10px; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    color: #333; 
+    position: relative;
+    right: 5px;
+}
+
+#ape {
+    width: 120px; 
+    padding: 10px; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    color: #333; 
+    position: relative;
+    left: 10px;
+}
+
+.mes{
+    width: 75px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    position: relative;
+    left: -5px;
+    text-align: center;
+}
+
+.dia{
+    width: 70px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    position: relative;
+    left: -5px;
+}
+
+#aniio{
+    width: 60px; 
+    padding: 10px; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    color: #333; 
+    position: relative;
+    right: 5px;
+}
+
+.g{
     background-color: white;
-    max-width: 90%;
-    max-height: 90%;
+    height: 75px;
+    width: 250px;
+    position: relative;
+    border-radius: 10px;
+    position: relative;
+    left: 15px;
 }
 
-.grid-layout1{
-    display: grid;
-     grid-template-columns: 35% 35% 35%;
+.sexo{
+    text-align: left;
+    position: relative;
+    left: 5px;
 }
 
+#masculino{
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.mascu{
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+#femenino{
+    position: relative;
+    left: 20px;
+    top: 15px;
+}
+
+.feme{
+    position: relative;
+    left: 20px;
+    top: 15px;
+}
+
+.cancel{
+    height: 10px;
+    position: relative;
+    right: 10px;
+}
+
+#cerrarVentana {
+    background-color: #f1f1f1;
+    color: #0e0d0d;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    left: 80px;
+    top: -10px;
+    font-size: 16px;
+}
+
+#guardar{
+    background-color: #f1f1f1;
+    color: #0e0d0d;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    right: 90px;
+    top: -70px;
+    font-size: 16px;
+}
+
+.gua{
+    height: 15px;
+    position: relative;
+    right: 10px;
+}
