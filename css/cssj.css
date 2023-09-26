@@ -1,7 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-
-
 *{
     margin: 0%;
     padding: 0%;
@@ -17,7 +14,7 @@
 
 .cabecera{
     overflow: hidden;
-    background-color: #0099FF;
+    background-color: #5086C1;
     height: 105px;
     position: relative;
 }
@@ -68,7 +65,7 @@
 .modasis{
     overflow: hidden;
     position: relative;
-    background-color: #0099FF;
+    background-color: #5086C1;
     width: 1455px;
     left: 20px;
     border-radius: 5px;
@@ -78,7 +75,7 @@
 .modasis2{
     overflow: hidden;
     position: relative;
-    background-color: #0099FF;
+    background-color: #5086C1;
     width: 1455px;
     left: 20px;
     border-radius: 5px;
@@ -141,7 +138,7 @@
 #container{
     overflow: hidden;
     position: relative;
-    background-color: #0099FF;
+    background-color: #5086C1;
     width: 215px;
     left: 20px;
     border-radius: 5px;
@@ -210,7 +207,7 @@
 /*Fin de pantalla mod*/
 /*Inicio pantalla estu*/
 .body2{
-    background: #0099FF;
+    background: #5086C1;
 	font-family: 'Anton', sans-serif;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -273,6 +270,7 @@ table {
     border: none;
     position: relative;
     cursor: pointer;
+    right: 10px;
     
   }
 
@@ -280,8 +278,13 @@ table {
     height: 30px;
     border: none;
     position: relative;
-    left: 10px;
+    left: 30px;
+    top: -35px;
     cursor: pointer;
+  }
+
+  form{
+    height: 1px;
   }
 
   .elimina{
@@ -294,6 +297,7 @@ table {
     border-radius: 15px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 10px;
   }
 
   .elimi{
@@ -302,11 +306,12 @@ table {
 
   .agregar{
     position: relative;
-    top: 450px;
+    top: 430px;
     left: 1350px;
-    background-color: #0099FF;
+    background-color: #5086C1;
     border: none;
     cursor: pointer;
+    margin-top: 10px;
   }
 
   .agre{
@@ -322,32 +327,16 @@ table {
 
 /* Estilos para la ventana flotante */
 .ventana {
-    display: none;
+display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #0099FF;
+    background-color: #5086C1;
     border: 1px solid #ccc;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    width: 400px;
-    height: auto;
-    z-index: 1000;
-    border-radius: 10px;
-}
-
-.ventana2 {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #0099FF;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 400px;
+    width: 300px;
     height: auto;
     z-index: 1000;
     border-radius: 10px;
@@ -364,8 +353,8 @@ table {
     height: auto;
     width: 150px;
     position: relative;
-    left: 120px;
-    background-color: #0099FF;
+    left: 80px;
+    background-color: #5086C1;
 }
 
 .ad{
@@ -376,9 +365,13 @@ table {
 .img{
     left: -5px;
     cursor: pointer;
-    background-color: #0099FF;
+    background-color: #5086C1;
     border: none;
     height: auto;
+}
+
+.datos{
+    height: 1px;
 }
 
 #nie {
@@ -389,7 +382,7 @@ table {
     font-size: 16px; 
     color: #333; 
     position: relative;
-    right: 95px;
+    right: 75px;
 }
 
 #nom {
@@ -400,7 +393,7 @@ table {
     font-size: 16px; 
     color: #333; 
     position: relative;
-    right: 25px;
+    right: 5px;
 }
 
 #ape {
@@ -411,7 +404,7 @@ table {
     font-size: 16px; 
     color: #333; 
     position: relative;
-    right: 15px;
+    left: 10px;
 }
 
 .mes{
@@ -422,7 +415,7 @@ table {
     border-radius: 4px;
     background-color: #f1f1f1;
     position: relative;
-    left: -35px;
+    left: -5px;
     text-align: center;
 }
 
@@ -434,7 +427,7 @@ table {
     border-radius: 4px;
     background-color: #f1f1f1;
     position: relative;
-    left: -25px;
+    left: -5px;
 }
 
 #aniio{
@@ -445,7 +438,7 @@ table {
     font-size: 16px; 
     color: #333; 
     position: relative;
-    right: 15px;
+    right: 5px;
 }
 
 .g{
@@ -453,10 +446,9 @@ table {
     height: 75px;
     width: 250px;
     position: relative;
-    left: 15px;
     border-radius: 10px;
     position: relative;
-    left: 50px;
+    left: 15px;
 }
 
 .sexo{
@@ -504,7 +496,7 @@ table {
     cursor: pointer;
     border-radius: 10px;
     position: relative;
-    left: 110px;
+    left: 80px;
     top: -10px;
     font-size: 16px;
 }
@@ -518,8 +510,8 @@ table {
     cursor: pointer;
     border-radius: 10px;
     position: relative;
-    right: 150px;
-    top: -10px;
+    right: 90px;
+    top: -70px;
     font-size: 16px;
 }
 
