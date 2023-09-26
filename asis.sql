@@ -165,14 +165,14 @@ CREATE TABLE alum_grado(
     c_ag smallint AUTO_INCREMENT,
     c_anio smallint,
     c_grado smallint,
-    c_se smallint,
+    nie varchar(10),
     PRIMARY KEY(c_ag),
     INDEX(c_anio),
     INDEX(c_grado),
-    INDEX(c_se),
+    INDEX(nie),
     FOREIGN KEY(c_anio) REFERENCES anio(c_anio),
     FOREIGN KEY(c_grado) REFERENCES grado(c_grado),
-    FOREIGN KEY(c_se) REFERENCES seccion(c_se)
+    FOREIGN KEY(nie) REFERENCES estudiantes(nie)
 );
 
 CREATE TABLE turno(
