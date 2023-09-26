@@ -1,0 +1,99 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+body{
+background: #5086C1;
+font-family: 'Anton', sans-serif;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+.cabecera{
+  overflow: hidden;
+  background-color: #f4f7f8;
+  height: 105px;
+  position: relative;
+}
+
+#i{
+  font-size: 20px;
+  color: #181717;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  top: -40px;
+  left: 20px;
+}
+
+.as{
+  position: relative;
+  top: -15px;
+}
+
+#c{
+  position: relative;
+  left: 760px;
+  top: 10px;
+}
+
+#tit{
+  position: relative;
+  left: 1130px;
+  top: -90px;
+  font-size: 22px;
+  color: black;
+}
+
+#e{
+  position: relative;
+  left: 1270px;
+  top: -90px;
+  height: 40px;
+}
+
+.sesion{
+  position: relative;
+  top: -130px;
+  left: 1140px;
+  color: rgb(15, 15, 15);
+  font-size: 20px;
+}
+
+.eleccion{
+  color: white;
+  text-shadow: 1px 2px 2px black, 0 0 25px blue, 0 0 5px blue;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 21px;
+}
+    
+button{
+  width: 180px;
+  height: 150px;
+  background: none;
+  margin-left: -14px;
+  margin-bottom: 60px;
+  border: none;
+  cursor: pointer;
+}
+        
+.ciencias{
+  width: 100px;
+  height: 100px;
+  margin-bottom: 30px;
+}
+        
+p{
+  font-family: Arial, Helvetica, sans-serif;
+  color: aliceblue;
+  font-size: 18px;
+}
+
+h1{
+  color: white;
+  position: absolute;
+  left: 10px;
+}
