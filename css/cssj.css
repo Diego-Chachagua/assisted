@@ -290,7 +290,7 @@ table {
   .elimina{
     position: relative;
     top: 500px;
-    left: 40px;
+    left: 120px;
     height: 45px;
     width: 150px;
     background-color: #E2504C;
@@ -307,7 +307,7 @@ table {
   .agregar{
     position: relative;
     top: 430px;
-    left: 1100px;
+    left: 1250px;
     background-color: #5086C1;
     border: none;
     cursor: pointer;
