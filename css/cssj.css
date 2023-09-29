@@ -212,6 +212,7 @@
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+    width: 100px;
 }
 
 .seccion{
@@ -230,27 +231,26 @@
 }
 
 table {
-    width: 1450px;
+    width: 1200px;
     height: auto;
     border-collapse: collapse;
     position: absolute;
-    left: 20px;
+    left: 120px;
   }
   
   table, td {
     border: 1px solid rgb(6, 6, 6);
     padding: 15px;
-    text-align: left;
     text-align: center;
     background-color: #f1f1f1;
   }
   
   .nie{
-    width: 40px;
+    width: 70px;
   }
 
   .nom{
-    width: 400px;
+    width: 200px;
   }
 
   .fecha{
@@ -290,7 +290,7 @@ table {
   .elimina{
     position: relative;
     top: 500px;
-    left: 20px;
+    left: 120px;
     height: 45px;
     width: 150px;
     background-color: #E2504C;
@@ -307,7 +307,7 @@ table {
   .agregar{
     position: relative;
     top: 430px;
-    left: 1350px;
+    left: 1250px;
     background-color: #5086C1;
     border: none;
     cursor: pointer;
