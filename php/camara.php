@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dividir la pantalla en dos partes verticales</title>
-    <script src="face-api.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Dividir la pantalla en dos partes verticales</title>
+    <script src="../face-api.js"></script>
     <style>
         /* Estilo para el contenedor principal */
         .container {
@@ -185,7 +185,7 @@ text-align: justify;
             <video id="video" width="660" height="350" autoplay muted></video>
     <p id="mensaje"></p>
     <p id="resultado"></p>
-    <script src="JS/main.js"></script>
+    <script src="../JS/main.js"></script>
         </div>
         <div class="column2">
             <!-- Contenido de la segunda columna -->
@@ -198,9 +198,9 @@ text-align: justify;
 
 
 <?php
-require('conexion.php');
+require('cone.php');
 
-$sql = "SELECT nombre, descriptores_foto FROM alumnos";
+$sql = "SELECT descriptores_foto FROM alumnos";
 
 $result = $conn->query($sql);
 
