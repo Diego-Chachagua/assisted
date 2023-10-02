@@ -171,7 +171,7 @@ text-align: justify;
 </head>
 <body>
 <header>
-        <h2 class="logo"><img id="logo" src="/pag_web/images/logo1.png" ></h2>
+        <h2 class="logo"><img id="logo" src="#" ></h2>
         <nav class="navigation">
         <a href="#" class="active">Inicio<span></span></a>
         <a href="#">Asistencia<span></span></a>
@@ -198,7 +198,7 @@ text-align: justify;
 
 
 <?php
-require('cone.php');
+require('../cone.php');
 
 $sql = "SELECT descriptores_foto FROM alumnos";
 
@@ -223,29 +223,6 @@ if ($result->num_rows > 0) {
 
 
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $posicion = $_POST['j'];
-
-    if ($posicion !== null) {
-        $descriptr = array();
-        $descriptr = $descriptor[$posicion]; // Agregar el descriptor al array
-        $perfil = json_encode($descriptr);
-
-        $sql2 = "SELECT nombre FROM alumnos WHERE descriptores_foto LIKE '%$perfil%'";
-
-        $result2 = $conn->query($sql2);
-
-        if ($result2->num_rows > 0) {
-            // Si hay filas en el resultado, procesa y muestra los nombres
-            $nombres = array(); // Inicializar un array para almacenar los nombres
-            while ($row2 = $result2->fetch_assoc()) {
-                $nombres = $row2["nombre"];
-            }
-            // Imprimir los nombres
-            json_encode($nombres);
-        }
-    }
-}
 
 ?>
 

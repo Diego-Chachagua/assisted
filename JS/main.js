@@ -2,11 +2,11 @@ const video = document.getElementById('video');
 let descriptoresJS = []; // Variable para almacenar los descriptores faciales en tiempo real
 
 function starVideo() {
-  navigator.getUserMedia =
-    navigator.getUserMedia ||
-    navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia ||
-    navigator.msGetUserMedia;
+  navigator.mediaDevices.getUserMedia =
+    navigator.mediaDevices.getUserMedia ||
+    navigator.mediaDevices.webkitGetUserMedia ||
+    navigator.mediaDevices.mozGetUserMedia ||
+    navigator.mediaDevices.msGetUserMedia;
   navigator.getUserMedia(
     { video: {} },
     (stream) => {
@@ -58,13 +58,13 @@ async function detectFaces() {
                     if (distance < umbralDeSimilitud) {
                         $.ajax({
                             type: 'POST',
-                            url: '/php/camara.php',
+                            url: 'camara.php',
                             data: {
                                 j: numero // Enviar la variable j al servidor
                             },
                             success: function(response) {
                                 // Maneja la respuesta del servidor aquí
-                                // console.log(response);
+                                console.log(response);
     
                                 // Actualiza una parte de la página con la respuesta del servidor
                                 $('#resultado').html(response);
