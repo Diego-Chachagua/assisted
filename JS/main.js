@@ -58,7 +58,7 @@ async function detectFaces() {
                     if (distance < umbralDeSimilitud) {
                         $.ajax({
                             type: 'POST',
-                            url: 'index2.php',
+                            url: '/php/camara.php',
                             data: {
                                 j: numero // Enviar la variable j al servidor
                             },
