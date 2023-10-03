@@ -61,6 +61,29 @@ if ($result->num_rows > 0) {
 
 }
 
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $posicion = $_POST['j'];
+
+    if ($posicion !== null) {
+        $descriptr = array();
+        $descriptr = $descriptor[$posicion]; // Agregar el descriptor al array
+        $perfil = json_encode($descriptr);
+
+        $sql2 = "SELECT nombre FROM alumnos WHERE descriptores_foto LIKE '%$perfil%'";
+
+        $result2 = $conn->query($sql2);
+
+        if ($result2->num_rows > 0) {
+            // Si hay filas en el resultado, procesa y muestra los nombres
+            $nombres = array(); // Inicializar un array para almacenar los nombres
+            while ($row2 = $result2->fetch_assoc()) {
+                $nombres = $row2["nombre"];
+            }
+            // Imprimir los nombres
+            json_encode($nombres);
+        }
+    }
+}
 
 
 
