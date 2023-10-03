@@ -1,3 +1,30 @@
+<?php
+require('../cone.php');
+
+$sql = "SELECT descriptores_foto FROM alumnos";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Si hay filas en el resultado, procesa y muestra los datos
+    $descriptores_faciales = array();
+    $descriptor = array();
+    while ($row = $result->fetch_assoc()) {
+        $descriptores_faciales[] = $row["descriptores_foto"];
+    }
+    foreach ($descriptores_faciales as $descriptor_foto) {
+        $descriptor[] = trim($descriptor_foto, '"');
+    }
+    // Convierte el arreglo $descriptor a una cadena JSON
+    $descriptor_json = json_encode($descriptor);
+    // Imprime la cadena JSON como una variable JavaScript
+    echo "<script> var descriptoresFaciales = " . json_encode($descriptor) . "; </script>";
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,6 +58,31 @@
             <!-- Contenido de la segunda columna -->
             <h1>Columna 2</h1>
             <p>Contenido de la segunda columna.</p>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                $posicion = $_POST['j'];
+            
+                if ($posicion !== null) {
+                    $descriptr = array();
+                    $descriptr = $descriptor[$posicion]; // Agregar el descriptor al array
+                    $perfil = json_encode($descriptr);
+            
+                    $sql2 = "SELECT nombre FROM alumnos WHERE descriptores_foto LIKE '%$perfil%'";
+            
+                    $result2 = $conn->query($sql2);
+            
+                    if ($result2->num_rows > 0) {
+                        // Si hay filas en el resultado, procesa y muestra los nombres
+                        $nombres = array(); // Inicializar un array para almacenar los nombres
+                        while ($row2 = $result2->fetch_assoc()) {
+                            $nombres = $row2["nombre"];
+                        }
+                        // Imprimir los nombres
+                        json_encode($nombres);
+                    }
+                }
+            }
+            ?>
         </div>
     </div>
 </body>
@@ -84,8 +136,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 }
-
-
 
 ?>
 
