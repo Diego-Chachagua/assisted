@@ -11,14 +11,14 @@
 </head>
 <body>
 <header>
-        <img class="logo" src="/assisted/img/asis.png" >
+        <img class="logo" src="/assisted/img/logo1.png" >
         <nav class="navigation">
         <a href="#" class="active">Inicio<span></span></a>
         <a href="#">Asistencia<span></span></a>
         <a href="#">Secciones<span></span></a>
         <a href="#">Usuarios<span></span></a>
         </nav>
-        </header><br><br><br><br><br><br><br><br>
+        </header><br>
     <div class="container">
         <div class="column">
             <!-- Contenido de la primera columna -->
