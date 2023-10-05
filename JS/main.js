@@ -63,11 +63,8 @@ async function detectFaces() {
                                 j: numero // Enviar la variable j al servidor
                             },
                             success: function(response) {
-                                // Maneja la respuesta del servidor aquí
-                                console.log(response);
-    
-                                // Actualiza una parte de la página con la respuesta del servidor
-                                $('#resultado').html(response);
+                              
+                                $('#resultado').numbers(response);
                             },
                             error: function(error) {
                                 // Maneja errores aquí si es necesario
