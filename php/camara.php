@@ -1,7 +1,7 @@
 <?php
 require('../cone.php');
 
-$sql = "SELECT descriptores_foto FROM alumnos";
+$sql = "SELECT nombre, descriptores_foto FROM alumnos";
 
 $result = $conn->query($sql);
 
@@ -9,8 +9,11 @@ if ($result->num_rows > 0) {
     // Si hay filas en el resultado, procesa y muestra los datos
     $descriptores_faciales = array();
     $descriptor = array();
+    $nom = array();
+
     while ($row = $result->fetch_assoc()) {
         $descriptores_faciales[] = $row["descriptores_foto"];
+        $nom[] = $row["nombre"];
     }
     foreach ($descriptores_faciales as $descriptor_foto) {
         $descriptor[] = trim($descriptor_foto, '"');
@@ -18,7 +21,7 @@ if ($result->num_rows > 0) {
     // Convierte el arreglo $descriptor a una cadena JSON
     $descriptor_json = json_encode($descriptor);
     // Imprime la cadena JSON como una variable JavaScript
-    echo  "<script> var descriptoresFaciales = " . json_encode($descriptor) . "; </script>";
+    echo "<script> var descriptoresFaciales = " . json_encode($descriptor) . "; </script>";
 
 }
 
@@ -27,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($posicion !== null) {
         $descriptr = array();
-        $descriptr = $descriptor[$u]; 
+        $descriptr = $nom2[$posicion]; // Agregar el descriptor al array
         $perfil = json_encode($descriptr);
 
         $sql2 = "SELECT nombre FROM alumnos WHERE descriptores_foto LIKE '%$perfil%'";
@@ -42,10 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             // Imprimir los nombres
             echo json_encode($nombres);
-
+        }
     }
 }
-}
+
 ?>
 
 <!DOCTYPE html>

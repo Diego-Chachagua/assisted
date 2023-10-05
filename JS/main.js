@@ -64,7 +64,7 @@ async function detectFaces() {
                             },
                             success: function(response) {
                               
-                                $('#resultado').numbers(response);
+                                $('#resultado').text(response);
                             },
                             error: function(error) {
                                 // Maneja errores aquí si es necesario
