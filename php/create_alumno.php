@@ -1,5 +1,5 @@
 <?php
-require('conexion.php');
+require('../cone.php');
 
 // Obtiene los datos del formulario
 $nie = $_POST["nie"];
@@ -10,7 +10,7 @@ $sexo = isset($_POST["sexo"]) ? $_POST["sexo"] : "";
 // Procesa la foto
 $fotoNombre = $_FILES["foto"]["name"];
 $fotoTemp = $_FILES["foto"]["tmp_name"];
-$fotoDestino = "fotos/" . $fotoNombre; 
+$fotoDestino = "../fotos/" . $fotoNombre; 
 
 // Mueve la foto al destino
 if (move_uploaded_file($fotoTemp, $fotoDestino)) {

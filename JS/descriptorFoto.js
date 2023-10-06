@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", async function () {
     // Cargar los modelos de Face-API.js de forma asíncrona al entrar a la página
     console.log("Cargando modelos...");
-    await faceapi.nets.ssdMobilenetv1.load("models");
-    await faceapi.nets.faceLandmark68Net.load("models");
-    await faceapi.nets.faceRecognitionNet.load("models");
+    await faceapi.nets.ssdMobilenetv1.load("../models");
+    await faceapi.nets.faceLandmark68Net.load("../models");
+    await faceapi.nets.faceRecognitionNet.load("../models");
     console.log("Modelos cargados exitosamente.");
 
     // Referencias a elementos del DOM

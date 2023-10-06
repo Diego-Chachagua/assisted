@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Agregar Alumno</h1>
-    <form action="descriptores.php" method="POST" enctype="multipart/form-data">
+    <form action="../php/create_alumno.php" method="POST" enctype="multipart/form-data">
         <label for="foto">Cargar Foto:</label>
         <input type="file" id="foto" name="foto"><br>
     
@@ -29,8 +29,8 @@
         <button type="submit" id="boton-guardar" >Guardar</button>
         <button type="button" onclick="window.location.href='indexhtml'">Cancelar</button>
     
-        <script src="face-api.js"></script>
-        <script src="descriptorFoto.js"></script>
+        <script src="../face-api.js"></script>
+        <script src="../JS/descriptorFoto.js"></script>
     </form>
     
     
