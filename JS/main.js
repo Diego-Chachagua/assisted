@@ -58,13 +58,13 @@ async function detectFaces() {
                     if (distance < umbralDeSimilitud) {
                         $.ajax({
                             type: 'POST',
-                            url: 'camara.php',
+                            url: 'descriptores.php',
                             data: {
                                 j: numero // Enviar la variable j al servidor
                             },
                             success: function(response) {
-                              
                                 $('#resultado').text(response);
+                                console.log(response);
                             },
                             error: function(error) {
                                 // Maneja errores aquí si es necesario

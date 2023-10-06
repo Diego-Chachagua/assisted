@@ -243,3 +243,11 @@ text-align: justify;
 
 
 }
+
+.perfil{
+    text-align: center;
+    font-size: 30px;
+    color: green;
+    height: 100px;
+    width: 500px;
+}
