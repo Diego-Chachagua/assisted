@@ -204,10 +204,10 @@ opacity: 1;
 .conteiner{
 background-color: #D9D9D9;
 position: relative;
-top: 85px;
+top: 75px;
 width: 97%;
 left: 20px;
-height: 600px;
+height: auto;
 }
 
 .sec{
@@ -255,5 +255,167 @@ top: 10px;
 .agre_seccion{
   position: relative;
   left: 1180px;
-  top: 60px;
+  top: 100px;
+}
+#mostrarVentana {
+  margin-top: 20px;
+  position: relative;
+  top: 500px;
+  left: 150px; 
+}
+/* Estilos para la ventana flotante */
+.ventana {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #5086C1;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      width: 500px;
+      height: 200px;
+      z-index: 1000;
+      border-radius: 10px;
+  }
+
+  .verestu {
+    margin-top: 20px;
+    position: relative;
+    top: 500px;
+    left: 150px; 
+  }
+  /* Estilos para la ventana flotante */
+  .verestu {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #5086C1;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 1000px;
+        height: 900px;
+        z-index: 1000;
+        border-radius: 10px;
+    }
+  
+  /* Estilos para el contenido de la ventana */
+  .contenido {
+      text-align: center;
+  }
+  
+  /* Estilos para el botón de cerrar la ventana */
+    
+  #nom {
+      width: 120px; 
+      padding: 10px; 
+      border: 2px solid #ccc; 
+      border-radius: 10px; 
+      font-size: 16px; 
+      color: #333; 
+      position: relative;
+      right:15px;
+  }
+  
+  #espe{
+    width: 420px; 
+    padding: 10px; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    color: #333; 
+    position: relative;
+    left: 15px;
+    float: left;
+  }
+
+  .mes{
+      width: 105px;
+      height: 40px;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: #f1f1f1;
+      position: relative;
+      left: 25px;
+      text-align: center;
+  }
+  
+  #aniio{
+      width: 120px; 
+      padding: 10px; 
+      border: 2px solid #ccc; 
+      border-radius: 10px; 
+      font-size: 16px; 
+      color: #333; 
+      position: relative;
+      right: 45px;
+  }
+  
+  .datos{
+    height: 1px;
+  }
+  .cancel{
+    height: 15px;
+    position: relative;
+    right: 35px;
+    top: -3px;
+}
+
+#cerrarVentana {
+  background-color: #f1f1f1;
+  color: #0e0d0d;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  left: 100px;
+  top: 15px;
+  height: 30px;
+  width: 110px;
+}
+
+.ca{
+  color: black;
+  font-size: 16px;
+  position: relative;
+  top: -19px;
+  left: 10px;
+}
+
+.ca2{
+  color: black;
+  font-size: 16px;
+  position: relative;
+  top: -25px;
+  left: 10px;
+}
+
+#guardar{
+    background-color: #f1f1f1;
+    color: #0e0d0d;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    right: 90px;
+    top: 15px;
+    font-size: 16px;
+    height: 30px;
+    width: 90px;
+}
+
+.gua{
+    height: 20px;
+    position: relative;
+    top: -5px;
+    right: 30px;
 }

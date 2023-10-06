@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="/assisted/css/cssj.css" media="screen"/>
 </head>
 <body class="body2">
-
     <h1 class="seccion">3°k</h1><br>
     <h2 class="secc">Estudiantes:</h2><br><br>
     <div>
@@ -172,11 +171,12 @@
           <input type="radio" id="femenino" name="genero" value="femenino">
           <label class="feme">Femenino</label>
         </div><br>
-           
-            <button id="cerrarVentana" onclick="cerrarVentana()">
+              <form class="datos">
+             <button id="cerrarVentana" onclick="cerrarVentana()">
               <img  class="cancel" src="/assisted/img/cancelar.png">Cancelar
             </button>
-            <form class="datos">
+              </form>
+              <form class="datos">
             <button id="guardar" type="submit" onclick="insertdatos()">
               <img class="gua" src="/assisted/img/chequesito.png">Aceptar
             </button>
@@ -221,87 +221,6 @@ function cerrarVentana() {
         // Asigna la función displayImages al evento change del input de archivos
         document.getElementById('fileInput').addEventListener('change', displayImages);
 </script>
-<script>
-  // Primero, seleccionamos todos los botones de edición en la tabla
-var botonesEditar = document.querySelectorAll('.miTabla .lapiz');
 
-// Luego, agregamos un event listener a cada botón
-botonesEditar.forEach(function(boton) {
-  boton.addEventListener('click', function() {
-    // Aquí, 'this' se refiere al botón que fue clickeado
-    var fila = this.parentNode.parentNode; // Esto selecciona la fila del botón clickeado
-
-    // Ahora puedes hacer lo que quieras con la fila, por ejemplo:
-    var celdas = fila.querySelectorAll('td');
-    celdas.forEach(function(celda) {
-      // Aquí puedes editar el contenido de cada celda
-      celda.textContent = 'Editado';
-    });
-  });
-});
-</script>
-<script>
-  // Primero, seleccionamos todos los botones de eliminación en la tabla
-var botonesEliminar = document.querySelectorAll('.miTabla .drop');
-
-// Luego, agregamos un event listener a cada botón
-botonesEliminar.forEach(function(boton) {
-  boton.addEventListener('click', function() {
-    // Aquí, 'this' se refiere al botón que fue clickeado
-    var fila = this.parentNode.parentNode; // Esto selecciona la fila del botón clickeado
-
-    // Ahora puedes hacer lo que quieras con la fila, por ejemplo:
-    fila.remove(); // Esto elimina la fila
-  });
-});
-</script>
-<script>
-  var formulario = document.getElementById("ventanaFlotante");
-    // Primero, seleccionamos el botón "Aceptar" por su ID
-var botonAceptar = document.getElementById("guardar");
- function guardar(){
-// Luego, añadimos un evento "click" al botón
-botonAceptar.addEventListener("click", function(event) {
-  // Prevenimos el comportamiento por defecto del botón (enviar el formulario)
-  event.preventDefault();
-
-  // Seleccionamos los campos del formulario por su ID
-  var nie = document.getElementById("nie").value;
-  var nombre = document.getElementById("nom").value;
-  var apellido = document.getElementById("ape").value;
-  var mes = document.getElementById("mes").value;
-  var dia = document.getElementById("dia").value;
-  var ano = document.getElementById("aniio").value;
-  var genero = document.querySelector('input[name="genero"]:checked').value;
-
-  // Ahora puedes guardar los datos donde necesites, por ejemplo en un objeto
-  var datosUsuario = {
-    nie: nie,
-    nombre: nombre,
-    apellido: apellido,
-    mes: mes,
-    dia: dia,
-    ano: ano,
-    genero: genero
-  };
-
-  console.log(datosUsuario);
-});
- }
- botonAceptar.onclick = guardar;
-
-  function insertdatos(){
-    let miTabla = document.getElementById('miTabla').insertRow(0);
-    let col1 = miTabla.insertCell(0);
-    let col2 = miTabla.insertCell(1);
-    let col3 = miTabla.insertCell(2);
-    let col4 = miTabla.insertCell(3);
-
-    col1.innerHTML = nie;
-    col2.innerHTML = nombre,apellido ;
-    col3.innerHTML = mes,dia,ano;
-    col4.innerHTML = genero;
-  }
-</script>
 </body>
 </html>
