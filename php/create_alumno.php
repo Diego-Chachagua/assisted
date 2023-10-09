@@ -3,8 +3,7 @@ require('../cone.php');
 
 // Obtiene los datos del formulario
 $nie = $_POST["nie"];
-$nombre = $_POST["nombre"];
-$fechaNacimiento = $_POST["fechaNacimiento"];
+$nombre = $_POST["nom"];
 $sexo = isset($_POST["sexo"]) ? $_POST["sexo"] : "";
 
 // Procesa la foto
@@ -19,7 +18,7 @@ if (move_uploaded_file($fotoTemp, $fotoDestino)) {
     $descriptors = json_encode($_POST["descriptors"]);
     
 
-    $sql = "INSERT INTO alumnos (nie, nombre, fecha_nacimiento, sexo, foto, descriptores_foto) VALUES ('$nie', '$nombre', '$fechaNacimiento', '$sexo', '$fotoNombre', '$descriptors')";
+    $sql = "INSERT INTO alumnos (nie, nombre, sexo, foto, descriptores_foto) VALUES ('$nie', '$nombre', '$fechaNacimiento', '$sexo', '$fotoNombre', '$descriptors')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Alumno registrado correctamente.";

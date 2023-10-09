@@ -217,7 +217,7 @@
 
 .seccion{
     font-size: 62px;
-    color: #f1f1f1;
+    color: #e4dada;
     position: relative;
     left: 10px;
     top: 5px;
@@ -235,11 +235,11 @@ table {
     height: auto;
     border-collapse: collapse;
     position: absolute;
-    left: 120px;
+    margin-left: 80px;
   }
   
   table, td {
-    border: 1px solid rgb(6, 6, 6);
+    border: 3px solid rgb(6, 6, 6);
     padding: 15px;
     text-align: center;
     background-color: #f1f1f1;
@@ -386,7 +386,7 @@ display: none;
 }
 
 #nom {
-    width: 120px; 
+    width: 260px; 
     padding: 10px; 
     border: 2px solid #ccc; 
     border-radius: 10px; 
@@ -496,9 +496,10 @@ display: none;
     cursor: pointer;
     border-radius: 10px;
     position: relative;
-    left: 80px;
+    float: left;
     top: -20px;
     font-size: 16px;
+    margin-left: 15px;
 }
 
 #guardar{
@@ -510,9 +511,10 @@ display: none;
     cursor: pointer;
     border-radius: 10px;
     position: relative;
-    right: 90px;
-    top: -35px;
+    float: right;
+    top: -20px;
     font-size: 16px;
+    margin-right: 20px;
 }
 
 .gua{
@@ -520,3 +522,4 @@ display: none;
     position: relative;
     right: 10px;
 }
+

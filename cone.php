@@ -1,14 +1,15 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "scanface";
+    $db_host="srv1082.hstgr.io";
+    $db_nombre="u328483004_IncasIngles";
+    $db_usuario="u328483004_ingles123";
+    $db_contraseña="Incas10073@";
 
-// Crear la conexión a la base de datos
-$conn = new mysqli($servername, $username, $password, $dbname);
+    $conexion = mysqli_connect($db_host,$db_usuario,$db_contraseña,$db_nombre);
 
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+    if (mysqli_connect_errno()) {
+        echo "No se pudo conectar con la Base de Datos";
+        exit();
+    }
+   
+    mysqli_set_charset($conexion,"utf8");
 ?>
