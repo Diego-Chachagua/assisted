@@ -1,8 +1,8 @@
 <?php
     $db_host="srv1082.hstgr.io";
-    $db_nombre="u328483004_IncasIngles";
-    $db_usuario="u328483004_ingles123";
-    $db_contraseña="Incas10073@";
+    $db_nombre="u328483004_assisted";
+    $db_usuario="u328483004_Asis2024";
+    $db_contraseña="Assisted314";
 
     $conexion = mysqli_connect($db_host,$db_usuario,$db_contraseña,$db_nombre);
 
