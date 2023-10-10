@@ -1,15 +1,15 @@
 <?php
 require('../cone.php');
 // Función para obtener descriptores faciales
-function obtenerDescriptoresFaciales($conn) {
-    $sql = "SELECT nombre, descriptores_foto FROM alumnos";
-    $result = $conn->query($sql);
+function obtenerDescriptoresFaciales($conexion) {
+    $sql = "SELECT descriptores FROM estudiantes";
+    $result = $conexion->query($sql);
 
     if ($result->num_rows > 0) {
         $descriptores_faciales = array();
         $descriptor = array();
         while ($row = $result->fetch_assoc()) {
-            $descriptores_faciales[] = $row["descriptores_foto"];
+            $descriptores_faciales[] = $row["descriptores"];
         }
         foreach ($descriptores_faciales as $descriptor_foto) {
             $descriptor[] = trim($descriptor_foto, '"');
@@ -26,35 +26,38 @@ function obtenerDescriptoresFaciales($conn) {
 
 if (isset($_POST['j'])) {
     $numero = $_POST['j'];
-    $sql2 = "SELECT nombre, descriptores_foto FROM alumnos";
-    $result2 = $conn->query($sql2);
+    $sql2 = "SELECT nombre, descriptores FROM estudiantes";
+    $result2 = $conexion->query($sql2);
 
     if ($result2->num_rows > 0) {
         $descriptores_faciales2 = array();
         $descriptor2 = array();
         while ($row2 = $result2->fetch_assoc()) {
-            $descriptores_faciales2[] = $row2["descriptores_foto"];
+            $descriptores_faciales2[] = $row2["descriptores"];
         }
         foreach ($descriptores_faciales2 as $descriptor_foto2) {
             $descriptor2[] = trim($descriptor_foto2, '"');
         }
         $perfil = $descriptor2[$numero];
 
-        $sql3 = "SELECT nombre FROM alumnos WHERE descriptores_foto LIKE '%$perfil%'";
-        $result3 = $conn->query($sql3);
+        $sql3 = "SELECT nombre, foto FROM estudiantes WHERE descriptores LIKE '%$perfil%'";
+        $result3 = $conexion->query($sql3);
 
         if ($result3->num_rows > 0) {
             $nombre = array();
             while ($row3 = $result3->fetch_assoc()) {
                 $nombre[] = $row3["nombre"];
+                $foto[] = $row3["foto"];
             }
             $nom = implode(', ', $nombre);
+            $fot = implode(',', $foto);
             echo $nom;
+            echo $fot;
         }
     }
 } else {
     // Obtener descriptores faciales si no se recibió una solicitud AJAX
-    $descriptor_json = obtenerDescriptoresFaciales($conn);
+    $descriptor_json = obtenerDescriptoresFaciales($conexion);
     if ($descriptor_json === null) {
         echo "No se encontraron descriptores faciales.";
     } else {
