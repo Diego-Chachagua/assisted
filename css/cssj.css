@@ -220,7 +220,7 @@
     color: #e4dada;
     position: relative;
     left: 10px;
-    top: 5px;
+    top: -25px;
 }
 
 .secc{
@@ -228,6 +228,7 @@
     color: #f1f1f1;
     position: relative;
     left: 10px;
+    top: -10px;
 }
 
 table {
@@ -236,6 +237,7 @@ table {
     border-collapse: collapse;
     position: absolute;
     margin-left: 80px;
+    margin-top: 20px;
   }
   
   table, td {
@@ -288,9 +290,7 @@ table {
   }
 
   .elimina{
-    position: relative;
-    top: 500px;
-    left: 120px;
+    float: left;
     height: 45px;
     width: 150px;
     background-color: #E2504C;
@@ -305,17 +305,29 @@ table {
   }
 
   .agregar{
-    position: relative;
-    top: 430px;
-    left: 1250px;
+    margin-left: 1200px;
+    margin-top: -90px;
     background-color: #5086C1;
     border: none;
     cursor: pointer;
-    margin-top: 10px;
   }
 
   .agre{
     height: 60px;
+  }
+
+  .salir{
+    margin-left: 1300px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    background: none;
+    height: 25px;
+  }
+
+  .exit{
+    height: 25px;
+    float: left;
   }
 
   #mostrarVentana {
@@ -497,7 +509,7 @@ display: none;
     border-radius: 10px;
     position: relative;
     float: left;
-    top: -20px;
+    top: -10px;
     font-size: 16px;
     margin-left: 15px;
 }
@@ -512,7 +524,7 @@ display: none;
     border-radius: 10px;
     position: relative;
     float: right;
-    top: -20px;
+    top: -25px;
     font-size: 16px;
     margin-right: 20px;
 }
