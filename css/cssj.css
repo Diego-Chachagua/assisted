@@ -383,9 +383,10 @@ display: none;
     color: #333; 
     position: relative;
     right: 75px;
+    background-color: #5086C1;
 }
 
-#nom {
+#nombre {
     width: 260px; 
     padding: 10px; 
     border: 2px solid #ccc; 
