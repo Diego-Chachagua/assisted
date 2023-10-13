@@ -2,7 +2,7 @@
 require('../cone.php');
 // Función para obtener descriptores faciales
 function obtenerDescriptoresFaciales($conexion) {
-    $sql = "SELECT descriptores FROM estudiantes";
+    $sql = "SELECT descriptores FROM estudiantes WHERE descriptores IS NOT NULL";
     $result = $conexion->query($sql);
 
     if ($result->num_rows > 0) {
@@ -26,7 +26,7 @@ function obtenerDescriptoresFaciales($conexion) {
 
 if (isset($_POST['j'])) {
     $numero = $_POST['j'];
-    $sql2 = "SELECT nombre, descriptores FROM estudiantes";
+    $sql2 = "SELECT descriptores FROM estudiantes WHERE descriptores IS NOT NULL";
     $result2 = $conexion->query($sql2);
 
     if ($result2->num_rows > 0) {
@@ -40,19 +40,26 @@ if (isset($_POST['j'])) {
         }
         $perfil = $descriptor2[$numero];
 
-        $sql3 = "SELECT nombre, foto FROM estudiantes WHERE descriptores LIKE '%$perfil%'";
+        $sql3 = "SELECT foto FROM estudiantes WHERE descriptores LIKE '%$perfil%'";
         $result3 = $conexion->query($sql3);
 
         if ($result3->num_rows > 0) {
-            $nombre = array();
-            while ($row3 = $result3->fetch_assoc()) {
-                $nombre[] = $row3["nombre"];
-                $foto[] = $row3["foto"];
+            $foto = $result3->fetch_assoc();
+
+            if (!empty($foto['foto'])) {
+                $foto1 = "../fotos/" . $foto['foto'];
+
+                if (file_exists($foto1)) {
+                    // Obtener el tipo MIME de la imagen
+                    $tipoMIME = imagecreatefromjpeg($foto1);
+
+                    // Establecer las cabeceras HTTP para indicar que se trata de una imagen
+                    header("Content-Type: image/jpeg");
+
+                    // Leer y mostrar la imagen
+                    readfile($foto1);
+                }
             }
-            $nom = implode(', ', $nombre);
-            $fot = implode(',', $foto);
-            echo $nom;
-            echo $fot;
         }
     }
 } else {
