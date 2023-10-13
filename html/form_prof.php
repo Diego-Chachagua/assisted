@@ -19,7 +19,7 @@
                     <div class="inputbox">
                         <!-- //<ion-icon name="mail-outline"></ion-icon> -->
                         <input type="text" required name="usuario">
-                        <label for="">Usuario</label>
+                        <label for="">Usuarios</label>
                     </div>
                     <div class="inputbox">
                         <!-- //<ion-icon name="lock-closed-outline"></ion-icon> -->
