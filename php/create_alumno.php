@@ -7,18 +7,16 @@ $nombre = $_POST["nombre"];
 $sexo = isset($_POST["sexo"]) ? $_POST["sexo"] : "";
 
 // Procesa la foto
-$fotoNombre = $_FILES["foto"]["name"];
 $fotoTemp = $_FILES["foto"]["tmp_name"];
-$fotoDestino = "../fotos/" . $fotoNombre; 
 
 // Mueve la foto al destino
-if (move_uploaded_file($fotoTemp, $fotoDestino)) {
+if (isset($fotoTemp)) {
    
     // Convierte los descriptores faciales a una cadena JSON
     $descriptors = json_encode($_POST["descriptors"]);
     
 
-    $sql = "INSERT INTO estudiantes (nie, nombre, genero, foto, descriptores) VALUES ('$nie', '$nombre', '$sexo', '$fotoNombre', '$descriptors')";
+    $sql = "INSERT INTO estudiantes (nie, nombre, genero, foto, descriptores) VALUES ('$nie', '$nombre', '$sexo', '$fotoTemp', '$descriptors')";
 
     if ($conexion->query($sql) === TRUE) {
         echo "Alumno registrado correctamente.";
