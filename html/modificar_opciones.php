@@ -1,7 +1,5 @@
 <?php
 require ('conexion.php');
-
-$query=mysqli_query($conexion,"SELECT ");
 ?>
 <!DOCTYPE html>
 <html lang="es">

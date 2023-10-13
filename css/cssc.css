@@ -257,28 +257,6 @@ top: 10px;
   left: 1180px;
   top: 100px;
 }
-#mostrarVentana {
-  margin-top: 20px;
-  position: relative;
-  top: 500px;
-  left: 150px; 
-}
-/* Estilos para la ventana flotante */
-.ventana {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #5086C1;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      width: 500px;
-      height: 200px;
-      z-index: 1000;
-      border-radius: 10px;
-  }
 
   .verestu {
     margin-top: 20px;
@@ -297,76 +275,444 @@ top: 10px;
         border: 1px solid #ccc;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         padding: 20px;
-        width: 1000px;
-        height: 900px;
+        width: 1180px;
+        height: 600px;
         z-index: 1000;
         border-radius: 10px;
+        overflow-y: auto;
     }
   
   /* Estilos para el contenido de la ventana */
   .contenido {
       text-align: center;
   }
-  
-  /* Estilos para el botón de cerrar la ventana */
-    
-  #nom {
-      width: 120px; 
-      padding: 10px; 
-      border: 2px solid #ccc; 
-      border-radius: 10px; 
-      font-size: 16px; 
-      color: #333; 
-      position: relative;
-      right:15px;
+
+  .seccion{
+    font-size: 62px;
+    color: #e4dada;
+    margin-left: 10px;
+    margin-top: -90px;
+}
+
+.secc{
+    font-size: 32px;
+    color: #f1f1f1;
+    position: relative;
+    left: 10px;
+    top: -10px;
+}
+
+table {
+    width: 1000px;
+    height: auto;
+    border-collapse: collapse;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 90px;
   }
   
-  #espe{
-    width: 420px; 
-    padding: 10px; 
-    border: 2px solid #ccc; 
-    border-radius: 10px; 
-    font-size: 16px; 
-    color: #333; 
-    position: relative;
-    left: 15px;
-    float: left;
+  table, td {
+    border: 3px solid rgb(6, 6, 6);
+    padding: 15px;
+    text-align: center;
+    background-color: #f1f1f1;
+  }
+  
+  .nie{
+    width: 70px;
   }
 
-  .mes{
-      width: 105px;
-      height: 40px;
-      padding: 10px;
-      border: none;
-      border-radius: 4px;
-      background-color: #f1f1f1;
-      position: relative;
-      left: 25px;
-      text-align: center;
+  .nom{
+    width: 220px;
   }
-  
-  #aniio{
-      width: 120px; 
-      padding: 10px; 
-      border: 2px solid #ccc; 
-      border-radius: 10px; 
-      font-size: 16px; 
-      color: #333; 
-      position: relative;
-      right: 45px;
+
+  .fecha{
+    width: 150px;
   }
-  
-  .datos{
+
+  .gen{
+    width: 50px;
+  }
+
+  .edit{
+    width: 25px;
+  }
+
+  .editar{
+    height: 5px;
+    position: relative;
+    margin-bottom: 20px;
+    top: 20px;
+    right: 30px;
+  }
+
+  .drop{
+    height: 5px;
+   position: relative;
+  margin-bottom: 20px;
+   top: -20px;
+   left: 20px;
+  }
+
+  .bor{
+    height: 35px;
+  }
+
+  .ed{
+    height: 35px;
+  }
+
+  .con{
     height: 1px;
   }
-  .cancel{
-    height: 15px;
+
+  .elimina{
+    float: left;
+    height: 45px;
+    width: 150px;
+    background-color: #E2504C;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .elimi{
+    height: 20px;
+  }
+
+  .agregar{
+    float: right;
+    margin-top: -45px;
+    background-color: #5086C1;
+    border: none;
+    cursor: pointer;
+  }
+
+  .agre{
+    height: 60px;
+  }
+
+  .salir{
+    margin-top: -20px;
+    margin-left: 1080px;
+    border: none;
+    cursor: pointer;
+    background: none;
+    height: 25px;
+  }
+
+  .exit{
+    height: 25px;
+  }
+
+  #mostrarVentana {
+    margin-top: 20px;
     position: relative;
-    right: 35px;
-    top: -3px;
+    top: 500px;
+    left: 150px; 
+  }
+  /* Estilos para la ventana flotante */
+.ventana {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #5086C1;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 500px;
+        height: 200px;
+        z-index: 1000;
+        border-radius: 10px;
+}
+
+.contenido2 {
+  text-align: center;
+}  
+
+#nom {
+  width: 120px; 
+  padding: 10px; 
+  border: 2px solid #ccc; 
+  border-radius: 10px; 
+  font-size: 16px; 
+  color: #333; 
+  position: relative;
+  right:15px;
+}
+
+#espe{
+width: 420px; 
+padding: 10px; 
+border: 2px solid #ccc; 
+border-radius: 10px; 
+font-size: 16px; 
+color: #333; 
+position: relative;
+left: 15px;
+float: left;
+}
+
+.mes{
+  width: 105px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  position: relative;
+  left: 25px;
+  text-align: center;
+}
+
+#aniio{
+  width: 120px; 
+  padding: 10px; 
+  border: 2px solid #ccc; 
+  border-radius: 10px; 
+  font-size: 16px; 
+  color: #333; 
+  position: relative;
+  right: 45px;
+}
+
+.datos{
+height: 1px;
+}
+.cancel{
+height: 15px;
+position: relative;
+right: 35px;
+top: -3px;
 }
 
 #cerrarVentana {
+background-color: #f1f1f1;
+color: #0e0d0d;
+border: none;
+padding: 10px 20px;
+margin-top: 20px;
+cursor: pointer;
+border-radius: 10px;
+position: relative;
+left: 100px;
+top: 15px;
+height: 30px;
+width: 110px;
+}
+
+.ca{
+color: black;
+font-size: 16px;
+position: relative;
+top: -19px;
+left: 10px;
+}
+
+.ca2{
+color: black;
+font-size: 16px;
+position: relative;
+top: -25px;
+left: 10px;
+}
+
+#guardar{
+background-color: #f1f1f1;
+color: #0e0d0d;
+border: none;
+padding: 10px 20px;
+margin-top: 20px;
+cursor: pointer;
+border-radius: 10px;
+position: relative;
+right: 90px;
+top: 15px;
+font-size: 16px;
+height: 30px;
+width: 90px;
+}
+
+.gua{
+height: 20px;
+position: relative;
+top: -5px;
+right: 30px;
+}
+
+#registroalumn {
+  margin-top: 20px;
+  position: relative;
+  top: 300px;
+}
+
+/* Estilos para la ventana flotante */
+.registroalumn {
+display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #5086C1;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 300px;
+  height: auto;
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+/* Estilos para el contenido de la ventana */
+.contenido3 {
+  text-align: center;
+}
+
+/* Estilos para el botón de cerrar la ventana */
+
+#imageContainer{
+  height: auto;
+  width: 150px;
+  position: relative;
+  left: 80px;
+  background-color: #5086C1;
+}
+
+.ad{
+  height: 150px;
+  width: auto;
+}
+
+.img{
+  left: -5px;
+  cursor: pointer;
+  background-color: #5086C1;
+  border: none;
+  height: auto;
+}
+
+.datos{
+  height: 15px;
+}
+
+#nie {
+  width: 120px; 
+  padding: 10px; 
+  border: 2px solid #ccc; 
+  border-radius: 10px; 
+  font-size: 16px; 
+  color: #333; 
+  position: relative;
+  right: 75px;
+  background-color: #ebeef1;
+}
+
+#nom {
+  width: 260px; 
+  padding: 10px; 
+  border: 2px solid #ccc; 
+  border-radius: 10px; 
+  font-size: 16px; 
+  color: #333; 
+  position: relative;
+  right: 5px;
+}
+
+#ape {
+  width: 120px; 
+  padding: 10px; 
+  border: 2px solid #ccc; 
+  border-radius: 10px; 
+  font-size: 16px; 
+  color: #333; 
+  position: relative;
+  left: 10px;
+}
+
+.mes{
+  width: 75px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  position: relative;
+  left: -5px;
+  text-align: center;
+}
+
+.dia{
+  width: 70px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  position: relative;
+  left: -5px;
+}
+
+#aniio{
+  width: 60px; 
+  padding: 10px; 
+  border: 2px solid #ccc; 
+  border-radius: 10px; 
+  font-size: 16px; 
+  color: #333; 
+  position: relative;
+  right: 5px;
+}
+
+.g{
+  background-color: white;
+  height: 75px;
+  width: 250px;
+  position: relative;
+  border-radius: 10px;
+  position: relative;
+  left: 15px;
+}
+
+.sexo{
+  text-align: left;
+  position: relative;
+  left: 5px;
+}
+
+#masculino{
+  position: relative;
+  right: 10px;
+  top: 15px;
+}
+
+.mascu{
+  position: relative;
+  right: 10px;
+  top: 15px;
+}
+
+#femenino{
+  position: relative;
+  left: 20px;
+  top: 15px;
+}
+
+.feme{
+  position: relative;
+  left: 20px;
+  top: 15px;
+}
+
+.cancel3{
+  height: 10px;
+  position: relative;
+  right: 10px;
+}
+
+#cerrarVentana3 {
   background-color: #f1f1f1;
   color: #0e0d0d;
   border: none;
@@ -375,47 +721,34 @@ top: 10px;
   cursor: pointer;
   border-radius: 10px;
   position: relative;
-  left: 100px;
-  top: 15px;
+  float: left;
+  top: -20px;
+  font-size: 16px;
+  margin-left: 15px;
   height: 30px;
-  width: 110px;
+  width: 120px;
 }
 
-.ca{
-  color: black;
-  font-size: 16px;
+#guardar3{
+  background-color: #f1f1f1;
+  color: #0e0d0d;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 10px;
   position: relative;
-  top: -19px;
-  left: 10px;
-}
-
-.ca2{
-  color: black;
+  float: right;
+  top: -35px;
   font-size: 16px;
+  margin-right: 20px;
+  height: 30px;
+  width: 120px;
+}
+
+.gua3{
+  height: 15px;
   position: relative;
-  top: -25px;
-  left: 10px;
+  right: 10px;
 }
 
-#guardar{
-    background-color: #f1f1f1;
-    color: #0e0d0d;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
-    cursor: pointer;
-    border-radius: 10px;
-    position: relative;
-    right: 90px;
-    top: 15px;
-    font-size: 16px;
-    height: 30px;
-    width: 90px;
-}
-
-.gua{
-    height: 20px;
-    position: relative;
-    top: -5px;
-    right: 30px;
-}
