@@ -22,7 +22,7 @@ body{
 }
 
 .imagens{
-    width: 680px;
+    width: 650px;
     height: 120px;
     margin-top: 10px;
     margin-left: 60px;
@@ -59,4 +59,8 @@ body{
 .grid-layout1{
     display: grid;
      grid-template-columns: 35% 35% 35%;
+}
+
+.ima{
+    margin-left: 15px;
 }

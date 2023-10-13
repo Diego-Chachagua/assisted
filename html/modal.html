@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/assisted/css/modal.css">
+</head>
+<body>
+    <button id="openModal">Abrir Ventana Modal</button>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <form action="../php/create_alumno.php" method="POST" enctype="multipart/form-data">
+                <label for="foto">Cargar Foto:</label>
+                <input type="file" id="foto" name="foto" ><br>
+            
+                <label for="nie">NIE:</label>
+                <input type="number" id="nie" name="nie"><br>
+            
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre"><br>
+            
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento"><br>
+                <label>Sexo:</label>
+                <input type="checkbox" id="masculino" name="sexo" value="masculino">
+                <label for="masculino">Masculino</label>
+                <input type="checkbox" id="femenino" name="sexo" value="femenino">
+                <label for="femenino">Femenino</label><br>
+            
+                <button type="submit" id="boton-guardar" >Guardar</button>
+                <button type="button" onclick="window.location.href='indexhtml'">Cancelar</button>
+            
+                <script src="../face-api.js"></script>
+                <script src="../JS/descriptorFoto.js"></script>
+            </form>
+        </div>
+    </div>
+    <script src="/assisted/JS/modal.js"></script>
+</body>
+</html>

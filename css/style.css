@@ -14,7 +14,6 @@ body{
 }
 
 header{
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -25,7 +24,9 @@ header{
     z-index: 100;
 }
 
-
+#logo{
+    height: 5px;
+}
 
 .navigation a {
     position: relative;

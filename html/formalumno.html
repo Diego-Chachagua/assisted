@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Alumno</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Agregar Alumno</h1>
+    <form action="../php/create_alumno.php" method="POST" enctype="multipart/form-data">
+        <label for="foto">Cargar Foto:</label>
+        <input type="file" id="foto" name="foto" ><br>
+    
+        <label for="nie">NIE:</label>
+        <input type="number" id="nie" name="nie"><br>
+    
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" name="nombre"><br>
+    
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento"><br>
+        <label>Sexo:</label>
+        <input type="checkbox" id="masculino" name="sexo" value="masculino">
+        <label for="masculino">Masculino</label>
+        <input type="checkbox" id="femenino" name="sexo" value="femenino">
+        <label for="femenino">Femenino</label><br>
+    
+        <button type="submit" id="boton-guardar" >Guardar</button>
+        <button type="button" onclick="window.location.href='indexhtml'">Cancelar</button>
+    
+        <script src="../face-api.js"></script>
+        <script src="../JS/descriptorFoto.js"></script>
+    </form>
+    
+    
+</body>
+</html>
