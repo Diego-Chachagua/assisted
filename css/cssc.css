@@ -69,8 +69,19 @@ font-family: 'Anton', sans-serif;
   margin-bottom: 50px;
   margin-top: 21px;
 }
-    
-button{
+   
+
+.sec{
+  width: 180px;
+  height: 150px;
+  background: none;
+  margin-left: -14px;
+  margin-bottom: 60px;
+  border: none;
+  cursor: pointer;
+}
+
+.agregar{
   width: 180px;
   height: 150px;
   background: none;
