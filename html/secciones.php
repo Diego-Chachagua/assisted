@@ -103,8 +103,8 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
             </thead>
             <?php While($datos=mysqli_fetch_array($consulta)) {?>
             <tbody>
-              <tr>
-                <td><?php echo $datos['nie']?></td>
+              <tr class="cab">
+                <td class="cab"><?php echo $datos['nie']?></td>
                   <td><?php echo $datos['nombre']?></td>
                   <td><?php echo $datos['genero']?></td>
                   <td>

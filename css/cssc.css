@@ -69,6 +69,8 @@ font-family: 'Anton', sans-serif;
   margin-bottom: 50px;
   margin-top: 21px;
 }
+
+
    
 
 .sec{
@@ -302,15 +304,14 @@ top: 10px;
     font-size: 62px;
     color: #e4dada;
     margin-left: 10px;
-    margin-top: -90px;
+    float: left;
 }
 
 .secc{
     font-size: 32px;
     color: #f1f1f1;
-    position: relative;
     left: 10px;
-    top: -10px;
+    margin-top: 60px;
 }
 
 table {
@@ -330,7 +331,7 @@ table {
   }
   
   .nie{
-    width: 70px;
+    width: 10px;
   }
 
   .nom{
@@ -693,11 +694,7 @@ display: none;
   left: 5px;
 }
 
-#masculino{
-  position: relative;
-  right: 10px;
-  top: 15px;
-}
+
 
 .mascu{
   position: relative;
@@ -705,11 +702,6 @@ display: none;
   top: 15px;
 }
 
-#femenino{
-  position: relative;
-  left: 20px;
-  top: 15px;
-}
 
 .feme{
   position: relative;
