@@ -1,7 +1,7 @@
 <?php
 require ('conexion.php');
 // $cod_seccion=$_POST[''];
-$consulta=mysqli_query($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estudiantes.genero FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='1' AND alum_grado.c_grado='1' AND alum_anio.c_anio='1'");
+$consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estudiantes.genero FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='1' AND alum_grado.c_grado='1' AND alum_anio.c_anio='1'");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,6 +10,7 @@ $consulta=mysqli_query($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estu
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secciones</title>
     <link rel="stylesheet" href="/assisted/css/cssc.css">
+    <link rel="stylesheet" type="text/css" href="/assisted/css/modal.css">
 </head>
 <body class="body2">
     <header>
@@ -73,11 +74,11 @@ $consulta=mysqli_query($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estu
                 <p class="sa">Especialidad: Desarrollo de softwre</p>
             </div>
         </button>
-        
         <button class="agre_seccion">
             <img src="/assisted/img/agregar.png" onclick="mostrarVentana('ventanaFlotante')">
         </button>
-    </div>
+        </div>
+        
     <div id="verestu" class="verestu">
     <button class="salir" onclick="cerrarVentana('verestu')">
     <img class="exit" src="/assisted/img/cancelar.png">
@@ -85,12 +86,11 @@ $consulta=mysqli_query($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estu
     <h1 class="seccion">3°k</h1>
     <h2 class="secc">Estudiantes:</h2>
       <button class="elimina">
-        <img class="elimi" onclick="" src="/assisted/img/eliminar.png"> Elimiar Secci&oacute;n
+        <img class="elimi" onclick="" src="/assisted/img/eliminar.png"> Eliminar Secci&oacute;n
       </button>
       <button class="agregar">
-        <img  class="agre" onclick="mostrarVentana('registroalumn')" src="/assisted/img/agregar.png">
+        <img  class="agre" id="openModal" src="/assisted/img/agregar.png">
       </button>
-      <br>
       <table id="miTabla">
             <thead>
             <tr class="cab">
@@ -102,8 +102,8 @@ $consulta=mysqli_query($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estu
             </thead>
             <?php While($datos=mysqli_fetch_array($consulta)) {?>
             <tbody>
-              <tr>
-                <td><?php echo $datos['nie']?></td>
+              <tr class="cab">
+                <td class="cab"><?php echo $datos['nie']?></td>
                   <td><?php echo $datos['nombre']?></td>
                   <td><?php echo $datos['genero']?></td>
                   <td>
@@ -118,91 +118,74 @@ $consulta=mysqli_query($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estu
             </tbody>
             <?php } ?>
             </table>
-            <div id="registroalumn" class="registroalumn">
-        <div class="contenido3">
+
+
+            <!-- inicio de mi codigo -->
+            <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
             <div id="imageContainer">
-              <button class="img" onclick="openFileInput()">
-                <img class="ad" src="/assisted/img/re.png">
-              </button>
-            <input type="file" id="fileInput" accept="image/*" style="display: none;">
-        </div>
-            <br><br>
-            <input type="text" id="nie" name="miTextField" placeholder="Nie:" maxlength="12">
-            <br>
-            <br>
-            <input type="text" id="nom" name="miTextField" placeholder="Nombre" maxlength="30">
-            <input type="text" id="ape" name="miTextField" placeholder="Apellido" maxlength="30"><br><br>
-            <select class="mes" id="mes">
-              <option disabled selected="">Mes</option>
-              <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-          </select>
-          <select class="dia" id="dia">
-            <option disabled selected="">Dia</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-            <option>14</option>
-            <option>15</option>
-            <option>16</option>
-            <option>17</option>
-            <option>18</option>
-            <option>19</option>
-            <option>20</option>
-            <option>21</option>
-            <option>22</option>
-            <option>23</option>
-            <option>24</option>
-            <option>25</option>
-            <option>26</option>
-            <option>27</option>
-            <option>28</option>
-            <option>29</option>
-            <option>30</option>
-            <option>31</option>
-        </select>
-        <input type="text" id="aniio" name="miTextField" placeholder="a&ntilde;o" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-        <br><br>
-        <div class="g">
-          <h2 class="sexo">G&eacute;nero:</h2>
-          <input type="radio" id="masculino" name="genero" value="masculino">
-          <label class="mascu">Masculino</label>
-          <input type="radio" id="femenino" name="genero" value="femenino">
-          <label class="feme">Femenino</label>
-        </div><br>
-              <form class="datos">
-             <button id="cerrarVentana3" onclick="cerrarVentana('registroalumn')">
-              <img  class="cancel3" src="/assisted/img/cancelar.png">Cancelar
-            </button>
-              </form>
-              <form class="datos">
-            <button id="guardar3" type="submit" onclick="insertdatos()">
-              <img class="gua3" src="/assisted/img/chequesito.png">Aceptar
-            </button>
-          </form>
-    </div>
+                <button class="img" onclick="openFileInput()">
+                  <img class="ad" src="/assisted/img/re.png">
+                </button>
+          </div>
+            <form action="../php/create_alumno.php" method="POST" enctype="multipart/form-data">
+
+                <input type="file" id="foto" name="foto" accept="image/*" style="display: none;"><br>
+            
+                <input type="number" id="nie" name="nie" placeholder="NIE"><br><br>
+        
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo"><br><br>
+
+                <div class="blanco">
+                <label class="genero">G&eacute;nereo:</label><br><br>
+                <input type="checkbox" class="masculino" id="masculino" name="sexo" value="M">
+                <label for="masculino">Masculino</label>
+                <input type="checkbox" id="femenino" name="sexo" value="F">
+                <label for="femenino">Femenino</label>
+                 </div><br><br>
+            
+
+                <button type="button" class="cancelar" onclick="window.location.href='/assisted/html/secciones.php'">Cancelar</button>
+                <button type="submit" class="guardar" id="boton-guardar" >Guardar</button>
+            
+                <script src="../face-api.js"></script>
+                <script src="../JS/descriptorFoto.js"></script>
+            </form>
         </div>
     </div>
+    <script src="/assisted/JS/modal.js"></script>
+    <script>
+        function openFileInput() {
+               // Simula un clic en el elemento de entrada de archivos
+               document.getElementById('foto').click();
+           }
+   
+           // Función para mostrar las imágenes seleccionadas
+           function displayImages(event) {
+               const imageContainer = document.getElementById('imageContainer');
+               imageContainer.innerHTML = ''; // Limpia el contenedor de imágenes
+   
+               const files = event.target.files;
+   
+               for (let i = 0; i < files.length; i++) {
+                   const file = files[i];
+                   const image = document.createElement('img');
+                   image.src = URL.createObjectURL(file);
+                   image.style.maxWidth = '200px';
+                   image.style.height = '150px';
+                   imageContainer.appendChild(image);
+               }
+           }
+   
+           // Asigna la función displayImages al evento change del input de archivos
+           document.getElementById('foto').addEventListener('change', displayImages);
+   </script>
+
+<!-- // codigo fin mio -->
+
+    </div>
+
     <div id="ventanaFlotante" class="ventana">
         <div class="contenido2">
             <input type="text" id="aniio" name="miTextField" placeholder="a&ntilde;o" oninput="this.value = this.value.replace(/[^0-9]/g, '');">

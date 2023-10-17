@@ -69,13 +69,26 @@ font-family: 'Anton', sans-serif;
   margin-bottom: 50px;
   margin-top: 21px;
 }
-    
-button{
+
+
+   
+
+.sec{
   width: 180px;
   height: 150px;
   background: none;
   margin-left: -14px;
   margin-bottom: 60px;
+  border: none;
+  cursor: pointer;
+}
+
+.agregar{
+  width: 180px;
+  height: 150px;
+  background: none;
+  margin-left: -14px;
+ 
   border: none;
   cursor: pointer;
 }
@@ -258,12 +271,7 @@ top: 10px;
   top: 100px;
 }
 
-  .verestu {
-    margin-top: 20px;
-    position: relative;
-    top: 500px;
-    left: 150px; 
-  }
+
   /* Estilos para la ventana flotante */
   .verestu {
         display: none;
@@ -272,8 +280,7 @@ top: 10px;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: #5086C1;
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        border: 5px solid #ccc;
         padding: 20px;
         width: 1180px;
         height: 600px;
@@ -288,27 +295,25 @@ top: 10px;
   }
 
   .seccion{
-    font-size: 62px;
+    font-size: 52px;
     color: #e4dada;
     margin-left: 10px;
-    margin-top: -90px;
+    float: left;
 }
 
 .secc{
     font-size: 32px;
     color: #f1f1f1;
-    position: relative;
     left: 10px;
-    top: -10px;
+    margin-top: 60px;
 }
 
 table {
     width: 1000px;
-    height: auto;
+    height: 30px;
     border-collapse: collapse;
-    position: absolute;
-    margin-top: 100px;
     margin-left: 90px;
+    
   }
   
   table, td {
@@ -319,7 +324,7 @@ table {
   }
   
   .nie{
-    width: 70px;
+    width: 10px;
   }
 
   .nom{
@@ -339,27 +344,21 @@ table {
   }
 
   .editar{
-    height: 5px;
-    position: relative;
-    margin-bottom: 20px;
-    top: 20px;
-    right: 30px;
+    border: transparent;
   }
 
   .drop{
-    height: 5px;
-   position: relative;
-  margin-bottom: 20px;
-   top: -20px;
-   left: 20px;
+    border: transparent;
   }
 
   .bor{
     height: 35px;
+    float: right;
   }
 
   .ed{
     height: 35px;
+    float: left;
   }
 
   .con{
@@ -379,18 +378,19 @@ table {
 
   .elimi{
     height: 20px;
+    float: left;
   }
 
   .agregar{
     float: right;
-    margin-top: -45px;
+    margin-top: -35px;
     background-color: #5086C1;
     border: none;
     cursor: pointer;
   }
 
   .agre{
-    height: 60px;
+    height: 50px;
   }
 
   .salir{
@@ -404,6 +404,8 @@ table {
 
   .exit{
     height: 25px;
+    float: right;
+    margin-right: 3px;
   }
 
   #mostrarVentana {
@@ -682,11 +684,7 @@ display: none;
   left: 5px;
 }
 
-#masculino{
-  position: relative;
-  right: 10px;
-  top: 15px;
-}
+
 
 .mascu{
   position: relative;
@@ -694,11 +692,6 @@ display: none;
   top: 15px;
 }
 
-#femenino{
-  position: relative;
-  left: 20px;
-  top: 15px;
-}
 
 .feme{
   position: relative;
