@@ -1,4 +1,5 @@
 <?php
+function conexion(){
     $db_host="srv1082.hstgr.io";
     $db_nombre="u328483004_assisted";
     $db_usuario="u328483004_Asis2024";
@@ -12,4 +13,6 @@
     }
    
     mysqli_set_charset($conexion,"utf8");
+    return $conexion;
+}
 ?>
