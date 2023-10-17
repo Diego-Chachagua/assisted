@@ -40,25 +40,17 @@ if (isset($_POST['j'])) {
         }
         $perfil = $descriptor2[$numero];
 
-        $sql3 = "SELECT foto FROM estudiantes WHERE descriptores LIKE '%$perfil%'";
+        $sql3 = "SELECT nombre FROM estudiantes WHERE descriptores LIKE '%$perfil%'";
         $result3 = $conexion->query($sql3);
 
         if ($result3->num_rows > 0) {
-            $foto = $result3->fetch_assoc();
+            $nom = array();
+            while ($fila = $result3->fetch_assoc()) {
+                $nom[] = $fila['nombre'];
+            }
 
-            if (!empty($foto['foto'])) {
-                $foto1 = "../fotos/" . $foto['foto'];
-
-                if (file_exists($foto1)) {
-                    // Obtener el tipo MIME de la imagen
-                    $tipoMIME = imagecreatefromjpeg($foto1);
-
-                    // Establecer las cabeceras HTTP para indicar que se trata de una imagen
-                    header("Content-Type: image/jpeg");
-
-                    // Leer y mostrar la imagen
-                    readfile($foto1);
-                }
+            foreach ($nom as $nombre) {
+                echo $nombre;
             }
         }
     }

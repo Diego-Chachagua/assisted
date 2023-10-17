@@ -74,11 +74,11 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
                 <p class="sa">Especialidad: Desarrollo de softwre</p>
             </div>
         </button>
-        
         <button class="agre_seccion">
             <img src="/assisted/img/agregar.png" onclick="mostrarVentana('ventanaFlotante')">
         </button>
-    </div>
+        </div>
+        
     <div id="verestu" class="verestu">
     <button class="salir" onclick="cerrarVentana('verestu')">
     <img class="exit" src="/assisted/img/cancelar.png">
@@ -86,12 +86,11 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
     <h1 class="seccion">3°k</h1>
     <h2 class="secc">Estudiantes:</h2>
       <button class="elimina">
-        <img class="elimi" onclick="" src="/assisted/img/eliminar.png"> Elimiar Secci&oacute;n
+        <img class="elimi" onclick="" src="/assisted/img/eliminar.png"> Eliminar Secci&oacute;n
       </button>
       <button class="agregar">
-        <img  class="agre" id="openModal" onclick="mostrarVentana('registroalumn')" src="/assisted/img/agregar.png">
+        <img  class="agre" id="openModal" src="/assisted/img/agregar.png">
       </button>
-      <br>
       <table id="miTabla">
             <thead>
             <tr class="cab">
@@ -120,6 +119,8 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
             <?php } ?>
             </table>
 
+
+            <!-- inicio de mi codigo -->
             <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
@@ -181,6 +182,7 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
            document.getElementById('foto').addEventListener('change', displayImages);
    </script>
 
+<!-- // codigo fin mio -->
 
     </div>
 
