@@ -121,7 +121,8 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
 
 
             <!-- inicio de mi codigo -->
-            <div id="modal" class="modal">
+
+    <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
             <div id="imageContainer">
@@ -223,31 +224,5 @@ function cerrarVentana(idVentana) {
 }
 
     </script>
-    <script>
-     function openFileInput() {
-            // Simula un clic en el elemento de entrada de archivos
-            document.getElementById('fileInput').click();
-        }
-
-        // Función para mostrar las imágenes seleccionadas
-        function displayImages(event) {
-            const imageContainer = document.getElementById('imageContainer');
-            imageContainer.innerHTML = ''; // Limpia el contenedor de imágenes
-
-            const files = event.target.files;
-
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                const image = document.createElement('img');
-                image.src = URL.createObjectURL(file);
-                image.style.maxWidth = '100%';
-                image.style.height = '200px';
-                imageContainer.appendChild(image);
-            }
-        }
-
-        // Asigna la función displayImages al evento change del input de archivos
-        document.getElementById('fileInput').addEventListener('change', displayImages);
-</script>
 </body>
 </html>

@@ -19,7 +19,7 @@ if (isset($fotoTemp)) {
     $sql = "INSERT INTO estudiantes (nie, nombre, genero, foto, descriptores) VALUES ('$nie', '$nombre', '$sexo', '$fotoTemp', '$descriptors')";
 
     if ($conexion->query($sql) === TRUE) {
-        header("Location: /assisted/html/modal.html"); // Ruta absoluta
+        header("Location: /assisted/html/secciones.php"); // Ruta absoluta
     } else {
         echo "Error: " . $sql . "<br>" . $conexion->error;
     }
