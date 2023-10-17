@@ -29,8 +29,15 @@
                 <?php
     require('../cone.php');
     $conexion= conexion();
-$consulta="SELECT * FROM(asistencia_g.nie)  FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE genero = 'M'";
- 
+    $cantidad;
+$consulta=mysqli_query($conexion,"SELECT Count(asistencia_g.nie)  FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE genero = 'M'");
+    while($datos=mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+        $cantidad[]=array($datos);
+    }
+    
+         echo "250";
+    
+
 ?></p>
 
             <img class="imagen2" src="/assisted/img/mujer.png" >
