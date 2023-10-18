@@ -26,12 +26,19 @@
             <p class="ra">Asistencia Por Genero:</p><br><br>
             <img class="imagen1" src="/assisted/img/hombre.png" >
             <p class="ipo">
-                <?php
+
+            
+<?php
     require('../cone.php');
-    $conexion= conexion();
-$consulta="SELECT * FROM(asistencia_g.nie)  FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE genero = 'M'";
- 
-?></p>
+
+$fecha_actual = date('Y-m-d'); // Formato: Año-Mes-Día Hora:Minutos:Segundos
+
+
+
+?>
+
+
+</p>
 
             <img class="imagen2" src="/assisted/img/mujer.png" >
 
