@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/assisted/css/csso.css" media="screen"/>
+</head>
+<body>
 <?php
 session_start(); // Iniciar o reanudar la sesión
 
@@ -5,7 +11,7 @@ require('../cone.php');
 
 if (isset($_POST['j'])) {
     if ($_POST['j']) {
-    $numero = $_POST['j'];
+        $numero = $_POST['j'];
         $sql2 = "SELECT descriptores FROM estudiantes WHERE descriptores IS NOT NULL";
         $result2 = $conexion->query($sql2);
 
@@ -23,16 +29,29 @@ if (isset($_POST['j'])) {
             $result3 = $conexion->query($sql3);
 
             if ($result3->num_rows > 0) {
+                echo '<table class="custom-table" border="3">';
                 while ($fila = $result3->fetch_assoc()) {
                     $nombre = $fila['nombre'];
                     $foto = $fila['foto'];
 
+                    echo '<tr>';
+                    echo '<td>';
                     // Mostrar la imagen directamente en la página utilizando el esquema de datos base64
-                    echo '<img src="data:image/jpeg;base64,' . $foto . '" alt="Foto del estudiante" width="100" height="100">';
+                    echo '<img src="data:image/jpeg;base64,' . $foto . '" alt="Foto del estudiante" width="900" height="900">';
+                    echo '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<td class="nombre">';
                     echo $nombre;
+                    echo '</td>';
+                    echo '</tr>';
                 }
+                echo '</table>';
             }
         }
     }
 }
 ?>
+
+</body>
+</html>
