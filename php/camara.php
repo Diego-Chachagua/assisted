@@ -2,6 +2,20 @@
 require('../cone.php');
 include('descriptores.php');
 ini_set('max_execution_time', 300);
+$sql = "SELECT descriptores FROM estudiantes WHERE descriptores IS NOT NULL";
+$result = $conexion->query($sql);
+
+if ($result->num_rows > 0) {
+    $descriptores_faciales = array();
+    $descriptor = array();
+    while ($row = $result->fetch_assoc()) {
+        $descriptores_faciales[] = $row["descriptores"];
+    }
+    foreach ($descriptores_faciales as $descriptor_foto) {
+        $descriptor[] = trim($descriptor_foto, '"');
+    }        
+    echo "<script>var descriptoresFaciales = " . json_encode($descriptor) . ";</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,13 +44,14 @@ ini_set('max_execution_time', 300);
         <!-- Contenido de la primera columna -->
         <video id="video" width="660" height="350" autoplay muted></video>
         <p id="mensaje"></p>
-        <script src="../JS/main.js"></script>
     </div>
     <div class="column2">
-    <table border="3">
-    <th class = "perfil" ><p id="resultado"></p></th>
-    </table>    
+ 
+    <p id="resultado"></p>
+    <script src="../JS/main.js"></script>
     </div>
 </div>
 </body>
 </html>
+
+

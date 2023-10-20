@@ -35,10 +35,7 @@ if (isset($foto) && is_uploaded_file($foto)) {
 
     // Convierte los descriptores faciales a una cadena JSON
     $descriptors = $_POST["descriptors"];
-    $descriptors2 = trim($descriptors, '[');
-    $descriptors3 = trim($descriptors2, '{');
-    $descriptors4 = preg_replace('/"(\d+)"/', '', $descriptors3);
-    $descriptors5 = str_replace(':', '', $descriptors4);
+    $descriptors = json_encode(json_decode($descriptors));
 
     // Codifica la imagen a formato base64
     $fotoBase64 = base64_encode($fotoContenido);
@@ -47,10 +44,10 @@ if (isset($foto) && is_uploaded_file($foto)) {
     $nie = $conexion->real_escape_string($nie);
     $nombre = $conexion->real_escape_string($nombre);
     $sexo = $conexion->real_escape_string($sexo);
-    $descriptors5 = $conexion->real_escape_string($descriptors5);
+    $descriptors = $conexion->real_escape_string($descriptors);
 
     // Inserta los datos en la base de datos
-    $sql = "INSERT INTO estudiantes (nie, nombre, genero, foto, descriptores) VALUES ('$nie', '$nombre', '$sexo', '$fotoBase64', '$descriptors5')";
+    $sql = "INSERT INTO estudiantes (nie, nombre, genero, foto, descriptores) VALUES ('$nie', '$nombre', '$sexo', '$fotoBase64', '$descriptors')";
 
     if ($conexion->query($sql) === TRUE) {
         header("Location: /assisted/html/secciones.php"); // Ruta absoluta
