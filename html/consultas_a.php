@@ -1,3 +1,42 @@
+<?php
+function conexion(){
+    $db_host="srv1082.hstgr.io";
+    $db_nombre="u328483004_assisted";
+    $db_usuario="u328483004_Asis2024";
+    $db_contraseña="Assisted314";
+
+    $conexion = mysqli_connect($db_host,$db_usuario,$db_contraseña,$db_nombre);
+
+    if (mysqli_connect_errno()) {
+        echo "No se pudo conectar con la Base de Datos";
+        exit();
+    }
+   
+    mysqli_set_charset($conexion,"utf8");
+    return $conexion;
+}
+
+// Obtén la conexión a la base de datos
+$conexion = conexion();
+
+$fecha_actual = date('Y-m-d'); // Formato: Año-Mes-Día Hora:Minutos:Segundos
+date_default_timezone_set('America/El_Salvador');
+$hora = date("H"); // Formato de 24 horas (HH:MM:SS)
+
+if ($hora >= 7 && $hora <= 12) {
+    
+} else {
+    
+}
+$consulta = mysqli_query($conexion, "SELECT COUNT(*) AS hombres FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = '2023-09-19' AND genero = 'M' AND asisg = 'A'");
+$datos=mysqli_fetch_array($consulta);
+
+$consulta1 = mysqli_query($conexion, "SELECT COUNT(*) AS mujer FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = '2023-09-19' AND genero = 'F' AND asisg = 'A'");
+$datos1=mysqli_fetch_array($consulta1);
+
+$total=$datos['hombres']+$datos1['mujer'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,34 +61,20 @@
         </header>
 
         <div class="modasis">
-            <p class="ra">Asistencia General: Asistencia Total: 450 Alumnos  </p>
-            <p class="ra">Asistencia Por Genero:</p><br><br>
+            <p class="ra">Asistencia General: Asistencia Total: <?php echo $total ?> Alumnos</p>
+            <p class="ra1">Asistencia Por Genero:</p><br><br>
             <img class="imagen1" src="/assisted/img/hombre.png" >
-            <p class="ipo">
-
-            
-<?php
-    require('../cone.php');
-
-$fecha_actual = date('Y-m-d'); // Formato: Año-Mes-Día Hora:Minutos:Segundos
-
-
-
-?>
-
-
-</p>
-
-            <img class="imagen2" src="/assisted/img/mujer.png" >
-
-
-           
-        </a>
+            <p class="ipo"></p>
+            <img class="imagen2" src="/assisted/img/mujer.png" >  
+            <br><br><br><br><br><br>
+            <p class = "H"><?php echo $datos['hombres'] ?></p>
+            <p class = "F"><?php echo $datos1['mujer'] ?></p>
         </div>
         
+        
         <div class="modasis2">
-            <p class="ra">Creacion de archivos informativo </p>
-            <p class="ra">sobre la asistencia:</p>
+            <p class="ra1">Creacion de archivos informativo </p>
+            <p class="ra1">sobre la asistencia:</p>
             <br>
             <br>
             <p class="ma"> </p>
@@ -68,8 +93,8 @@ $fecha_actual = date('Y-m-d'); // Formato: Año-Mes-Día Hora:Minutos:Segundos
         
         <br><br>
         <div class="modasis2">
-            <p class="ra">Consulta de asistencia por secciones</p>
-            <p class="ra">justificaci&oacute;n:</p>
+            <p class="ra1">Consulta de asistencia por secciones</p>
+            <p class="ra1">justificaci&oacute;n:</p>
             <br>
             <br>
             <p class="ma">Creacion de archivos informativo sobre la asistencia: </p>

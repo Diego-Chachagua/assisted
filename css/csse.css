@@ -173,12 +173,32 @@ text-shadow: 2px 4px 5px #f9f9f9;
         height: 370px;
         top: 200px;
     }
+
+    .ra1{
+        color: #ffff;
+        font-size: 38px;
+        position: relative;
+    }
     
     .ra{
         color: #ffff;
         font-size: 38px;
-        position: relative;
-        left: 10px;
+        display: block;
+        white-space: nowrap;
+        border-right: 4px solid;
+        width: 39ch;
+
+        animation: typing 2s steps(39),
+        blink 5s infinite step-end alternate;
+        overflow: hidden;
+    }
+
+    @keyframes typing{
+        from{width: 0;}
+    }
+
+    @keyframes blink{
+        50%{border-color: transparent;}
     }
     
     .but{
@@ -298,3 +318,16 @@ text-shadow: 2px 4px 5px #f9f9f9;
                 margin-bottom: 5px;
     }
     
+    .H{
+        float: left;
+        font-size: 60px;
+        color: rgb(5, 5, 90);
+        margin-left: 490px;
+    }
+
+    .F{
+        float: right;
+        font-size: 60px;
+        color: rgb(115, 0, 119);
+        margin-right: 490px;
+    }
