@@ -42,6 +42,7 @@ async function detectFaces() {
       faceapi.draw.drawDetections(canvas, resizedDetections);
       faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
 
+      
       if (detections.length > 0) {
         for (var i = 0; i < detections.length; i++) {
             const descriptorJS = detections[i].descriptor;
@@ -55,24 +56,25 @@ async function detectFaces() {
                 if (descriptoreslim.length === descriptorJS.length) {
                     const distance = faceapi.euclideanDistance(descriptorJS, descriptoreslim);
     
-                    if (distance < umbralDeSimilitud) {
-                        $.ajax({
-                            type: 'POST',
-                            url: 'descriptores.php',
-                            data: {
-                                j: numero // Enviar la variable j al servidor
-                            },
-                            success: function(response) {
-                                $('#resultado').text(response);
-                                console.log(response);
-                            },
-                            error: function(error) {
-                                // Maneja errores aquí si es necesario
-                                console.error(error);
-                            }
-                        });
+                    if (distance < umbralDeSimilitud) {            
+                      $.ajax({
+                        type: 'POST',
+                        url: 'descriptores.php',
+                        data: {
+                            j: numero // Enviar la variable j al servidor
+                        },
+                        success: function(response) {
+
+                            // Agrega el nuevo contenido
+                            $('#resultado').html(response);
+                        },
+                        error: function(error) {
+                            // Maneja errores aquí si es necesario
+                            console.error(error);
+                        }
+                    });
                     }
-                }
+                }                
             }
         }
     }
