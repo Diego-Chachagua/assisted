@@ -186,9 +186,9 @@ text-shadow: 2px 4px 5px #f9f9f9;
         display: block;
         white-space: nowrap;
         border-right: 4px solid;
-        width: 39ch;
+        width: 45ch;
 
-        animation: typing 2s steps(39),
+        animation: typing 2s steps(45),
         blink 5s infinite step-end alternate;
         overflow: hidden;
     }
