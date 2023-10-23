@@ -79,7 +79,7 @@ async function detectFaces() {
         }
     }
     
-    }, 1000);
+    }, 4000);
   });
 }
 

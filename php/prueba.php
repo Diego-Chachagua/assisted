@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar Imagen de Estudiante</title>
+    <title>Entrada de Números</title>
 </head>
 <body>
-<?php
-include('../cone.php');
+    <?php
+    $numero = ""; // Inicializa la variable número
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["numero"]) && is_numeric($_POST["numero"])) {
+            // Si se envió un número válido, guárdalo en la variable
+            $numero = $_POST["numero"];
+        } else {
+            echo "Por favor, ingrese un número válido.";
+        }
+    }
+    ?>
 
-$nie = '123456789'; // El NIE del estudiante que deseas mostrar
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <label for="numero">Ingrese un número:</label>
+        <input type="text" id="numero" name="numero" pattern="[0-9]+" required>
+        <input type="submit" value="Guardar">
+    </form>
 
-$sql = "SELECT foto FROM estudiantes WHERE nie = '$nie'";
-$resultado = $conexion->query($sql);
-
-if ($resultado && $resultado->num_rows > 0) {
-    $fila = $resultado->fetch_assoc();
-    $imagenBase64 = $fila['foto'];
-
-    // Mostrar la imagen directamente en la página utilizando el esquema de datos base64
-    echo '<img src="data:image/jpeg;base64,' . $imagenBase64 . '" alt="Foto del estudiante" width="100" height="100">';
-} else {
-    echo 'No se encontraron registros para el NIE: ' . $nie;
-}
-
-$conexion->close();
-?>
+    <?php
+    if (!empty($numero)) {
+        // Si se ha ingresado un número válido, muestra el número
+        echo "Número ingresado: " . $numero;
+    }
+    ?>
 </body>
 </html>
