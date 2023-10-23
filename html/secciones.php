@@ -1,7 +1,14 @@
 <?php
 require ('conexion.php');
 // $cod_seccion=$_POST[''];
+$cod_seccion="1";
+$cod_grado="1";
+$cod_anio="1";
 $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estudiantes.genero FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='1' AND alum_grado.c_grado='1' AND alum_anio.c_anio='1'");
+?>
+<?php
+  $consulta3=mysqli_query($conexion,"SELECT grado.grado,seccion.seccion FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio");
+  $consulta4=mysqli_query($conexion,"SELECT COUNT(*) AS cantidad FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='$cod_seccion' AND alum_grado.c_grado='$cod_grado' AND alum_anio.c_anio='$cod_anio'");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,53 +39,50 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
     </header><br><br>
     
     <div class="conteiner">
-    <button class="sec" onclick="mostrarVentana('verestu')">
-            <h1 class="anio">3°k</h1>
+    <?php while($datos4=mysqli_fetch_array($consulta4)){?>
+      <?php while($datos3=mysqli_fetch_array($consulta3)){?>
+
+        <input type="text" name="idSeccion" id="" value="<?php echo $datos3["grado"].$datos3['seccion']; ?>" hidden>
+
+    <button class="sec" onclick="mostrarVentana('verestu')" type="submit">
+            <h1 class="anio"><?php echo $datos3['grado'] . $datos3['seccion']?></h1>
             <div class="btn">
-                <p class="s">Estuidantes:</p>
-                <p class="sa">Especialidad: Desarrollo de softwre</p>
+                <p class="s">Estudiantes:<?php echo $datos4['cantidad']?></p>
+                <p class="sa">Especialidad:<?php if($datos3['seccion']=="K"){
+                echo 'Tecnico Vocacional En Gestion Y Desarrollo de Software'?>
+                <?php }else if($datos3['seccion']=="N"){
+                    echo 'Tecnico Vocacional En Gestion Y Desarrollo Turistico'
+                ?>
+                <?php }else if($datos3['seccion']=="M"){
+                  echo ' Técnico Vocacional Agropecuario'?>
+                  <?php }else if($datos3['seccion']=="B"){
+                    echo 'Técnico Vocacional Asistencia Contable'?>
+                    <?php }else if($datos3['seccion']=="L"){
+                      echo 'Técnico Vocacional Ingeniería Eléctrica'?>
+                      <?php }else if($datos3['seccion']=="O"){
+                         echo 'Técnico Vocacional Ingeniería Eléctrica'?>
+                         <?php }else if($datos3['seccion']=="A"){
+                          echo 'General'?>
+                          <?php }else if($datos3['seccion']=="E"){
+                            echo 'General' ?>
+                            <?php }else if($datos3['seccion']=="G"){
+                              echo 'General'?>
+                             <?php }else if($datos3['seccion']=="D"){
+                              echo 'General'?>
+                              <?php }else if($datos3['seccion']=="H"){
+                                echo 'General'?>
+                                <?php }else if($datos3['seccion']=="F"){
+                                echo 'General' ?>
+                                <?php } ?></p>
             </div>
         </button>
-        <button class="sec" onclick="mostrarVentana('verestu')">
-            <h1 class="anio">3°k</h1>
-            <div class="btn">
-                <p class="s">Estuidantes:</p>
-                <p class="sa">Especialidad: Desarrollo de softwre</p>
-            </div>
-        </button>
-        <button class="sec" onclick="mostrarVentana('verestu')">
-            <h1 class="anio">3°k</h1>
-            <div class="btn">
-                <p class="s">Estuidantes:</p>
-                <p class="sa">Especialidad: Desarrollo de softwre</p>
-            </div>
-        </button>
-        <button class="sec" onclick="mostrarVentana('verestu')">
-            <h1 class="anio">3°k</h1>
-            <div class="btn">
-                <p class="s">Estuidantes:</p>
-                <p class="sa">Especialidad: Desarrollo de softwre</p>
-            </div>
-        </button>
-        <button class="sec" onclick="mostrarVentana('verestu')">
-            <h1 class="anio">3°k</h1>
-            <div class="btn">
-                <p class="s">Estuidantes:</p>
-                <p class="sa">Especialidad: Desarrollo de softwre</p>
-            </div>
-        </button>
-        <button class="sec" onclick="mostrarVentana('verestu')">
-            <h1 class="anio">3°k</h1>
-            <div class="btn">
-                <p class="s">Estuidantes:</p>
-                <p class="sa">Especialidad: Desarrollo de softwre</p>
-            </div>
-        </button>
+        
+        <?php } ?>
+        <?php } ?>
         <button class="agre_seccion">
             <img src="/assisted/img/agregar.png" onclick="mostrarVentana('ventanaFlotante')">
         </button>
         </div>
-        
     <div id="verestu" class="verestu">
     <button class="salir" onclick="cerrarVentana('verestu')">
     <img class="exit" src="/assisted/img/cancelar.png">
@@ -191,7 +195,7 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
         <div class="contenido2">
             <input type="text" id="aniio" name="miTextField" placeholder="a&ntilde;o" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
             <input type="text" id="nom" name="miTextField" placeholder="Seccion" maxlength="30">
-            <select class="mes" id="mes">
+            <select class="mes2" id="mes2">
               <option disabled selected="">Turno</option>
               <option>Matutino</option>
             <option>Vespertino</option>
