@@ -24,17 +24,23 @@ date_default_timezone_set('America/El_Salvador');
 $hora = date("H"); // Formato de 24 horas (HH:MM:SS)
 
 if ($hora >= 7 && $hora <= 12) {
-    
-} else {
-    
-}
-$consulta = mysqli_query($conexion, "SELECT COUNT(*) AS hombres FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = '2023-09-19' AND genero = 'M' AND asisg = 'A'");
+    $consulta = mysqli_query($conexion, "SELECT COUNT(*) AS hombres FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = $fecha_actual AND genero = 'M' AND asisg = 'A'");
 $datos=mysqli_fetch_array($consulta);
 
-$consulta1 = mysqli_query($conexion, "SELECT COUNT(*) AS mujer FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = '2023-09-19' AND genero = 'F' AND asisg = 'A'");
+$consulta1 = mysqli_query($conexion, "SELECT COUNT(*) AS mujer FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = $fecha_actual AND genero = 'F' AND asisg = 'A'");
 $datos1=mysqli_fetch_array($consulta1);
 
 $total=$datos['hombres']+$datos1['mujer'];
+} else {
+    $consulta = mysqli_query($conexion, "SELECT COUNT(*) AS hombres FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = $fecha_actual AND genero = 'M' AND asisg = 'A' AND hora => $hora");
+    $datos=mysqli_fetch_array($consulta);
+    
+    $consulta1 = mysqli_query($conexion, "SELECT COUNT(*) AS mujer FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = $fecha_actual AND genero = 'F' AND asisg = 'A' AND hora => $hora");
+    $datos1=mysqli_fetch_array($consulta1);
+    
+    $total=$datos['hombres']+$datos1['mujer'];
+}
+
 ?>
 
 <!DOCTYPE html>
