@@ -64,3 +64,25 @@ body{
 .ima{
     margin-left: 15px;
 }
+
+.custom-table {
+    width: 100%;
+}
+
+.custom-table td {
+    padding: 10px;
+    text-align: center;
+    border: 3px solidrgb(0, 0, 0)c;
+}
+
+.custom-table img {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.nombre{
+    font-size: 50px;
+
+}

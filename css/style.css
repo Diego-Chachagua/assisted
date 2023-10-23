@@ -14,6 +14,7 @@ body{
 }
 
 header{
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -25,13 +26,15 @@ header{
 }
 
 #logo{
-    height: 5px;
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
 }
 
 .navigation a {
     position: relative;
     font-size: 1.1em;
-    color: #fff;
+    color: #0a0303;
     font-weight: 600;
     text-decoration: none;
     margin-left: 20px;
@@ -41,7 +44,7 @@ header{
 
 .navigation a:hover,
 .navigation a.active{
-color: #333;
+color: #6036ad;
 
 }
 
