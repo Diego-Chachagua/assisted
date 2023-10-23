@@ -44,7 +44,7 @@ if (isset($_POST['j'])) {
                         echo '<tr>';
                         echo '<td>';
                         // Mostrar la imagen directamente en la página utilizando el esquema de datos base64
-                        echo '<img src="data:image/jpeg;base64,' . $foto . '" alt="Foto del estudiante" width="900" height="900">';
+                        echo '<img src="data:image/jpeg;base64,' . $foto . '" alt="Foto del estudiante" width="2500px" height="9000px">';
                         echo '</td>';
                         echo '</tr>';
                         echo '<tr>';
