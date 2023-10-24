@@ -8,26 +8,30 @@
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
+            <div id="imageContainer">
+                <button class="img" onclick="openFileInput()">
+                  <img class="ad" src="/assisted/img/re.png">
+                </button>
+          </div>
             <form action="../php/create_alumno.php" method="POST" enctype="multipart/form-data">
-                <label for="foto">Cargar Foto:</label>
-                <input type="file" id="foto" name="foto" ><br>
+
+                <input type="file" id="foto" name="foto" accept="image/*" style="display: none;"><br>
             
-                <label for="nie">NIE:</label>
-                <input type="number" id="nie" name="nie"><br>
-            
-                <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" name="nombre"><br>
-            
-                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento"><br>
-                <label>Sexo:</label>
-                <input type="checkbox" id="masculino" name="sexo" value="masculino">
+                <input type="number" id="nie" name="nie" placeholder="NIE"><br><br>
+        
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo"><br><br>
+
+                <div class="blanco">
+                <label class="genero">G&eacute;nereo:</label><br><br>
+                <input type="checkbox" class="masculino" id="masculino" name="sexo" value="M">
                 <label for="masculino">Masculino</label>
-                <input type="checkbox" id="femenino" name="sexo" value="femenino">
-                <label for="femenino">Femenino</label><br>
+                <input type="checkbox" id="femenino" name="sexo" value="F">
+                <label for="femenino">Femenino</label>
+                 </div><br><br>
             
-                <button type="submit" id="boton-guardar" >Guardar</button>
-                <button type="button" onclick="window.location.href='indexhtml'">Cancelar</button>
+
+                <button type="button" class="cancelar" onclick="window.location.href='/assisted/html/secciones.php'">Cancelar</button>
+                <button type="submit" class="guardar" id="boton-guardar" >Guardar</button>
             
                 <script src="../face-api.js"></script>
                 <script src="../JS/descriptorFoto.js"></script>
@@ -35,5 +39,31 @@
         </div>
     </div>
     <script src="/assisted/JS/modal.js"></script>
+    <script>
+        function openFileInput() {
+               // Simula un clic en el elemento de entrada de archivos
+               document.getElementById('foto').click();
+           }
+   
+           // Función para mostrar las imágenes seleccionadas
+           function displayImages(event) {
+               const imageContainer = document.getElementById('imageContainer');
+               imageContainer.innerHTML = ''; // Limpia el contenedor de imágenes
+   
+               const files = event.target.files;
+   
+               for (let i = 0; i < files.length; i++) {
+                   const file = files[i];
+                   const image = document.createElement('img');
+                   image.src = URL.createObjectURL(file);
+                   image.style.maxWidth = '200px';
+                   image.style.height = '150px';
+                   imageContainer.appendChild(image);
+               }
+           }
+   
+           // Asigna la función displayImages al evento change del input de archivos
+           document.getElementById('foto').addEventListener('change', displayImages);
+   </script>
 </body>
 </html>
