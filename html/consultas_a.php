@@ -117,6 +117,7 @@ $total=$datos['hombres']+$datos1['mujer'];
             <p class="ma">Creacion de archivos informativo sobre la asistencia: </p>
             <p class="ma">este archivo incluye la asistencia general de: 
                 (Dias,semanas Y mes seleccionado)</p>
+                <form action="./modi_asistencia.php" method="post">
                 <input type="date" name="fecha" class="fecc">
                 <select class="anio">
                 <option disabled selected="">A&ntilde;o</option>
@@ -135,6 +136,7 @@ $total=$datos['hombres']+$datos1['mujer'];
                 <option>N</option>
             </select>
             <a href="./modi_asistencia.php"><button class="modii2" type="submit">Consultar</button></a>
+                </form>
 
         <script src="/assisted/JS/script.js"></script>
 

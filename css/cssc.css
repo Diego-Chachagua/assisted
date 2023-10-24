@@ -71,7 +71,7 @@ font-family: 'Anton', sans-serif;
 }
  
 
-.sec{
+.materias{
   width: 180px;
   height: 150px;
   background: none;
@@ -80,21 +80,10 @@ font-family: 'Anton', sans-serif;
   border: none;
   cursor: pointer;
 }
-
-.materias{
-  width: 180px;
-  height: 150px;
-  background: none;
-  margin-right: 14px;
- 
-  border: none;
-  cursor: pointer;
-}
         
 .ciencias{
   width: 100px;
   height: 100px;
-  margin-bottom: 30px;
 }
 
         
