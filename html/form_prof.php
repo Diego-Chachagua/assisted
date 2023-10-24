@@ -50,7 +50,7 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
         if($cantidad>0){
             header("location: ./materias.html");
             $_SESSION['usu']=$usuario;
-            $_SESSION['contra']$password;
+            $_SESSION['contra']=$password;
         }else{
            echo "Datos incorrectos";
         }
