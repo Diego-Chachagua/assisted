@@ -1,4 +1,13 @@
 <?php  ob_start(); ?>
+<?php
+require ('conexion.php');
+// $cod_seccion=$_POST[''];
+$cod_seccion="1";
+$cod_grado="1";
+$cod_anio="1";
+$consulta=mysqli_query ($conexion,"SELECT estudiantes.nombre FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='1' AND alum_grado.c_grado='1' AND alum_anio.c_anio='1'");
+$consulta2=mysqli_query($conexion,"SELECT grado.grado,seccion.seccion FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio WHERE grado.c_grado='1' AND seccion.c_se='1'");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -77,7 +86,9 @@ td{
     <br>
     <h1>Listado de asistencia Instituto Nacional Cornelio Azenón Sierra 2023</h1>
     <br>
-    <h2 class="anio">A&ntilde;o:</h2><h2 class="seccion">Seccion:</h2><h2 class="mes">Mes:Septiembre</h2><br><br><br>
+    <?php if($mostrar=mysqli_fetch_assoc($consulta2)) {?>
+    <h2 class="anio">A&ntilde;o:<?php echo $mostrar['grado'] ?></h2><h2 class="seccion">Seccion:<?php echo $mostrar['seccion']?></h2><h2 class="mes">Mes:Septiembre</h2><br><br><br>
+    <?php } ?>
     <table>
         <thead>
             <tr>
@@ -130,9 +141,14 @@ td{
             </tr>
         </thead>
         <tbody>
+            <?php if($consulta->num_rows > 0){
+
+                $contador=1;
+
+             while($mostrar2=mysqli_fetch_array($consulta)) {?>
         <tr>
-        <th class="num2">1</th>
-        <th class="nom2">Josue Neftaly Albanez Teran</th>
+        <th class="num2"><?php echo $contador ?></th>
+        <th class="nom2"><?php echo $mostrar2['nombre']?></th>
         <th class=".semana2"> <table class="minitabla">
                 <tr>
                 <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
@@ -175,276 +191,9 @@ td{
                 </table>
         </th>
         </tr>
-        <tr>
-        <th class="num2">1</th>
-        <th class="nom2">Josue Neftaly Albanez Teran</th>
-        <th class=".semana2"> <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table></th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        </tr>
-        <tr>
-        <th class="num2">1</th>
-        <th class="nom2">Josue Neftaly Albanez Teran</th>
-        <th class=".semana2"> <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table></th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        </tr>
-        <tr>
-        <th class="num2">1</th>
-        <th class="nom2">Josue Neftaly Albanez Teran</th>
-        <th class=".semana2"> <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table></th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        </tr>
-        <tr>
-        <th class="num2">1</th>
-        <th class="nom2">Josue Neftaly Albanez Teran</th>
-        <th class=".semana2"> <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table></th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        </tr>
-        <tr>
-        <th class="num2">1</th>
-        <th class="nom2">Josue Neftaly Albanez Teran</th>
-        <th class=".semana2"> <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table></th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        </tr>
-        <tr>
-        <th class="num2">1</th>
-        <th class="nom2">Josue Neftaly Albanez Teran</th>
-        <th class=".semana2"> <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table></th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </table>
-        </th>
-        <th class=".semana2">
-        <table class="minitabla">
-                <tr>
-                <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cheq" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/chequesito.png"></p></td>
-                    <td class="dia"><p><img class="cancel" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/assisted/img/cancelar.png"></p></td>
-                </tr>
-                </table>
-        </th>
-        </tr>
+        
+        <?php $contador++; } ?>
+        <?php } ?>
         </tbody>
     </table>
 </body>
