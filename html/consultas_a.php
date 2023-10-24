@@ -88,9 +88,20 @@ $total=$datos['hombres']+$datos1['mujer'];
                 (Dias,semanas Y mes seleccionado)</p>
 
             
-            <div id="container">
-                <input type="date" id="fecha">
-            </div>
+            <select class="mess">
+                <option disabled selected="">Seleccione el mes</option>
+                <option>Enero</option>
+                <option>Febrero</option>
+                <option>Marzo</option>
+                <option>Abril</option>
+                <option>Mayo</option>
+                <option>Junio</option>
+                <option>Julio</option>
+                <option>Agosto</option>
+                <option>Setiembre</option>
+                <option>Octubre</option>
+                <option>Noviembre</option>
+            </select>
             
             <a href="#">
                 <button class="modi" type="button">Imprimir Reporte</button>
@@ -106,6 +117,7 @@ $total=$datos['hombres']+$datos1['mujer'];
             <p class="ma">Creacion de archivos informativo sobre la asistencia: </p>
             <p class="ma">este archivo incluye la asistencia general de: 
                 (Dias,semanas Y mes seleccionado)</p>
+                <input type="date" name="fecha" class="fecc">
                 <select class="anio">
                 <option disabled selected="">A&ntilde;o</option>
                 <option>1</option>

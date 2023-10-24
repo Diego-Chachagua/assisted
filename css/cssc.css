@@ -81,7 +81,7 @@ font-family: 'Anton', sans-serif;
   cursor: pointer;
 }
 
-.agregar{
+.materias{
   width: 180px;
   height: 150px;
   background: none;
@@ -96,6 +96,7 @@ font-family: 'Anton', sans-serif;
   height: 100px;
   margin-bottom: 30px;
 }
+
         
 p{
   font-family: Arial, Helvetica, sans-serif;
