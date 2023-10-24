@@ -134,7 +134,7 @@ $total=$datos['hombres']+$datos1['mujer'];
                 <option>M</option>
                 <option>N</option>
             </select>
-            <button class="modii2">Consultar</button>
+            <a href="./modi_asistencia.php"><button class="modii2" type="submit">Consultar</button></a>
 
         <script src="/assisted/JS/script.js"></script>
 
