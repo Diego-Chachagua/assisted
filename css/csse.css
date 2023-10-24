@@ -322,12 +322,13 @@ text-shadow: 2px 4px 5px #f9f9f9;
         float: left;
         font-size: 60px;
         color: rgb(5, 5, 90);
-        margin-left: 490px;
+        margin-left: 500px;
+        
     }
 
     .F{
         float: right;
         font-size: 60px;
         color: rgb(115, 0, 119);
-        margin-right: 490px;
+        margin-right: 500px;
     }
