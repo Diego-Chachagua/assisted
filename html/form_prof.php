@@ -48,9 +48,9 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
         $consulta=mysqli_query($conexion,$query);
         $cantidad=mysqli_num_rows($consulta);
         if($cantidad>0){
-            header("location: ./materias.html");
+            header("location: ./materias.php");
             $_SESSION['usu']=$usuario;
-            $_SESSION['contra']$password;
+            $_SESSION['contra']=$password;
         }else{
            echo "Datos incorrectos";
         }
