@@ -1,13 +1,20 @@
 <?php
 require ('conexion.php');
-// $cod_seccion=$_POST[''];
-$cod_seccion="1";
-$cod_grado="1";
-$cod_anio="1";
-$consulta=mysqli_query ($conexion,"SELECT estudiantes.nombre FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='1' AND alum_grado.c_grado='1' AND alum_anio.c_anio='1'");
-?>
-<?php
-  $consulta3=mysqli_query($conexion,"SELECT grado.grado,seccion.seccion FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio WHERE grado.c_grado='1' AND seccion.c_se='1'");
+
+if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
+    $fecha = $_POST['fecha'];
+    $grado = $_POST['grado'];
+    $seccion = $_POST['seccion'];
+    $consulta3=mysqli_query($conexion,"SELECT grado.c_grado,seccion.c_se FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio WHERE grado.grado='$grado' AND seccion.seccion='$seccion'");
+    if($mostrar=mysqli_fetch_assoc($consulta3)){
+
+        $cod_seccion=$mostrar['c_grado'];
+       $cod_grado=$mostrar['c_se'];
+       $consulta=mysqli_query ($conexion,"SELECT estudiantes.nombre FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie  INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='$cod_seccion' AND alum_grado.c_grado='$cod_grado'");
+    }
+} else {
+    echo "No se han enviado todos los datos necesarios.";
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,9 +46,9 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nombre FROM estudiantes IN
     <div class="table">
     <h1 class="list">Listado de asistencia Instituto Nacional Cornelio Azenón Sierra 2023</h1>
     <br>
-    <?php if($mostrar=mysqli_fetch_assoc($consulta3)){?>
-    <h2 class="aniiio">A&ntilde;o: <?php echo $mostrar['grado']?></h2><h2 class="seccion">Seccion:<?php echo $mostrar['seccion']?></h2><h2 class="mes">Mes:Septiembre</h2><br>
-    <?php } ?>
+
+    <h2 class="aniiio">A&ntilde;o:<?php echo $grado?></h2><h2 class="seccion">Seccion:<?php echo $seccion?></h2><h2 class="mes">Mes:Septiembre</h2><br>
+
     <table>
         <thead>
             <tr>

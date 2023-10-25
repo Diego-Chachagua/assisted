@@ -216,10 +216,13 @@ height: auto;
   border-bottom-left-radius: 10px; /* Radio para la esquina inferior izquierda */
   border-top-right-radius: 10px; /* Radio para la esquina superior derecha */
   width: 340px;
+  height: 150px;
   position: relative;
   top: 20px;
   left: 30px;
-  margin-right: 90px;
+  margin-right: 50px;
+  margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .btn{
@@ -255,7 +258,7 @@ top: 10px;
 
 .agre_seccion{
   float: right;
-  margin-top: -70px;
+  margin-top: 110px;
   position: relative;
   left: -5px;
   border: none;

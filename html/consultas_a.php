@@ -121,13 +121,13 @@ $total=$datos['hombres']+$datos1['mujer'];
                 (Dias,semanas Y mes seleccionado)</p>
                 <form action="./modi_asistencia.php" method="post">
                 <input type="date" name="fecha" class="fecc">
-                <select class="anio">
+                <select name="grado" class="anio">
                 <option disabled selected="">A&ntilde;o</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
             </select>
-            <select class="sec">
+            <select name="seccion" class="sec">
                 <option disabled selected="">Secci&oacute;n</option>
                 <option>A</option>
                 <option>B</option>
@@ -137,7 +137,7 @@ $total=$datos['hombres']+$datos1['mujer'];
                 <option>M</option>
                 <option>N</option>
             </select>
-            <a href="./modi_asistencia.php"><button class="modii2" type="submit">Consultar</button></a>
+            <input class="modii2" type="submit" value="Enviar">
                 </form>
 
         <script src="/assisted/JS/script.js"></script>
