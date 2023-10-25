@@ -71,7 +71,7 @@ font-family: 'Anton', sans-serif;
 }
  
 
-.materias{
+.sec{
   width: 180px;
   height: 150px;
   background: none;
@@ -80,12 +80,22 @@ font-family: 'Anton', sans-serif;
   border: none;
   cursor: pointer;
 }
+
+.agregar{
+  width: 180px;
+  height: 150px;
+  background: none;
+  margin-left: -14px;
+ 
+  border: none;
+  cursor: pointer;
+}
         
 .ciencias{
   width: 100px;
   height: 100px;
+  margin-bottom: 30px;
 }
-
         
 p{
   font-family: Arial, Helvetica, sans-serif;
@@ -216,13 +226,10 @@ height: auto;
   border-bottom-left-radius: 10px; /* Radio para la esquina inferior izquierda */
   border-top-right-radius: 10px; /* Radio para la esquina superior derecha */
   width: 340px;
-  height: 150px;
   position: relative;
   top: 20px;
   left: 30px;
-  margin-right: 50px;
-  margin-bottom: 30px;
-  cursor: pointer;
+  margin-right: 90px;
 }
 
 .btn{
@@ -258,7 +265,7 @@ top: 10px;
 
 .agre_seccion{
   float: right;
-  margin-top: 110px;
+  margin-top: -70px;
   position: relative;
   left: -5px;
   border: none;
@@ -306,7 +313,6 @@ top: 10px;
 
 table {
     border-collapse:collapse;
-    margin-top: 100px;
     margin-left: 210px;
   }
   
@@ -320,17 +326,29 @@ table {
   .nie{
     width: 10px;
   }
+  .nie1{
+    width: 27px;
+  }
 
   .nom{
+    width: 520px;
+  }
+  .nom1{
     width: 520px;
   }
 
   .gen{
     width: 50px;
   }
+  .gen1{
+    width: 54px;
+  }
 
   .edit{
     width: 25px;
+  }
+  .edit1{
+    width: 40px;
   }
 
   .editar{

@@ -1,10 +1,10 @@
 <?php
 require ('conexion.php');
 // $cod_seccion=$_POST[''];
-$cod_seccion="1";
+$cod_seccion="3";
 $cod_grado="1";
 $cod_anio="1";
-$consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estudiantes.genero FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='1' AND alum_grado.c_grado='1' AND alum_anio.c_anio='1'");
+$consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estudiantes.genero FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='$cod_seccion' AND alum_grado.c_grado='$cod_grado' AND alum_anio.c_anio='$cod_anio'");
 ?>
 <?php
   $consulta3=mysqli_query($conexion,"SELECT grado.grado,seccion.seccion FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio");
@@ -17,6 +17,7 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secciones</title>
     <link rel="stylesheet" href="/assisted/css/cssc.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/assisted/css/modal.css">
 </head>
 <body class="body2">
@@ -44,7 +45,7 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
 
         <input type="text" name="idSeccion" id="" value="<?php echo $datos3["grado"].$datos3['seccion']; ?>" hidden>
 
-    <button class="sec" onclick="mostrarVentana('verestu')" type="submit">
+    <button class="sec" onclick="mostrarVentana('verestu','<?php echo $datos3['grado']?>','<?php echo $datos3['seccion']?>')" type="submit">
             <h1 class="anio"><?php echo $datos3['grado'] . $datos3['seccion']?></h1>
             <div class="btn">
                 <p class="s">Estudiantes:<?php echo $datos4['cantidad']?></p>
@@ -74,6 +75,8 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
                                 <?php }else if($datos3['seccion']=="F"){
                                 echo 'General' ?>
                                 <?php } ?></p>
+                                
+                         
             </div>
         </button>
         
@@ -83,47 +86,21 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
             <img src="/assisted/img/agregar.png" onclick="mostrarVentana('ventanaFlotante')">
         </button>
         </div>
-    <div id="verestu" class="verestu">
+    <div id="verestu" class="verestu"><!--div de ventana flotante-->
     <button class="salir" onclick="cerrarVentana('verestu')">
     <img class="exit" src="/assisted/img/cancelar.png">
   </button>
-    <h1 class="seccion">3°k</h1>
+  <div id="datosModal" class="seccion"></div>
     <h2 class="secc">Estudiantes:</h2>
+
       <button class="elimina">
         <img class="elimi" onclick="" src="/assisted/img/eliminar.png"> Eliminar Secci&oacute;n
       </button>
       <button class="agregar">
         <img  class="agre" id="openModal" src="/assisted/img/agregar.png">
       </button>
-      <table id="miTabla">
-            <thead>
-            <tr class="cab">
-              <td class="nie">NIE</td>
-              <td class="nom">Nombre Completo</td>
-              <td class="gen">Genero</td>
-              <td class="edit">Editar</td>
-            </tr>
-            </thead>
-            <?php While($datos=mysqli_fetch_array($consulta)) {?>
-            <tbody>
-              <tr class="cab">
-                <td class="cab"><?php echo $datos['nie']?></td>
-                  <td><?php echo $datos['nombre']?></td>
-                  <td><?php echo $datos['genero']?></td>
-                  <td>
-                    <button class="editar">
-                        <img class="ed" src="/assisted/img/lapiz.png">
-                    </button>
-                    <button class="drop">
-                        <img class="bor" src="/assisted/img/eliminar.png">
-                    </button>
-                </td>
-                </tr>
-            </tbody>
-            <?php } ?>
-            </table>
-
-
+            <div id="datosMostrados">
+          </div>
             <!-- inicio de mi codigo -->
 
     <div id="modal" class="modal">
@@ -218,12 +195,32 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
 
     <script> // Función para mostrar la ventana flotante
       // Función para mostrar una ventana flotante
-function mostrarVentana(idVentana) {
-    document.getElementById(idVentana).style.display = "block";
+function mostrarVentana(idVentana,grado, seccion) {
+  var modal = document.getElementById(idVentana);
+    modal.style.display = "block";
+    var datosaula = {
+        seccion: seccion,
+        grado:grado
+    };  
+    datosModal.innerHTML = datosaula.grado+"°"+datosaula.seccion;
+    fetch('procesar.php', {
+        method: 'POST',
+        body: JSON.stringify({ seccion: seccion, grado: grado }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("datosMostrados").innerHTML = data;
+    });
 }
+
+
 
 // Función para cerrar una ventana flotante
 function cerrarVentana(idVentana) {
+
     document.getElementById(idVentana).style.display = "none";
 }
 
