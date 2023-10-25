@@ -313,7 +313,6 @@ top: 10px;
 
 table {
     border-collapse:collapse;
-    margin-top: 100px;
     margin-left: 210px;
   }
   
@@ -327,17 +326,29 @@ table {
   .nie{
     width: 10px;
   }
+  .nie1{
+    width: 27px;
+  }
 
   .nom{
+    width: 520px;
+  }
+  .nom1{
     width: 520px;
   }
 
   .gen{
     width: 50px;
   }
+  .gen1{
+    width: 54px;
+  }
 
   .edit{
     width: 25px;
+  }
+  .edit1{
+    width: 40px;
   }
 
   .editar{

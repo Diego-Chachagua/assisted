@@ -23,19 +23,21 @@ $fecha_actual = date('Y-m-d'); // Formato: Año-Mes-Día Hora:Minutos:Segundos
 date_default_timezone_set('America/El_Salvador');
 $hora = date("H"); // Formato de 24 horas (HH:MM:SS)
 
+
+
 if ($hora >= 7 && $hora <= 12) {
-    $consulta = mysqli_query($conexion, "SELECT COUNT(*) AS hombres FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = $fecha_actual AND genero = 'M' AND asisg = 'A'");
+    $consulta = mysqli_query($conexion, "SELECT COUNT(*) AS hombres FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = '$fecha_actual' AND genero = 'M' AND asisg = 'A'");
 $datos=mysqli_fetch_array($consulta);
 
-$consulta1 = mysqli_query($conexion, "SELECT COUNT(*) AS mujer FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = $fecha_actual AND genero = 'F' AND asisg = 'A'");
+$consulta1 = mysqli_query($conexion, "SELECT COUNT(*) AS mujer FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = '$fecha_actual' AND genero = 'F' AND asisg = 'A'");
 $datos1=mysqli_fetch_array($consulta1);
 
 $total=$datos['hombres']+$datos1['mujer'];
 } else {
-    $consulta = mysqli_query($conexion, "SELECT COUNT(*) AS hombres FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = $fecha_actual AND genero = 'M' AND asisg = 'A' AND hora => $hora");
+    $consulta = mysqli_query($conexion, "SELECT COUNT(*) AS hombres FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = '$fecha_actual' AND genero = 'M' AND asisg = 'A' AND hora >= '$hora'");
     $datos=mysqli_fetch_array($consulta);
     
-    $consulta1 = mysqli_query($conexion, "SELECT COUNT(*) AS mujer FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = $fecha_actual AND genero = 'F' AND asisg = 'A' AND hora => $hora");
+    $consulta1 = mysqli_query($conexion, "SELECT COUNT(*) AS mujer FROM asistencia_g INNER JOIN estudiantes ON asistencia_g.nie = estudiantes.nie WHERE dia = '$fecha_actual' AND genero = 'F' AND asisg = 'A' AND hora >= '$hora'");
     $datos1=mysqli_fetch_array($consulta1);
     
     $total=$datos['hombres']+$datos1['mujer'];
@@ -88,9 +90,20 @@ $total=$datos['hombres']+$datos1['mujer'];
                 (Dias,semanas Y mes seleccionado)</p>
 
             
-            <div id="container">
-                <input type="date" id="fecha">
-            </div>
+            <select class="mess">
+                <option disabled selected="">Seleccione el mes</option>
+                <option>Enero</option>
+                <option>Febrero</option>
+                <option>Marzo</option>
+                <option>Abril</option>
+                <option>Mayo</option>
+                <option>Junio</option>
+                <option>Julio</option>
+                <option>Agosto</option>
+                <option>Setiembre</option>
+                <option>Octubre</option>
+                <option>Noviembre</option>
+            </select>
             
             <a href="#">
                 <button class="modi" type="button">Imprimir Reporte</button>
@@ -106,22 +119,31 @@ $total=$datos['hombres']+$datos1['mujer'];
             <p class="ma">Creacion de archivos informativo sobre la asistencia: </p>
             <p class="ma">este archivo incluye la asistencia general de: 
                 (Dias,semanas Y mes seleccionado)</p>
-                <select class="anio">
+                <form action="./modi_asistencia.php" method="post">
+                <input type="date" name="fecha" class="fecc">
+                <select name="grado" class="anio">
                 <option disabled selected="">A&ntilde;o</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
             </select>
-            <select class="sec">
+            <select name="seccion" class="sec">
                 <option disabled selected="">Secci&oacute;n</option>
                 <option>A</option>
-                <option>B</option>
-                <option>D</option>
-                <option>H</option>
                 <option>E</option>
+                <option>K</option>
+                <option>G</option>
+                <option>D</option>
+                <option>O</option>
+                <option>L</option>
                 <option>M</option>
                 <option>N</option>
+                <option>F</option>
+                <option>H</option>
+                <option>B</option>
             </select>
+            <input class="modii2" type="submit" value="Enviar">
+                </form>
 
         <script src="/assisted/JS/script.js"></script>
 
