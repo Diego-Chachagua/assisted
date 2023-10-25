@@ -114,13 +114,15 @@ if (isset($_POST['j'])) {
                             $consulta = "SELECT dia FROM asistencia_g WHERE nie = '$nie' AND dia = '$fecha' AND c_turno = '$c_turno'";
                             $comprobar = $conexion->query($consulta); 
                             $turno = $comprobar->fetch_assoc();
-                            if($turno['dia'] != null){
+                            if($turno['dia'] == null){
 
                             
                             if ($asis == "A") {
                                 $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', '$asis', null, null, null )";
                                 $into = $conexion->query($insert);
-                            }}
+                            }}else {
+                                
+                            }
                         } while ($index < count($variables));
 
                         echo '</td>';
