@@ -45,8 +45,8 @@ if (isset($_POST['j'])) {
 
                             return ($horaActual >= $horaInicio && $horaActual <= $horaFin);
                         }
-                        $rango1 = ['06:30:00', '07:10:00'];
-                        $rango2 = ['12:30:00', '13:10:00'];
+                        $rango2 = ['06:30:00', '07:10:00'];
+                        $rango1 = ['12:30:00', '13:10:00'];
                         
                         if (turno($hora, $rango1)) {
                             $c_turno = 1;
@@ -90,41 +90,18 @@ if (isset($_POST['j'])) {
                             2029 => 7,
                             2030 => 8
                         ];
-
-                        
                         if (array_key_exists($anio, $c_anio)) {
                             $cod_anio = $c_anio[$anio];
                         }
-                        
-                        $variables = [$c_turno, $nie, $hora, $fecha, $cod_anio];
-                        $index = 0;
-
-                        do {
-                            if ($variables[$index] === null || $variables[$index] === '') {
-                                break; // Detener el bucle si la variable es nula o vacía
-                            }                                         
-                            $index++;
-                            if ($index == 5) {
-                                $asis = "A";
-                            }else{
-                                $asis = null;
-                            }
-
-
-                            $consulta = "SELECT dia FROM asistencia_g WHERE nie = '$nie' AND dia = '$fecha' AND c_turno = '$c_turno'";
-                            $comprobar = $conexion->query($consulta); 
+                        $consulta = "SELECT dia FROM asistencia_g WHERE nie = '$nie' AND dia = '$fecha' AND c_turno = '$c_turno'";
+                        $comprobar = $conexion->query($consulta); 
+                        if ($comprobar) {
                             $turno = $comprobar->fetch_assoc();
-                            if($turno['dia'] == null){
-
-                            
-                            if ($asis == "A") {
-                                $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', '$asis', null, null, null )";
-                                $into = $conexion->query($insert);
-                            }}else {
-                                
-                            }
-                        } while ($index < count($variables));
-
+                            if (!$turno) {
+                                $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', 'A', null, null, null )";
+                                $into = $conexion->query($insert);        
+                            }    
+                        }                
                         echo '</td>';
                         echo '</tr>';
                     }
