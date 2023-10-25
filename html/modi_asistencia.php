@@ -31,7 +31,7 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
             <a  id="i2" href="#">Inicio</a>
             <img id="c" src="/assisted/img/us.png">
             <p id="tit2">Control de asistencia</p>
-            <a href="#">
+            <a href="./cerrarsesion.php">
                 <img id="e" src="/assisted/img/salida.png">
             </a>
         <p class="sesion2">Cerrar sesi&oacute;n</p>
@@ -107,8 +107,8 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
 
          while($mostrar2=mysqli_fetch_assoc($consulta)) {?>
         <tr>
-        <th class="num2"><?php echo $contador?></th>
-        <th class="nom2"><?php echo $mostrar2['nombre'] ?></th>
+        <th ><?php echo $contador?></th>
+        <th ><?php echo $mostrar2['nombre'] ?></th>
         <th class=".semana2"> <table class="minitabla">
                 <tr>
                 <td class="dia"><p><img class="cheq" src="/assisted/img/chequesito.png"></p></td>

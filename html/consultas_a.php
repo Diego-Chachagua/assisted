@@ -130,12 +130,17 @@ $total=$datos['hombres']+$datos1['mujer'];
             <select name="seccion" class="sec">
                 <option disabled selected="">Secci&oacute;n</option>
                 <option>A</option>
-                <option>B</option>
-                <option>D</option>
-                <option>H</option>
                 <option>E</option>
+                <option>K</option>
+                <option>G</option>
+                <option>D</option>
+                <option>O</option>
+                <option>L</option>
                 <option>M</option>
                 <option>N</option>
+                <option>F</option>
+                <option>H</option>
+                <option>B</option>
             </select>
             <input class="modii2" type="submit" value="Enviar">
                 </form>
