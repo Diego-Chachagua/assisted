@@ -112,9 +112,9 @@ if (isset($_POST['j'])) {
 
 
                             $consulta = "SELECT dia FROM asistencia_g WHERE nie = '$nie' AND dia = '$fecha' AND c_turno = '$c_turno'";
-                                $comprobar = $conexion->query($consulta); 
-                                $turno = $comprobar->fetch_assoc();
-                            if($turno['dia'] == null){
+                            $comprobar = $conexion->query($consulta); 
+                            $turno = $comprobar->fetch_assoc();
+                            if($turno['dia'] != null){
 
                             
                             if ($asis == "A") {
