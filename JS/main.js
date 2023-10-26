@@ -64,7 +64,6 @@ async function detectFaces() {
                             j: numero // Enviar la variable j al servidor
                         },
                         success: function(response) {
-
                             // Agrega el nuevo contenido
                             $('#resultado').html(response);
                         },
@@ -79,7 +78,7 @@ async function detectFaces() {
         }
     }
     
-    }, 4000);
+    }, 5000);
   });
 }
 

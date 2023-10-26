@@ -9,7 +9,6 @@ session_start(); // Iniciar o reanudar la sesión
 
 require('../cone.php');
 
-
 if (isset($_POST['j'])) {
     if ($_POST['j']) {
         $numero = $_POST['j'];
@@ -37,14 +36,39 @@ if (isset($_POST['j'])) {
                         $nie = $fila['nie'];
                         date_default_timezone_set('America/El_Salvador');
                         $fecha = date('Y-m-d');
-                        $consulta = "SELECT * FROM asistencia_g WHERE nie = '$nie' AND dia = '$fecha'";
-                        $comprobar = $conexion->query($consulta);
-                        $registros = mysqli_num_rows($comprobar);
-                    if($registros == 0){
+                        $hora = date('H:i:s'); // Formato de hora: horas:minutos:segundos
+                        $anio = date('Y');
+                        function turno($hora, $rango){
+                            $horaActual = strtotime($hora);
+                            $horaInicio = strtotime($rango[0]);
+                            $horaFin = strtotime($rango[1]);
+
+                            return ($horaActual >= $horaInicio && $horaActual <= $horaFin);
+                        }
+                        $rango2 = ['06:30:00', '07:10:00'];
+                        $rango1 = ['12:30:00', '13:10:00'];
+                        
+                        if (turno($hora, $rango1)) {
+                            $c_turno = 1;
+                        }elseif (turno($hora, $rango2)) {
+                            $c_turno = 2;
+                        }else{
+                            $c_turno = null;
+                        }
+                        $consulta3= "SELECT g.grado, s.seccion
+                        FROM estudiantes e
+                        JOIN alum_grado ag ON e.nie = ag.nie
+                        JOIN grado g ON ag.c_grado = g.c_grado
+                        JOIN alum_seccion asl ON e.nie = asl.nie
+                        JOIN seccion s ON asl.c_se = s.c_se
+                        WHERE e.nie = '$nie';";
+                        $da = $conexion->query($consulta3);
+                        $datos = $da->fetch_assoc();
+                    
                         echo '<tr>';
                         echo '<td>';
                         // Mostrar la imagen directamente en la página utilizando el esquema de datos base64
-                        echo '<img src="data:image/jpeg;base64,' . $foto . '" alt="Foto del estudiante" width="2500px" height="9000px">';
+                        echo '<img src="data:image/jpeg;base64,' . $foto . '" alt="Foto del estudiante" width="900" height="900">';
                         echo '</td>';
                         echo '</tr>';
                         echo '<tr>';
@@ -54,10 +78,8 @@ if (isset($_POST['j'])) {
                         echo '</tr>';
                         echo '<tr>';
                         echo '<td>';
-                        date_default_timezone_set('America/El_Salvador');
-                        $hora = date('H:i:s'); // Formato de hora: horas:minutos:segundos
-                        // $fecha = date('Y-m-d'); // Formato de fecha: año-mes-día
-                        $anio = date('Y');
+                        echo $datos['grado'];
+                        echo $datos['seccion'];                
                         $c_anio = [
                             2023 => 1,
                             2024 => 2,
@@ -68,54 +90,24 @@ if (isset($_POST['j'])) {
                             2029 => 7,
                             2030 => 8
                         ];
-
-                        function turno($hora, $rango){
-                            $horaActual = strtotime($hora);
-                            $horaInicio = strtotime($rango[0]);
-                            $horaFin = strtotime($rango[1]);
-
-                            return ($horaActual >= $horaInicio && $horaActual <= $horaFin);
-                        }
                         if (array_key_exists($anio, $c_anio)) {
                             $cod_anio = $c_anio[$anio];
                         }
-
-                        $rango1 = ['06:30:00', '07:10:00'];
-                        $rango2 = ['12:30:00', '13:10:00'];
-                        
-                        if (turno($hora, $rango1)) {
-                            $c_turno = 1;
-                        }elseif (turno($hora, $rango2)) {
-                            $c_turno = 2;
-                        }else{
-                            $c_turno = null;
-                        }
-                        $variables = [$c_turno, $nie, $hora, $fecha, $cod_anio];
-                        $index = 0;
-
-                        do {
-                            if ($variables[$index] === null || $variables[$index] === '') {
-                                break; // Detener el bucle si la variable es nula o vacía
-                            }                                         
-                            $index++;
-                            if ($index == 5) {
-                                $asis = "A";
-                            }else{
-                                $asis = null;
-                            }
-                            if ($asis == "A") {
-                                $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', '$asis', null, null, null )";
-                                $into = $conexion->query($insert);
-                            }
-                        } while ($index < count($variables));
-
+                        $consulta = "SELECT dia FROM asistencia_g WHERE nie = '$nie' AND dia = '$fecha' AND c_turno = '$c_turno'";
+                        $comprobar = $conexion->query($consulta); 
+                        if ($comprobar) {
+                            $turno = $comprobar->fetch_assoc();
+                            if (!$turno) {
+                                $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', 'A', null, null, null )";
+                                $into = $conexion->query($insert);        
+                            }    
+                        }                
                         echo '</td>';
                         echo '</tr>';
                     }
                     echo '</table>';
                 }
-            }
-        }
+            }        
     }
 }
 ?>
