@@ -66,42 +66,44 @@ if (isset($_POST['j'])) {
                         $datos = $da->fetch_assoc();
                     
                         echo '<tr>';
-                        echo '<td>';
+                        echo '<td colspan="2">';
                         // Mostrar la imagen directamente en la página utilizando el esquema de datos base64
                         echo '<img src="data:image/jpeg;base64,' . $foto . '" alt="Foto del estudiante" width="900" height="900">';
                         echo '</td>';
                         echo '</tr>';
                         echo '<tr>';
-                        echo '<td class="nombre">';
+                        echo '<td colspan="2" class="nombre">';
                         echo $nombre;
                         echo '</td>';
                         echo '</tr>';
                         echo '<tr>';
-                        echo '<td>';
-                        echo $datos['grado'];
-                        echo $datos['seccion'];                
-                        $c_anio = [
-                            2023 => 1,
-                            2024 => 2,
-                            2025 => 3,
-                            2026 => 4,
-                            2027 => 5,
-                            2028 => 6,
-                            2029 => 7,
-                            2030 => 8
-                        ];
-                        if (array_key_exists($anio, $c_anio)) {
-                            $cod_anio = $c_anio[$anio];
-                        }
-                        $consulta = "SELECT dia FROM asistencia_g WHERE nie = '$nie' AND dia = '$fecha' AND c_turno = '$c_turno'";
-                        $comprobar = $conexion->query($consulta); 
-                        if ($comprobar) {
-                            $turno = $comprobar->fetch_assoc();
-                            if (!$turno) {
-                                $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', 'A', null, null, null )";
-                                $into = $conexion->query($insert);        
-                            }    
-                        }                
+                        echo '<td class="grado">';
+                        echo 'A&ntilde;o: ' . $datos['grado'];               
+                        // $c_anio = [
+                        //     2023 => 1,
+                        //     2024 => 2,
+                        //     2025 => 3,
+                        //     2026 => 4,
+                        //     2027 => 5,
+                        //     2028 => 6,
+                        //     2029 => 7,
+                        //     2030 => 8
+                        // ];
+                        // if (array_key_exists($anio, $c_anio)) {
+                        //     $cod_anio = $c_anio[$anio];
+                        // }
+                        // $consulta = "SELECT dia FROM asistencia_g WHERE nie = '$nie' AND dia = '$fecha' AND c_turno = '$c_turno'";
+                        // $comprobar = $conexion->query($consulta); 
+                        // if ($comprobar) {
+                        //     $turno = $comprobar->fetch_assoc();
+                        //     if (!$turno) {
+                        //         $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', 'A', null, null, null )";
+                        //         $into = $conexion->query($insert);        
+                        //     }    
+                        // }     
+                        echo '</td>';
+                        echo '<td class="seccion">';
+                        echo 'secci&oacute;n: ' . $datos['seccion']; 
                         echo '</td>';
                         echo '</tr>';
                     }
