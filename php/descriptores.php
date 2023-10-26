@@ -45,8 +45,8 @@ if (isset($_POST['j'])) {
 
                             return ($horaActual >= $horaInicio && $horaActual <= $horaFin);
                         }
-                        $rango2 = ['06:30:00', '07:10:00'];
-                        $rango1 = ['12:30:00', '13:10:00'];
+                        $rango2 = ['06:30:00', '12:10:00'];
+                        $rango1 = ['12:20:00', '23:10:00'];
                         
                         if (turno($hora, $rango1)) {
                             $c_turno = 1;
@@ -78,7 +78,7 @@ if (isset($_POST['j'])) {
                         echo '</tr>';
                         echo '<tr>';
                         echo '<td class="grado">';
-                        echo 'A&ntilde;o: ' . $datos['grado'];               
+                        // echo 'A&ntilde;o: ' . $datos['grado'];               
                         // $c_anio = [
                         //     2023 => 1,
                         //     2024 => 2,
@@ -103,7 +103,7 @@ if (isset($_POST['j'])) {
                         // }     
                         echo '</td>';
                         echo '<td class="seccion">';
-                        echo 'secci&oacute;n: ' . $datos['seccion']; 
+                        // echo 'secci&oacute;n: ' . $datos['seccion']; 
                         echo '</td>';
                         echo '</tr>';
                     }
