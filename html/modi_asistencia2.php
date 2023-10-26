@@ -15,7 +15,7 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
         $consulta=null;
     }
 } else {
-    echo "No se han enviado todos los datos necesarios.";
+
 }
 ?>
 <!DOCTYPE html>
@@ -43,7 +43,24 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
     <div class="botonnes">
         <button class="modifi">Asistido</button><br><br><br>
         <button class="modifi">No Asistido</button><br><br><br>
-        <button class="modifi">Justificacion</button>
+        <button class="modifi" id="justi">Justificacion</button>
+
+        <div class="ventanaflotante" id="ventana">
+        <div class="contenedor">
+            <br>
+            <p class="escusa">Escriba la justificacion:</p>
+            <textarea type="text" name="justifi" class="chambre"></textarea>
+        </div>
+        <button id="guardar" type="submit">
+              <img class="gua12" src="/assisted/img/chequesito.png">
+              <p class="ca2">Aceptar</p>
+            </button>
+        <button id="cerrar">
+              <img  class="cancel12" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
+            </button>
+            
+</div>
     </div>
     <div class="table">
     <h1 class="list">Listado de asistencia Instituto Nacional Cornelio Azenón Sierra 2023</h1>
@@ -170,4 +187,15 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
     <br><br>
 </div>
 </body>
+<script>
+document.getElementById('justi').addEventListener('click', function () {
+    document.getElementById('ventana').style.display = 'block';
+});
+
+document.getElementById('cerrar').addEventListener('click', function () {
+    document.getElementById('ventana').style.display = 'none';
+});
+
+
+</script>
 </html>
