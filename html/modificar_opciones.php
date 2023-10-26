@@ -20,7 +20,7 @@ require ('conexion.php');
                 <a  id="i" href="#">Inicio</a>
                 <img id="c" src="/assisted/img/us.png">
                 <p id="tit">Control de asistencia</p>
-                <a href="#">
+                <a href="cerrarsesion.php">
                     <img id="e" src="/assisted/img/salida.png">
                 </a>
                 <p class="sesion">Cerrar sesi&oacute;n</p>
@@ -51,27 +51,32 @@ require ('conexion.php');
             <br>
             <br>
             <div id="container">
-                <input type="date" id="fecha">
+                <form action="./modi_asistencia2.php" method="post">
+                <input type="date" id="fecha" name="fecha">
             </div>
-            <select class="anio">
+            <select class="anio" name="grado">
                 <option disabled selected="">A&ntilde;o</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
             </select>
-            <select class="sec">
+            <select class="sec" name="seccion">
                 <option disabled selected="">Secci&oacute;n</option>
                 <option>A</option>
-                <option>B</option>
-                <option>D</option>
-                <option>H</option>
                 <option>E</option>
+                <option>K</option>
+                <option>G</option>
+                <option>D</option>
+                <option>O</option>
+                <option>L</option>
                 <option>M</option>
                 <option>N</option>
+                <option>F</option>
+                <option>H</option>
+                <option>B</option>
             </select>
-            <a href="#">
-                <button class="modi" type="button">Modificar</button>
-        </a>
+            <input class="modi" type="submit" value="Consultar">
+            </form>
         </div>
         <br><br>
     </body>
