@@ -78,7 +78,7 @@ async function detectFaces() {
         }
     }
     
-    }, 5000);
+    }, 3000);
   });
 }
 
