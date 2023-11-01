@@ -52,7 +52,7 @@ async function detectFaces() {
                 const numero = j;
                 const descriptorAR = JSON.parse(descriptoresFaciales[j]);
                 const descriptoreslim = Object.values(descriptorAR[0]);
-    
+            lista = 1;
                 if (descriptoreslim.length === descriptorJS.length) {
                     const distance = faceapi.euclideanDistance(descriptorJS, descriptoreslim);
     
@@ -72,6 +72,21 @@ async function detectFaces() {
                             console.error(error);
                         }
                     });
+
+                    $.ajax({
+                      type: 'POST',
+                      url: 'descriptores.php',
+                      data:{
+                        comprobante : lista
+                      },
+                      success: function(response2) {
+                        $('#lista').html(response2);
+                      },
+                      error: function(error){
+                        console.log(error);
+                      }
+                    });
+
                     }
                 }                
             }

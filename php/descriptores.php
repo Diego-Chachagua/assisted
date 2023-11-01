@@ -5,8 +5,7 @@
 </head>
 <body>
 <?php
-session_start(); // Iniciar o reanudar la sesión
-
+session_start(); 
 require('../cone.php');
 
 if (isset($_POST['j'])) {
@@ -36,7 +35,7 @@ if (isset($_POST['j'])) {
                         $nie = $fila['nie'];
                         date_default_timezone_set('America/El_Salvador');
                         $fecha = date('Y-m-d');
-                        $hora = date('H:i:s'); // Formato de hora: horas:minutos:segundos
+                        $hora = date('H:i:s'); 
                         $anio = date('Y');
                         function turno($hora, $rango){
                             $horaActual = strtotime($hora);
@@ -64,21 +63,6 @@ if (isset($_POST['j'])) {
                         WHERE e.nie = '$nie';";
                         $da = $conexion->query($consulta3);
                         $datos = $da->fetch_assoc();
-                    
-                        echo '<tr>';
-                        echo '<td colspan="2">';
-                        // Mostrar la imagen directamente en la página utilizando el esquema de datos base64
-                        echo '<img src="data:image/jpeg;base64,' . $foto . '" alt="Foto del estudiante" width="900" height="900">';
-                        echo '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<td colspan="2" class="nombre">';
-                        echo $nombre;
-                        echo '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<td class="grado">';
-                        echo 'A&ntilde;o: ' . $datos['grado'];               
                         $c_anio = [
                             2023 => 1,
                             2024 => 2,
@@ -100,7 +84,20 @@ if (isset($_POST['j'])) {
                                 $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', 'A', null, null, null )";
                                 $into = $conexion->query($insert);        
                             }    
-                        }     
+                        }
+                        echo '<tr>';
+                        echo '<td colspan="2">';
+                        echo '<img src="data:image/jpeg;base64,' . $foto . '" alt="Foto del estudiante" width="900" height="900">';
+                        echo '</td>';
+                        echo '</tr>';
+                        echo '<tr>';
+                        echo '<td colspan="2" class="nombre">';
+                        echo $nombre;
+                        echo '</td>';
+                        echo '</tr>';
+                        echo '<tr>';
+                        echo '<td class="grado">';
+                        echo 'A&ntilde;o: ' . $datos['grado'];                                            
                         echo '</td>';
                         echo '<td class="seccion">';
                         echo 'secci&oacute;n: ' . $datos['seccion']; 
@@ -109,9 +106,51 @@ if (isset($_POST['j'])) {
                     }
                     echo '</table>';
                 }
-            }        
+            }
     }
 }
+
+
+if (isset($_POST['comprobante']) && !empty($_POST['comprobante'])) {
+    function llegadaTardia($horaLlegada, $horasPermitidas) {
+        $horaActual = strtotime($horaLlegada);
+        $horaInicio = strtotime($horasPermitidas[0]);
+        $horaFin = strtotime($horasPermitidas[1]);
+
+        return ($horaActual >= $horaInicio && $horaActual <= $horaFin);
+    }
+
+    date_default_timezone_set('America/El_Salvador');
+    $fecha = date('Y-m-d');
+    $consulta4 = "SELECT e.nombre AS nombre_estudiante, ag.hora AS hora_entrada
+                  FROM estudiantes e
+                  JOIN asistencia_g ag ON e.nie = ag.nie
+                  WHERE ag.dia = '$fecha'";
+    $consulta5 = $conexion->query($consulta4);
+
+    if ($consulta5) {
+        $llegada1 = ['07:01:00', '07:10:00'];
+        $llegada2 = ['13:01:00', '13:10:00'];
+
+        echo "<ul>";
+        while ($filas = $consulta5->fetch_assoc()) {
+            $nombrelis = $filas['nombre_estudiante'];
+            $horalis = $filas['hora_entrada'];
+
+            $horall = null;
+
+            if (llegadaTardia($horalis, $llegada1) || llegadaTardia($horalis, $llegada2)) {
+                $horall = "Llegada tardía";
+            }
+
+            echo "<li>Nombre: $nombrelis - Hora: $horalis - $horall</li>";
+
+        }
+        echo "</ul>";
+    }
+}
+
+
 ?>
 
 </body>
