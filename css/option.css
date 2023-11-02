@@ -1,0 +1,78 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+body{
+background: #5086C1;
+font-family: 'Anton', sans-serif;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+.textop{
+    color: rgb(255, 255, 255);
+    
+}
+
+/* Estilo del contenedor gris */
+.container-gray {
+    background-color: #ccc;
+    padding: 20 px;
+    height: 450px;
+    width: 450px;
+    border: #000 solid 2px;
+    border-radius: 10px;
+}
+
+/* Estilo del cuadro blanco */
+.inner-box {
+  margin: 10px;
+    background-color: #4085df;
+    padding: 20px;
+    border: 2px solid #00dd25;
+    height: 380px;
+    width: 380px;
+    border-radius: 10px;
+}
+
+.container_año{
+  float: left;
+  margin-left: 90px;
+}
+
+.container_seccion{
+  float: right;
+  margin-right: 90px;
+}
+
+.materia{
+  width: 200px;
+  font-size: 15px;
+}
+
+.seccion{
+  width: 80px;
+  font-size: 15px;
+}
+
+.grado{
+  width: 80px;
+  font-size: 15px;
+}
+
+.principal{
+  margin-top: 50px;
+}
+
+.textopr{
+  color: white;
+}
+
+.button1{
+  width: 120px;
+  height: 30px;
+  background-color: #00dd25;
+  color: white;
+}

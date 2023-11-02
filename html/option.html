@@ -4,71 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eleccion de año y seccion</title>
+    <link rel="stylesheet" type="text/css" href="/assisted/css/option.css">
 </head>
 <body>
-        <section class="principal">
-            <center><h1 class="title">Eleccion de año, seccion, Materia y Turno</h1></center>
-            <div>
-                <Form class="formulario" method="post" action="asistencia_materia.php">
-                    <center>
-                    <div class="container_año">
-                        <select class="grado" name="grado" required>
-                            <option class="option_grade" >Grado</option>
-                            <option class="option_grade" value="1">1</option>
-                            <option class="option_grade" value="2">2</option>
-                            <option class="option_grade" value="3">3</option>
-                        </select>
+    <center><div class="textop" align="center"><font  size="+10"><marquee direction="left" loop="70">INSTITUTO NACIONAL CORNELIO AZEN&Oacute;N SIERRA</marquee></font></div></center>
+    <br><br>
+    <center><div class="container-gray">
+        <div class="inner-box">
+            <h1 class="textopr">Eleccion de año, seccion, Materia y Turno</h1>
+            <section class="principal">
+                <div>
+                    <Form class="formulario" method="post" action="asistencia_materia.php">
+                        <center>
+                        <div class="container_año">
+                            <select class="grado" name="grado" required>
+                                <option class="option_grade" >Grado</option>
+                                <option class="option_grade" value="1">1</option>
+                                <option class="option_grade" value="2">2</option>
+                                <option class="option_grade" value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="container_seccion">
+                            <select  class="seccion" name="seccion" required>
+                                <option class="option_section">Seccion</option>
+                                <option class="option_section" value="1">A</option>
+                                <option class="option_section" value="2">E</option>
+                                <option class="option_section" value="3">K</option>
+                                <option class="option_section" value="4">G</option>
+                                <option class="option_section" value="5">D</option>
+                                <option class="option_section" value="6">O</option>
+                                <option class="option_section" value="7">L</option>
+                                <option class="option_section" value="8">M</option>
+                                <option class="option_section" value="9">N</option>
+                                <option class="option_section" value="10">F</option>
+                                <option class="option_section" value="11">H</option>
+                                <option class="option_section" value="12">B</option>
+                            </select>
+                        </div><br><br>
+                        <div class="container_Materia">
+                            <select class="materia" name="materia" required>
+                                <option class="option_materia" >Materias</option>
+                                <option class="option_materia" value="1">Ciencias Naturales y Medio Ambiente</option>
+                                <option class="option_materia" value="2">Lenguaje y Literatura</option>
+                                <option class="option_materia" value="3">Estudios Sociales y Civica</option>
+                                <option class="option_materia" value="4">Inlges</option>
+                                <option class="option_materia" value="5">Informatica</option>
+                                <option class="option_materia" value="6">Orientacion para la vida</option>
+                                <option class="option_materia" value="7">Seminario</option>
+                                <option class="option_materia" value="8">Habilitacion para el Empleo</option>
+                                <option class="option_materia" value="9">Moral Urbanidad y Civica</option>
+                                <option class="option_materia" value="10">Matematica</option>
+                                <option class="option_materia" value="11">Bachillerato Tecnico Vocacional en Ingenieria Electrica</option>
+                                <option class="option_materia" value="12">Bachillerato Tecnico Vocacional Agropecuario</option>
+                                <option class="option_materia" value="13">Bachillerato Tecnico Vocacional en Gestion y Desarrollo Turistico</option>
+                                <option class="option_materia" value="14">Bachillerato Tecnico Vocacional en Gestion y Desarrollo de Software</option>
+                                <option class="option_materia" value="15">Bachillerato Texnico Vocacional en Asistencia Contable</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="container_turno">
+                            <select class="turno" name="turno" required>
+                                <option class="option_turno" >Turnos</option>
+                                <option class="option_turno" value="1">Turno Matutino</option>
+                                <option class="option_turno" value="2">Turno Vespertino</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="container_boton">
+                            <button class="button1" type="submit" class="boton">Continuar</button>
                     </div>
-                    <div class="container_seccion">
-                        <select  class="seccion" name="seccion" required>
-                            <option class="option_section">Seccion</option>
-                            <option class="option_section" value="1">A</option>
-                            <option class="option_section" value="2">E</option>
-                            <option class="option_section" value="3">K</option>
-                            <option class="option_section" value="4">G</option>
-                            <option class="option_section" value="5">D</option>
-                            <option class="option_section" value="6">O</option>
-                            <option class="option_section" value="7">L</option>
-                            <option class="option_section" value="8">M</option>
-                            <option class="option_section" value="9">N</option>
-                            <option class="option_section" value="10">F</option>
-                            <option class="option_section" value="11">H</option>
-                            <option class="option_section" value="12">B</option>
-                        </select>
-                    </div>
-                    <div class="container_Materia">
-                        <select class="materia" name="materia" required>
-                            <option class="option_materia" >Materias</option>
-                            <option class="option_materia" value="1">Ciencias Naturales y Medio Ambiente</option>
-                            <option class="option_materia" value="2">Lenguaje y Literatura</option>
-                            <option class="option_materia" value="3">Estudios Sociales y Civica</option>
-                            <option class="option_materia" value="4">Inlges</option>
-                            <option class="option_materia" value="5">Informatica</option>
-                            <option class="option_materia" value="6">Orientacion para la vida</option>
-                            <option class="option_materia" value="7">Seminario</option>
-                            <option class="option_materia" value="8">Habilitacion para el Empleo</option>
-                            <option class="option_materia" value="9">Moral Urbanidad y Civica</option>
-                            <option class="option_materia" value="10">Matematica</option>
-                            <option class="option_materia" value="11">Bachillerato Tecnico Vocacional en Ingenieria Electrica</option>
-                            <option class="option_materia" value="12">Bachillerato Tecnico Vocacional Agropecuario</option>
-                            <option class="option_materia" value="13">Bachillerato Tecnico Vocacional en Gestion y Desarrollo Turistico</option>
-                            <option class="option_materia" value="14">Bachillerato Tecnico Vocacional en Gestion y Desarrollo de Software</option>
-                            <option class="option_materia" value="15">Bachillerato Texnico Vocacional en Asistencia Contable</option>
-                        </select>
-                    </div>
-                    <div class="container_turno">
-                        <select class="turno" name="turno" required>
-                            <option class="option_turno" >Turnos</option>
-                            <option class="option_turno" value="1">Turno Matutino</option>
-                            <option class="option_turno" value="2">Turno Vespertino</option>
-                        </select>
-                    </div>
-                    <div class="container_boton">
-                        <button type="submit" class="boton">Continuar</button>
+                        </center>
+                    </Form>
                 </div>
-                    </center>
-                </Form>
-            </div>
-    </section>
+        </section>
+        </div>
+    </div>
+</center>
 </body>
 </html>
