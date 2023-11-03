@@ -79,7 +79,7 @@ if (isset($_POST['j'])) {
                         $comprobar = $conexion->query($consulta); 
                         if ($comprobar) {
                             $turno = $comprobar->fetch_assoc();
-                            if (!$turno) {
+                            if ($c_turno != null) {
                                 $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', 'A', null, null, null )";
                                 $into = $conexion->query($insert);        
                             }    
