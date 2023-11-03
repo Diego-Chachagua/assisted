@@ -5,7 +5,6 @@
 </head>
 <body>
 <?php
-session_start(); 
 require('../cone.php');
 
 if (isset($_POST['j'])) {
@@ -144,7 +143,7 @@ if (isset($_POST['comprobante']) && !empty($_POST['comprobante'])) {
             }
             echo '<table class="dance" border="3">';
             echo '<tr class="tablaasis">';
-            echo '<td >Nombre: ' . $nombrelis . ' - Hora: ' . $horalis . ' - ' . $horall . '</td>';
+            echo '<td >Nombre: ' . $nombrelis . ' - Hora: ' . $horalis . $horall . '</td>';
             echo '</tr>';
             echo '</table>';
         }
