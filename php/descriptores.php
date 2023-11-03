@@ -43,15 +43,15 @@ if (isset($_POST['j'])) {
 
                             return ($horaActual >= $horaInicio && $horaActual <= $horaFin);
                         }
-                        $rango2 = ['06:30:00', '07:10:00'];
-                        $rango1 = ['12:30:00', '13:10:00'];
+                        $rango2 = ['12:30:00', '13:10:00'];
+                        $rango1 = ['06:30:00', '07:10:00'];
                         
                         if (turno($hora, $rango1)) {
                             $c_turno = 1;
                         }elseif (turno($hora, $rango2)) {
                             $c_turno = 2;
                         }else{
-                            $c_turno = null;
+                            $c_turno = 0;
                         }
                         $consulta3= "SELECT g.grado, s.seccion
                         FROM estudiantes e
@@ -78,11 +78,20 @@ if (isset($_POST['j'])) {
                         $consulta = "SELECT dia FROM asistencia_g WHERE nie = '$nie' AND dia = '$fecha' AND c_turno = '$c_turno'";
                         $comprobar = $conexion->query($consulta); 
                         if ($comprobar) {
-                            $turno = $comprobar->fetch_assoc();
-                            if ($c_turno != null) {
+                            $turno1 = array();
+                            while($turno = $comprobar->fetch_assoc()){
+                            $turno1[] = $turno['dia'];
+                            }
+                            $dia = "";
+                            foreach ($turno1 as $dia) {
+                            }
+
+                            if ($dia == null) {
                                 $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', 'A', null, null, null )";
-                                $into = $conexion->query($insert);        
-                            }    
+                                $into = $conexion->query($insert);
+                            }
+                            
+
                         }
                         echo '<tr>';
                         echo '<td colspan="2">';
