@@ -142,9 +142,11 @@ if (isset($_POST['comprobante']) && !empty($_POST['comprobante'])) {
             if (llegadaTardia($horalis, $llegada1) || llegadaTardia($horalis, $llegada2)) {
                 $horall = "Llegada tardía";
             }
-
-            echo "<li>Nombre: $nombrelis - Hora: $horalis - $horall</li>";
-
+            echo '<table class="dance" border="3">';
+            echo '<tr class="tablaasis">';
+            echo '<td >Nombre: ' . $nombrelis . ' - Hora: ' . $horalis . ' - ' . $horall . '</td>';
+            echo '</tr>';
+            echo '</table>';
         }
         echo "</ul>";
     }

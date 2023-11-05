@@ -98,3 +98,18 @@ body{
 .seccion{
     font-size: 20px;
 }
+
+.tablaasis{
+    background-color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-right: 60px;
+    width: 690px;
+}
+
+.dance{
+    background-color: white;
+    margin-top: 15px;
+    margin-right: 100px;
+    width: 550px;
+}
