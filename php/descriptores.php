@@ -91,6 +91,8 @@ if (isset($_POST['j'])) {
                                 $into = $conexion->query($insert);
                             }else{
                                 $into = null;
+                            
+
                             }
                             
 

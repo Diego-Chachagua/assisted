@@ -36,6 +36,7 @@ require ('conexion.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asistencia Materia</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="/assisted/css/option.css">
 </head>
 <body>
     <section class="contenedor_P">
@@ -52,15 +53,16 @@ require ('conexion.php');
         <p>La justificacion debera ser añadida en dado caso que el estudiante/alumno no haya asistido.</p>
     </div>
 </div>
+<br>
         <div class="Tabla">
-           <table class="tabla_alumnos" border solid 1px>
+           <table class="tabla_alumnos" border solid 2px>
             <caption> Asistencia de alumnos del turno: <?php echo $n_tur ?> </caption>
             <thead>
         <tr>
-            <td>N°</td>
-            <td>Nombre Completo</td>
-            <td>Asistencia</td>
-            <td>Justificacion   
+            <td class="n">N°</td>
+            <td class="no">Nombre Completo</td>
+            <td class="ch">Asistencia</td>
+            <td class="j">Justificacion   
                  <input type="button" id="abrirModal" value="?" ></input></td>
         </tr>
     </thead>
@@ -72,13 +74,13 @@ require ('conexion.php');
             $id++;
         ?>
         <tr>
-            <td><?php echo $id; ?></td>
-            <td><?php echo $dato['nombre']?></td>
-            <td>
+            <td class="n"><?php echo $id; ?></td>
+            <td class="no"><?php echo $dato['nombre']?></td>
+            <td class="ch">
         
             <center><input type="checkbox" name="checkbox[]" value="<?php echo  $dato['nie']?>" checked></center>
             </td>
-            <td><input type="textarea" name="textarea[]" value="<?php $i?>" placeholder="añadir justificacion"></td>
+            <td class="j"><input class="jus" type="textarea" name="textarea[]" value="<?php $i?>" placeholder="añadir justificacion"></td>
         </tr>
         <?php
         };
@@ -88,7 +90,7 @@ require ('conexion.php');
 </table>
 </div>
 <br>
-<input type="submit" value="Guardar asistencia">
+<input class="guar" type="submit" value="Guardar asistencia">
 </form>
 </center>
     </section>
