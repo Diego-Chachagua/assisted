@@ -47,18 +47,21 @@ for($i=0;$i<$cant;$i++){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardar Asistencia</title>
+    <link rel="stylesheet" type="text/css" href="/assisted/css/option.css">
 </head>
 <body>
     <div>
         <center> 
-            <h1>AISTENCIA GURDADA CON EXITO</h1>
+            <h1 class="asis">ASISTENCIA GURDADA CON EXITO</h1>
             <br><br><br>
-            <h2>Datos de la asistencia</h2>
+            <div class="white">
+            <h2 class="da">Datos de la asistencia</h2><br>
                 <p>Hora de ingreso: <?php echo $Hora?> </p>
                 <p>Fecha de ingreso: <?php echo $dia?> </p>
                 <br>
                 <br>
-                <a href="option.html">REGRESAR<-</a>
+                <a class="verde" href="option.html">>>> REGRESAR <<<</a>
+                </div>
         </center>
     </div>
 </body>
