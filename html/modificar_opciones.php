@@ -31,15 +31,12 @@ require ('conexion.php');
         <div class="modasis">
             <p class="ra">Razones Especiales De</p>
             <p class="ra">Asistencia:</p>
-            <a href="#">
-                <button class="but" type="button">Dia deportivo</button>
-        </a>
-        <a href="#">
+            <form action="./deportivo.php" method="post">
+                <button class="but" type="button" name="deportivo">Dia deportivo</button>
+                </form>
                 <button class="b" type="button">Act.Institucional</button>
-        </a>
-        <a href="#">
+
                 <button class="bu" type="button">Dia Feriado</button>
-        </a>
         </div>
         <br><br><br>
         <div class="modasis2">
