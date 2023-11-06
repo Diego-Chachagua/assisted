@@ -89,6 +89,7 @@ if (isset($_POST['j'])) {
                             if ($dia == null) {
                                 $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', 'A', null, null, null )";
                                 $into = $conexion->query($insert);
+                                mysqli_close($conexion);
                             }
                             
 
