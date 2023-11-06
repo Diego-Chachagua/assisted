@@ -46,12 +46,13 @@ if (isset($_POST['j'])) {
                         $rango2 = ['12:30:00', '13:10:00'];
                         $rango1 = ['06:30:00', '07:10:00'];
                         
+                        $c_turno = "";
                         if (turno($hora, $rango1)) {
                             $c_turno = 1;
                         }elseif (turno($hora, $rango2)) {
                             $c_turno = 2;
                         }else{
-                            $c_turno = 0;
+                            $c_turno = null;
                         }
                         $consulta3= "SELECT g.grado, s.seccion
                         FROM estudiantes e
@@ -87,11 +88,20 @@ if (isset($_POST['j'])) {
                             }
 
                             if ($dia == null) {
-                                $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '$c_turno', '$hora', '$fecha', 'A', null, null, null )";
-                                if (mysqli_query($conexion, $insert)) {
-                                    echo "Inserción exitosa";
-                                } else {
-                                    echo "Error en la inserción: " . mysqli_error($conexion);
+                                if($c_turno == 1){
+                                    $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '1', '$hora', '$fecha', 'A', null, null, null )";
+                                    if (mysqli_query($conexion, $insert)) {
+                                        echo "Inserción exitosa";
+                                    } else {
+                                        echo "Error en la inserción: " . mysqli_error($conexion);
+                                    }
+                                }elseif ($c_turno == 2) {
+                                    $insert = "INSERT INTO asistencia_g (c_asisg, nie, c_anio, c_turno, hora, dia, asisg, asg_j, asig_in, asg_ai) VALUES (null, '$nie', '$cod_anio', '2', '$hora', '$fecha', 'A', null, null, null )";
+                                    if (mysqli_query($conexion, $insert)) {
+                                        echo "Inserción exitosa";
+                                    } else {
+                                        echo "Error en la inserción: " . mysqli_error($conexion);
+                                    }
                                 }
                             }else{
                                 $into = null;
