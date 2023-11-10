@@ -106,8 +106,7 @@
 .b{
     position:relative ;
     border-radius: none;
-    top: 50px;
-    left: 400px;
+    left: 550px;
     background-color: #f9f6f6;
     height: 50px;
     width: 180px;
@@ -120,8 +119,8 @@
 .bu{
     position:relative ;
     border-radius: none;
-    top: 50px;
-    left: 700px;
+    left: 1000px;
+    top: -50px;
     background-color: #f9f6f6;
     height: 50px;
     width: 160px;

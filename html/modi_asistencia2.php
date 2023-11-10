@@ -1,30 +1,38 @@
 <?php
 require ('conexion.php');
+$nombreMes = " ";
+
 session_start();
+
+// Verifica si ya hay datos en la sesión, si no, inicializa las variables
+if (!isset($_SESSION['fecha'], $_SESSION['grado'], $_SESSION['seccion'])) {
+    $_SESSION['fecha'] = '';
+    $_SESSION['grado'] = '';
+    $_SESSION['seccion'] = '';
+}
 if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
-    $fecha = $_POST['fecha'];
-    $grado = $_POST['grado'];
-    $seccion = $_POST['seccion'];
-    $consulta3=mysqli_query($conexion,"SELECT grado.c_grado,seccion.c_se FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio WHERE grado.grado='$grado' AND seccion.seccion='$seccion'");
+    $_SESSION['fecha'] = $_POST['fecha'];
+   $_SESSION['grado']  = $_POST['grado'];
+    $_SESSION['seccion'] = $_POST['seccion'];
+    $consulta3=mysqli_query($conexion,"SELECT grado.c_grado,seccion.c_se FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio WHERE grado.grado='$_SESSION[grado]' AND seccion.seccion='$_SESSION[seccion]'");
     if($mostrar=mysqli_fetch_assoc($consulta3)){
 
         $cod_seccion=$mostrar['c_se'];
        $cod_grado=$mostrar['c_grado'];
-       $numeroMes = date("m", strtotime($fecha));
-    
-    // Definir un array asociativo con los nombres de los meses en español
+      $numeroMes = date("m", strtotime($_SESSION['fecha']));
     $mesesEnEspanol = array(
-        "01" => "Enero",
-        "02" => "Febrero",
-        "03" => "Marzo",
-        "04" => "Abril",
-        "05" => "Mayo",
-        "06" => "Junio",
-        "07" => "Julio",
-        "08" => "Agosto",
-        "09" => "Septiembre",
-        "10" => "Octubre",
-        "11" => "Nviembre"
+        "01" => "enero",
+        "02" => "febrero",
+        "03" => "marzo",
+        "04" => "abril",
+        "05" => "mayo",
+        "06" => "junio",
+        "07" => "julio",
+        "08" => "agosto",
+        "09" => "septiembre",
+        "10" => "octubre",
+        "11" => "noviembre",
+        "12" => "diciembre"
     );
 
     if (array_key_exists($numeroMes, $mesesEnEspanol)) {
@@ -32,14 +40,15 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
     } else {
         echo "Número de mes no válido.";
     }
+
        $consulta=mysqli_query ($conexion,"SELECT estudiantes.nombre FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='$cod_seccion' AND alum_grado.c_grado='$cod_grado'");
     }else{
         $consulta=null;
     }
 } else {
-
 }
 ?>
+<?php include('verjusti.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -68,30 +77,12 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
         <button class="modifi" id="justi" onclick="insertarjusti()">Justificacion</button><br><br><br>
         <button class="modifi" onclick="">Guardar</button>
 
-        <div class="ventanaflotante" id="ventana">
-        <div class="contenedor">
-            <br>
-            <p class="escusa">Escriba la justificacion:</p>
-            <form action="" method="">
-            <textarea type="text" name="justifi" class="chambre"></textarea>
-        </div>
-        <button id="guardar" type="submit">
-              <img class="gua12" src="/assisted/img/chequesito.png">
-              <p class="ca2">Aceptar</p>
-            </button>
-            </form>
-        <button id="cerrar">
-              <img  class="cancel12" src="/assisted/img/cancelar.png">
-              <p class="ca">Cancelar</p>
-            </button>
-            
-</div>
     </div>
     <div class="table">
     <h1 class="list">Listado de asistencia Instituto Nacional Cornelio Azenón Sierra 2023</h1>
     <br>
 
-    <h2 class="aniiio" id="Anio">A&ntilde;o:<?php echo $grado?></h2><h2 class="seccion" id="Seccion">Seccion:<?php echo $seccion?></h2><h2 class="mes" id="Mes">Mes:<?php echo $nombreMes?></h2><br>
+    <h2 class="aniiio" id="Anio">A&ntilde;o:<?php echo $_SESSION['grado']?></h2><h2 class="seccion" id="Seccion">Seccion:<?php echo $_SESSION['seccion']?></h2><h2 class="mes" id="Mes">Mes:<?php echo $nombreMes?></h2><br>
 
     <table>
         <thead>
