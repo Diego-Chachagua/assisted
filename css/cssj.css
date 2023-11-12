@@ -512,3 +512,260 @@ td{
     width: 90px;
     margin-left: 200px;
     }
+
+    .imagen{
+        width: 600px;
+        height: 200px;
+        float: left;
+    }
+    
+    .imagens{
+        width: 650px;
+        height: 120px;
+        margin-top: 10px;
+        margin-left: 60px;
+    
+    }
+
+    .cuadro-gris {
+        background-color: #5086C1;
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 50px;
+        cursor: pointer;
+        border: none;
+    }
+    
+    
+    .cuadro-gris img {
+        background-color: white;
+        max-width: 90%;
+        max-height: 90%;
+    }
+    
+    .grid-layout1{
+        display: grid;
+         grid-template-columns: 30% 30% 30%;
+         margin-left: 100px;
+    }
+
+    .modasis10{
+        background-color: #5086C1;
+        height: 240px;
+    }
+
+    .fleca{
+        height: 95px;
+    }
+
+    .ll{
+        font-size: 38px;
+        color: white;
+        text-align: center;
+        font-family: Candal;
+        word-wrap: break-word;
+    }
+
+    /* Estilos para la ventana flotante */
+ .verprofe {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #5086C1;
+    border: 5px solid #ccc;
+    padding: 20px;
+    width: 1140px;
+    height: 600px;
+    z-index: 1000;
+    border-radius: 10px;
+    overflow-y: auto;
+    }
+    
+    /* Estilos para el contenido de la ventana */
+    .contenido {
+      text-align: center;
+    }
+
+    table {
+        border-collapse:collapse;
+        margin-left: 180px;
+        margin-top: 60px;
+      }
+      
+      .miTabla, td {
+        border-collapse:collapse;
+        border: 2px solid rgb(6, 6, 6);
+        text-align: center;
+        background-color: #FBF7F7;
+      }
+      
+      .nie{
+        width: 150px;
+      }
+      .nom{
+        width: 420px;
+      }
+      .gen{
+        width: 110px;
+      }
+      .edit{
+        width: 120px;
+      }
+      .editar{
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      .drop{
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      .bor{
+        height: 30px;
+        float: right;
+      }
+      .ed{
+        height: 30px;
+        float: left;
+      }
+    
+      .con{
+        height: 1px;
+      }
+    
+      .agregar{
+        float: left;
+        margin-top: 5px;
+        background-color: #5086C1;
+        border: none;
+        cursor: pointer;
+      }
+    
+      .agre{
+        height: 50px;
+      }
+    
+      .salir{
+        margin-top: -20px;
+        margin-left: 1110px;
+        border: none;
+        cursor: pointer;
+        background: none;
+        height: 25px;
+      }
+    
+      .exit{
+        height: 25px;
+        float: right;
+        margin-right: 3px;
+      }
+    
+      .secc{
+        font-size: 38px;
+        color: #fff;
+        position: relative;
+        left: 10px;
+        margin-top: -20px;
+    }  
+
+    .secc2{
+        font-size: 24px;
+        color: #fff;
+        position: relative;
+        left: 10px;
+        margin-top: -20px;
+    } 
+    
+    .registro1{
+        display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #5086C1;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 400px;
+  height: auto;
+  z-index: 1000;
+  border-radius: 10px;
+    }
+
+    .cancel{
+        height: 15px;
+        position: relative;
+        right: 35px;
+        top: -3px;
+        }
+        
+        #cerrar11,#cerrar12,#cerrar13 {
+        background-color: #f1f1f1;
+        color: #0e0d0d;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        position: relative;
+        left: 190px;
+        top: 10px;
+        height: 30px;
+        width: 110px;
+        }
+        
+        .ca{
+        color: black;
+        font-size: 16px;
+        position: relative;
+        top: -19px;
+        left: 10px;
+        }
+        
+        .ca2{
+        color: black;
+        font-size: 16px;
+        position: relative;
+        top: -25px;
+        left: 10px;
+        }
+        
+        #guardar{
+        background-color: #f1f1f1;
+        color: #0e0d0d;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        position: relative;
+        right: 190px;
+        top: 15px;
+        font-size: 16px;
+        height: 30px;
+        width: 90px;
+        }
+        
+        .gua{
+        height: 20px;
+        position: relative;
+        top: -5px;
+        right: 30px;
+        }
+
+        .nombree,.apellidos,.usus,.contrase{
+            width: 160px; 
+  padding: 5px; 
+  border: 2px solid #ccc; 
+  border-radius: 10px; 
+  font-size: 16px; 
+  color: #333; 
+  position: relative;
+        }
+        

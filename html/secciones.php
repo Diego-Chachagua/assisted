@@ -27,8 +27,8 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
             <nav class="navigation">
             <a  id="i2" href="#" class="active">Inicio <span></span></a>
             <a  id="i2" href="#">Asistencia <span></span></a>
-            <a  id="i2" href="#">Secciones <span></span> </a>
-            <a  id="i2" href="#">Usuarios <span></span></a>
+            <a  id="i2" href="./secciones.php">Secciones <span></span> </a>
+            <a  id="i2" href="./verusuarios.php">Usuarios <span></span></a>
         </nav>
             <img id="c2" src="/assisted/img/us.png">
             <p id="tit2">Control de asistencia</p>
