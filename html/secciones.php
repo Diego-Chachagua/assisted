@@ -7,7 +7,7 @@ $cod_anio="1";
 $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estudiantes.genero FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='$cod_seccion' AND alum_grado.c_grado='$cod_grado' AND alum_anio.c_anio='$cod_anio'");
 ?>
 <?php
-  $consulta3=mysqli_query($conexion,"SELECT grado.grado,seccion.seccion FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio");
+  $consulta3=mysqli_query($conexion,"SELECT grado.grado,seccion.seccion,especialidades.nombre_es FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio INNER JOIN seccion_especialidad ON seccion_especialidad.c_se=seccion.c_se INNER JOIN especialidades ON especialidades.c_es=seccion_especialidad.c_es");
   $consulta4=mysqli_query($conexion,"SELECT COUNT(*) AS cantidad FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='$cod_seccion' AND alum_grado.c_grado='$cod_grado' AND alum_anio.c_anio='$cod_anio'");
 ?>
 <!DOCTYPE html>
@@ -46,37 +46,10 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
         <input type="text" name="idSeccion" id="" value="<?php echo $datos3["grado"].$datos3['seccion']; ?>" hidden>
 
     <button class="sec" onclick="mostrarVentana('verestu','<?php echo $datos3['grado']?>','<?php echo $datos3['seccion']?>')" type="submit">
-            <h1 class="anio"><?php echo $datos3['grado'] . $datos3['seccion']?></h1>
+            <h1 class="anio"><?php echo $datos3['grado'] .' '.$datos3['seccion']?></h1>
             <div class="btn">
                 <p class="s">Estudiantes:<?php echo $datos4['cantidad']?></p>
-                <p class="sa">Especialidad:<?php if($datos3['seccion']=="K"){
-                echo 'Tecnico Vocacional En Gestion Y Desarrollo de Software'?>
-                <?php }else if($datos3['seccion']=="N"){
-                    echo 'Tecnico Vocacional En Gestion Y Desarrollo Turistico'
-                ?>
-                <?php }else if($datos3['seccion']=="M"){
-                  echo ' Técnico Vocacional Agropecuario'?>
-                  <?php }else if($datos3['seccion']=="B"){
-                    echo 'Técnico Vocacional Asistencia Contable'?>
-                    <?php }else if($datos3['seccion']=="L"){
-                      echo 'Técnico Vocacional Ingeniería Eléctrica'?>
-                      <?php }else if($datos3['seccion']=="O"){
-                         echo 'Técnico Vocacional Ingeniería Eléctrica'?>
-                         <?php }else if($datos3['seccion']=="A"){
-                          echo 'General'?>
-                          <?php }else if($datos3['seccion']=="E"){
-                            echo 'General' ?>
-                            <?php }else if($datos3['seccion']=="G"){
-                              echo 'General'?>
-                             <?php }else if($datos3['seccion']=="D"){
-                              echo 'General'?>
-                              <?php }else if($datos3['seccion']=="H"){
-                                echo 'General'?>
-                                <?php }else if($datos3['seccion']=="F"){
-                                echo 'General' ?>
-                                <?php } ?></p>
-                                
-                         
+                <p class="sa">Especialidad:<?php echo $datos3['nombre_es'] ?></p>                   
             </div>
         </button>
         
@@ -91,11 +64,6 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
     <img class="exit" src="/assisted/img/cancelar.png">
   </button>
   <div id="datosModal" class="seccion"></div>
-    <h2 class="secc">Estudiantes:</h2>
-
-      <button class="elimina">
-        <img class="elimi" onclick="" src="/assisted/img/eliminar.png"> Eliminar Secci&oacute;n
-      </button>
       <button class="agregar">
         <img  class="agre" id="openModal" src="/assisted/img/agregar.png">
       </button>
@@ -170,29 +138,30 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
 
     <div id="ventanaFlotante" class="ventana">
         <div class="contenido2">
-            <input type="text" id="aniio" name="miTextField" placeholder="a&ntilde;o" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-            <input type="text" id="nom" name="miTextField" placeholder="Seccion" maxlength="30">
-            <select class="mes2" id="mes2">
+        <form action="agreseccion.php" method="post">
+            <input type="text" id="aniio" name="grado" placeholder="Grado" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+            <input type="text" id="nom" name="seccion" placeholder="Seccion" maxlength="1">
+            <input type="text" id="aniio" name="anio" placeholder="A&ntilde;o" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+            <select class="mes2" id="mes2" name="turno">
               <option disabled selected="">Turno</option>
               <option>Matutino</option>
             <option>Vespertino</option>
           </select>
           <br><br>
-          <input type="text" id="espe" name="miTextField" placeholder="Nombre de la Especialidad" maxlength="70">
-        
-              <form class="datos" action="">
-             <button id="cerrarVentana" onclick="cerrarVentana('ventanaFlotante')">
-              <img  class="cancel" src="/assisted/img/cancelar.png">
-              <p class="ca">Cancelar</p>
-            </button>
-              </form>
-             <form action="">
-            <button id="guardar" type="submit" onclick="insertdatos()">
+          <input type="text" id="espe" name="especialidad" placeholder="Nombre de la Especialidad" maxlength="70">
+             
+            <button id="guardar" type="submit">
               <img class="gua" src="/assisted/img/chequesito.png">
               <p class="ca2">Aceptar</p>
             </button>
              </form>
-
+             <form action="">
+             <button id="cerrarVentana" onclick="cerrarVentana('ventanaFlotante')">
+              <img  class="cancel" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
+            </button>
+            </form>
+        </div>
     <script> // Función para mostrar la ventana flotante
       // Función para mostrar una ventana flotante
 function mostrarVentana(idVentana,grado, seccion) {

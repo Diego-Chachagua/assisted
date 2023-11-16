@@ -54,19 +54,59 @@ $consulta3=mysqli_query($conexion,"SELECT profesor.nombre_p,usuario.usu_p,usuari
             <div class="contenido">
                 <form action="agreprof.php" method="post">
                 <input type="text" name="nombre" class="nombree" placeholder="Nombre">  <input type="text" name="apellidos" class="apellidos" placeholder="Apellidos"><br><br>
-                <input type="text" name="usuario" class="usus" placeholder="Usuario">  <input type="text" name="contrasenia" class="contrase" placeholder="Contraseña">
+                <input type="text" name="usuario" class="usus" placeholder="Usuario">  <input type="text" name="contrasenia" class="contrase" placeholder="Contraseña"><br><br>
+                <p class="materr">Materias:</p>
+                <div class="materi">
+                <input type="checkbox" name="materias[]" value="1">Ciencias <br>
+                <input type="checkbox" name="materias[]" value="2">Lenguaje <br>
+                <input type="checkbox" name="materias[]" value="3">Sociales <br>
+                <input type="checkbox" name="materias[]" value="4">Ingles <br>
+                <input type="checkbox" name="materias[]" value="5">Informatica <br>
+                <input type="checkbox" name="materias[]" value="6">OPLV <br>
+                <input type="checkbox" name="materias[]" value="7">Seminario <br> 
+                <input type="checkbox" name="materias[]" value="8">HPP <br>
+                <input type="checkbox" name="materias[]" value="9">MUCI  <br>
+                <input type="checkbox" name="materias[]" value="10">Matematica <br>
+                <input type="checkbox" name="materias[]" value="11">Electricidad <br>
+                <input type="checkbox" name="materias[]" value="12">Agropecuario <br>
+                <input type="checkbox" name="materias[]" value="13">Turismo  <br>
+                <input type="checkbox" name="materias[]" value="14">Software <br>
+                <input type="checkbox" name="materias[]" value="15">Contaduria <br>
+                </div>
+                <select name="grado[]" class="anios">
+                    <option value="" disabled selected>Año</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>1 y 2</option>
+                </select>
+                <select name="seccion[]" class="seccc" multiple>
+                    <option value="" disabled selected>Seccion</option>
+                    <option>A</option>
+                <option>E</option>
+                <option>K</option>
+                <option>G</option>
+                <option>D</option>
+                <option>O</option>
+                <option>L</option>
+                <option>M</option>
+                <option>N</option>
+                <option>F</option>
+                <option>H</option>
+                <option>B</option>
+                </select>
+                </div>
                 <br>
-                <button id="cerrar11" onclick="window.location.href='/assisted/html/verusuarios.php'">
-              <img  class="cancel" src="/assisted/img/cancelar.png">
-              <p class="ca">Cancelar</p>
-            </button>
             <button id="guardar" type="submit">
               <img class="gua" src="/assisted/img/chequesito.png">
               <p class="ca2">Aceptar</p>
             </button>
             </form>
+            <button id="cerrar11" onclick="window.location.href='/assisted/html/verusuarios.php'">
+              <img  class="cancel" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
+            </button>
             </div>
-        </div>
 
         <script>
     document.getElementById('agregar').addEventListener('click', function () {

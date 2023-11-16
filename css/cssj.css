@@ -583,7 +583,7 @@ td{
     height: 600px;
     z-index: 1000;
     border-radius: 10px;
-    overflow-y: auto;
+    overflow: scroll;
     }
     
     /* Estilos para el contenido de la ventana */
@@ -693,7 +693,23 @@ td{
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   width: 400px;
-  height: auto;
+  height: 220px;
+  z-index: 1000;
+  border-radius: 10px;
+    }
+
+    .registro2,.registro3{
+        display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #5086C1;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 400px;
+  height: 150px;
   z-index: 1000;
   border-radius: 10px;
     }
@@ -705,7 +721,7 @@ td{
         top: -3px;
         }
         
-        #cerrar11,#cerrar12,#cerrar13 {
+        #cerrar11{
         background-color: #f1f1f1;
         color: #0e0d0d;
         border: none;
@@ -714,10 +730,25 @@ td{
         cursor: pointer;
         border-radius: 10px;
         position: relative;
-        left: 190px;
-        top: 10px;
+        left: 50px;
+        top: -65px;
         height: 30px;
         width: 110px;
+        }
+
+        #cerrar12,#cerrar13{
+            background-color: #f1f1f1;
+            color: #0e0d0d;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            position: relative;
+            left: 100px;
+            top: -35px;
+            height: 30px;
+            width: 110px;
         }
         
         .ca{
@@ -745,12 +776,28 @@ td{
         cursor: pointer;
         border-radius: 10px;
         position: relative;
-        right: 190px;
-        top: 15px;
+        right: 50px;
+        top: -60px;
         font-size: 16px;
         height: 30px;
         width: 90px;
         }
+
+        #guardar1,#guardar2{
+            background-color: #f1f1f1;
+            color: #0e0d0d;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            position: relative;
+            right: 200px;
+            top: 20px;
+            font-size: 16px;
+            height: 30px;
+            width: 90px;
+            }
         
         .gua{
         height: 20px;
@@ -769,3 +816,42 @@ td{
   position: relative;
         }
         
+        .materi{
+            height: 50px; /* Altura máxima del contenedor */
+            overflow-y: scroll; /* Barra de desplazamiento vertical */
+            border: 1px solid #ccc; /* Borde para el contenedor */
+            padding: 0; /* Espaciado interno */
+            width: 130px;
+            text-align: justify;
+        }
+        .materr{
+            text-align: left;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .anios{
+            width: 70px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    text-align: center;
+    position: relative;
+    top: -55px;
+    left: 40px;
+        }
+
+        .seccc{
+            width: 90px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    text-align: center;
+    position: relative;
+    top: -40px;
+    left: 60px;
+        }

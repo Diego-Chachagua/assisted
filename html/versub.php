@@ -50,21 +50,21 @@ $consulta3=mysqli_query($conexion,"SELECT subdirector.nombre_s,usuario.usu_s,usu
     </div>
         </div>
 
-        <div class="registro1" id="registro2">
+        <div class="registro2" id="registro2">
             <div class="contenido">
-                <form action="" method="post">
+                <form action="agresub.php" method="post">
                 <input type="text" name="nombre" class="nombree" placeholder="Nombre">  <input type="text" name="apellidos" class="apellidos" placeholder="Apellidos"><br><br>
                 <input type="text" name="usuario" class="usus" placeholder="Usuario">  <input type="text" name="contrasenia" class="contrase" placeholder="Contraseña">
                 <br>
-                <button id="cerrar12" onclick="window.location.href='/assisted/html/verusuarios.php'">
-              <img  class="cancel" src="/assisted/img/cancelar.png">
-              <p class="ca">Cancelar</p>
-            </button>
-            <button id="guardar" type="submit">
+            <button id="guardar1" type="submit">
               <img class="gua" src="/assisted/img/chequesito.png">
               <p class="ca2">Aceptar</p>
             </button>
                 </form>
+                <button id="cerrar12" onclick="window.location.href='/assisted/html/verusuarios.php'">
+              <img  class="cancel" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
+            </button>
             </div>
         </div>
 

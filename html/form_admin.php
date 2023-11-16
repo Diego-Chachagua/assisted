@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <link rel="stylesheet" type="text/css" href="/assisted/css/login.css">
   <title>Formulario</title>
@@ -12,7 +12,7 @@
                     <h2>Login</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" required name="usuario">
+                        <input type="text" required name="usuario">
                         <label for="">Usuario</label>
                     </div>
                     <div class="inputbox">

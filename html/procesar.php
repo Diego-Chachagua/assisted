@@ -9,10 +9,22 @@ $cod_c;
 while($dato=mysqli_fetch_array($consulta5,MYSQLI_ASSOC)){
        $cod_c=$dato['c_se'];
 }
+$consulta6=mysqli_query($conexion,"SELECT COUNT(*) AS cantidad FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='$cod_c' AND alum_grado.c_grado='$grado' AND alum_anio.c_anio='1'");
 $consulta2=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,estudiantes.genero FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_anio ON alum_anio.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='$cod_c' AND alum_grado.c_grado='$grado' AND alum_anio.c_anio='1'");
 // Realiza la consulta o el procesamiento necesario en la base de datos
 // Aquí un ejemplo ficticio:
 // Devuelve los datos al cliente (JavaScript)
+if($datos1=mysqli_fetch_assoc($consulta6)){
+    $datos1['cantidad'];
+}
+echo '<h2 class="secc">Estudiantes:' . $datos1['cantidad'] . '</h2>';
+?>
+<form action="" method="post">
+<button class="elimina" name="drop">
+<img class="elimi" src="/assisted/img/eliminar.png"> Eliminar Secci&oacute;n
+</button>
+</form>
+<?php
 echo '<table id="miTabla">
 
 <tr class="cab">
