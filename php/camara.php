@@ -44,7 +44,9 @@ if ($result->num_rows > 0) {
         <!-- Contenido de la primera columna -->
         <video id="video" width="660" height="350" autoplay muted></video>
         <p id="mensaje"></p>
+        <div class="scrollable-container">
         <p id="lista"></p>
+        </div>
     </div>
     <div class="column2">
  

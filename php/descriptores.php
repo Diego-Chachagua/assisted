@@ -107,7 +107,7 @@ if (isset($_POST['j'])) {
                                 $into = null;
                             }
                             
-
+                        
                         }
                         echo '<tr>';
                         echo '<td colspan="2">';
@@ -129,6 +129,7 @@ if (isset($_POST['j'])) {
                         echo '</tr>';
                     }
                     echo '</table>';
+
                 }
             }
     }

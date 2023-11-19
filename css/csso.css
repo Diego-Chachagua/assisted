@@ -112,3 +112,9 @@ body{
     margin-right: 100px;
     width: 550px;
 }
+
+.scrollable-container {
+    width: 580px; /* Define el ancho deseado del contenedor con desplazamiento */
+    height: 220px; /* Define la altura deseada del contenedor con desplazamiento */
+    overflow: auto; /* Habilita la barra de desplazamiento cuando el contenido excede las dimensiones del contenedor */
+}
