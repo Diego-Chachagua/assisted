@@ -113,7 +113,7 @@ $consulta3=mysqli_query($conexion,"SELECT profesor.nombre_p,usuario.usu_p,usuari
             <p class="materr2">Quieres eliminar este usuario y profesor <br>
        de la lista,Ingrese los datos de nuevo:</p><br>
        <form action="dropprofe.php" method="post">
-       <input type="text" name="nom" class="nombree" placeholder="Nombre">  <input type="text" name="apellido" class="apellidos" placeholder="Apellidos"><br>
+       <input type="text" name="nombre" class="nombree" placeholder="Nombre">  <input type="text" name="apellido" class="apellidos" placeholder="Apellidos"><br>
                 <br>
                 <button id="guardar10" type="submit">
               <img class="gua" src="/assisted/img/chequesito.png">

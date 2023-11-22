@@ -39,7 +39,7 @@ $consulta3=mysqli_query($conexion,"SELECT admin.nombre_a,usuario.usu_a,usuario.c
                    <button class="editar">
                        <img class="ed" src="/assisted/img/lapiz.png">
                    </button>
-                   <button class="drop">
+                   <button class="drop3">
                        <img class="bor" src="/assisted/img/eliminar.png">
                    </button>
                </td>
@@ -67,7 +67,24 @@ $consulta3=mysqli_query($conexion,"SELECT admin.nombre_a,usuario.usu_a,usuario.c
             </button>
             </div>
         </div>
-    
+        <div class="registro1" id="drop3">
+                <div class="contenido">
+            <p class="materr2">Quieres eliminar este usuario y administrador <br>
+       de la lista,Ingrese los datos de nuevo:</p><br>
+       <form action="dropadmin.php" method="post">
+       <input type="text" name="nom" class="nombree" placeholder="Nombre">  <input type="text" name="apellido" class="apellidos" placeholder="Apellidos"><br>
+                <br>
+                <button id="guardar10" type="submit">
+              <img class="gua" src="/assisted/img/chequesito.png">
+              <p class="ca2">Aceptar</p>
+            </button>
+       </form>
+                <button id="cerrar10" onclick="window.location.href='/assisted/html/verusuarios.php'">
+              <img  class="cancel" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
+            </button>
+                </div>
+            </div>
 
         <script>
     document.getElementById('agregar3').addEventListener('click', function () {
@@ -79,7 +96,7 @@ document.getElementById('cerrar13').addEventListener('click', function () {
 });
 </script>
 <script>
-document.querySelectorAll('.drop').forEach(function (boton) {
+document.querySelectorAll('.drop3').forEach(function (boton) {
     boton.addEventListener('click', function () {
         document.getElementById('drop3').style.display = 'block';
     });

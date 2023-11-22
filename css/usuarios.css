@@ -170,7 +170,7 @@ table {
     background: none;
     cursor: pointer;
   }
-  .drop{
+  .drop,.drop2,.drop3{
     border: none;
     background: none;
     cursor: pointer;

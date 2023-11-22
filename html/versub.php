@@ -39,7 +39,7 @@ $consulta3=mysqli_query($conexion,"SELECT subdirector.nombre_s,usuario.usu_s,usu
                    <button class="editar">
                        <img class="ed" src="/assisted/img/lapiz.png">
                    </button>
-                   <button class="drop">
+                   <button class="drop2">
                        <img class="bor" src="/assisted/img/eliminar.png">
                    </button>
                </td>
@@ -53,7 +53,7 @@ $consulta3=mysqli_query($conexion,"SELECT subdirector.nombre_s,usuario.usu_s,usu
         <div class="registro2" id="registro2">
             <div class="contenido">
                 <form action="agresub.php" method="post">
-                <input type="text" name="nombre" class="nombree" placeholder="Nombre">  <input type="text" name="apellidos" class="apellidos" placeholder="Apellidos"><br><br>
+                <input type="text" name="nombres" class="nombree" placeholder="Nombre">  <input type="text" name="apellidos" class="apellidos" placeholder="Apellidos"><br><br>
                 <input type="text" name="usuario" class="usus" placeholder="Usuario">  <input type="text" name="contrasenia" class="contrase" placeholder="Contraseña">
                 <br>
             <button id="guardar1" type="submit">
@@ -96,7 +96,7 @@ document.getElementById('cerrar12').addEventListener('click', function () {
 });
 </script>
 <script>
-document.querySelectorAll('.drop').forEach(function (boton) {
+document.querySelectorAll('.drop2').forEach(function (boton) {
     boton.addEventListener('click', function () {
         document.getElementById('drop1').style.display = 'block';
     });
