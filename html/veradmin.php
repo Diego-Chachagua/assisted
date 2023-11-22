@@ -67,6 +67,7 @@ $consulta3=mysqli_query($conexion,"SELECT admin.nombre_a,usuario.usu_a,usuario.c
             </button>
             </div>
         </div>
+    
 
         <script>
     document.getElementById('agregar3').addEventListener('click', function () {
@@ -75,5 +76,16 @@ $consulta3=mysqli_query($conexion,"SELECT admin.nombre_a,usuario.usu_a,usuario.c
 
 document.getElementById('cerrar13').addEventListener('click', function () {
     document.getElementById('registro3').style.display = 'none';
+});
+</script>
+<script>
+document.querySelectorAll('.drop').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+        document.getElementById('drop3').style.display = 'block';
+    });
+});
+
+document.getElementById('cerrar12').addEventListener('click', function () {
+    document.getElementById('drop3').style.display = 'none';
 });
 </script>

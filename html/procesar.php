@@ -19,11 +19,8 @@ if($datos1=mysqli_fetch_assoc($consulta6)){
 }
 echo '<h2 class="secc">Estudiantes:' . $datos1['cantidad'] . '</h2>';
 ?>
-<form action="" method="post">
-<button class="elimina" name="drop">
-<img class="elimi" src="/assisted/img/eliminar.png"> Eliminar Secci&oacute;n
-</button>
-</form>
+
+
 <?php
 echo '<table id="miTabla">
 

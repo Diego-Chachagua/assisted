@@ -46,7 +46,7 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
         <input type="text" name="idSeccion" id="" value="<?php echo $datos3["grado"].$datos3['seccion']; ?>" hidden>
 
     <button class="sec" onclick="mostrarVentana('verestu','<?php echo $datos3['grado']?>','<?php echo $datos3['seccion']?>')" type="submit">
-            <h1 class="anio"><?php echo $datos3['grado'] .' '.$datos3['seccion']?></h1>
+            <h1 class="anio"><?php echo $datos3['grado'] .'°'.$datos3['seccion']?></h1>
             <div class="btn">
                 <p class="s">Estudiantes:<?php echo $datos4['cantidad']?></p>
                 <p class="sa">Especialidad:<?php echo $datos3['nombre_es'] ?></p>                   
@@ -63,14 +63,18 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
     <button class="salir" onclick="cerrarVentana('verestu')">
     <img class="exit" src="/assisted/img/cancelar.png">
   </button>
+  <button class="elimina" id="elimina">
+<img class="elimi" src="/assisted/img/eliminar.png"> Eliminar Secci&oacute;n
+</button>
   <div id="datosModal" class="seccion"></div>
       <button class="agregar">
         <img  class="agre" id="openModal" src="/assisted/img/agregar.png">
       </button>
+      
             <div id="datosMostrados">
           </div>
             <!-- inicio de mi codigo -->
-
+        
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
@@ -104,6 +108,29 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
             </form>
         </div>
     </div>
+    <div id="elimiar" class="ventana2">
+           <div class="contenido2">
+            <p class="secc2">Enserio quiere eliminar la seccion</p>
+            <br>
+            <p class="secc3">Digite el grado y seccion denuevo:</p>
+            <br>
+            <form action="dropseccion.php" method="post">
+            <input type="text" id="aniio" name="grados" placeholder="Grado" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+            <input type="text" id="nom" name="seccion" placeholder="Seccion" maxlength="1">
+            <input type="text" id="aniio" name="anios" placeholder="A&ntilde;o" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+            <button id="guardar01" type="submit">
+              <img class="gua" src="/assisted/img/chequesito.png">
+              <p class="ca2">Aceptar</p>
+            </button>
+             </form>
+             <form action="">
+             <button id="cerrarVentana01" onclick="cerrarVentana('ventanaFlotante')">
+              <img  class="cancel" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
+            </button>
+           </div>
+    </div>
+    </div>
     <script src="/assisted/JS/modal.js"></script>
     <script>
         function openFileInput() {
@@ -133,9 +160,6 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
    </script>
 
 <!-- // codigo fin mio -->
-
-    </div>
-
     <div id="ventanaFlotante" class="ventana">
         <div class="contenido2">
         <form action="agreseccion.php" method="post">
@@ -162,6 +186,7 @@ $consulta=mysqli_query ($conexion,"SELECT estudiantes.nie,estudiantes.nombre,est
             </button>
             </form>
         </div>
+        
     <script> // Función para mostrar la ventana flotante
       // Función para mostrar una ventana flotante
 function mostrarVentana(idVentana,grado, seccion) {
@@ -192,6 +217,16 @@ function cerrarVentana(idVentana) {
 
     document.getElementById(idVentana).style.display = "none";
 }
+    </script>
+    <script>
+      document.getElementById('elimina').addEventListener('click', function () {
+    document.getElementById('elimiar').style.display = 'block';
+});
+
+document.getElementById('cerrarVentana01').addEventListener('click', function () {
+    document.getElementById('elimiar').style.display = 'none';
+});
+
 
     </script>
 </body>

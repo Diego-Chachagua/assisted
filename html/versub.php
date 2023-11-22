@@ -68,6 +68,24 @@ $consulta3=mysqli_query($conexion,"SELECT subdirector.nombre_s,usuario.usu_s,usu
             </div>
         </div>
 
+        <div class="registro1" id="drop1">
+                <div class="contenido">
+            <p class="materr2">Quieres eliminar este usuario y subdirector <br>
+       de la lista,Ingrese los datos de nuevo:</p><br>
+       <form action="dropsub.php" method="post">
+       <input type="text" name="nom" class="nombree" placeholder="Nombre">  <input type="text" name="apellido" class="apellidos" placeholder="Apellidos"><br>
+                <br>
+                <button id="guardar10" type="submit">
+              <img class="gua" src="/assisted/img/chequesito.png">
+              <p class="ca2">Aceptar</p>
+            </button>
+       </form>
+                <button id="cerrar10" onclick="window.location.href='/assisted/html/verusuarios.php'">
+              <img  class="cancel" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
+            </button>
+                </div>
+            </div>
         <script>
     document.getElementById('agregar2').addEventListener('click', function () {
     document.getElementById('registro2').style.display = 'block';
@@ -75,5 +93,16 @@ $consulta3=mysqli_query($conexion,"SELECT subdirector.nombre_s,usuario.usu_s,usu
 
 document.getElementById('cerrar12').addEventListener('click', function () {
     document.getElementById('registro2').style.display = 'none';
+});
+</script>
+<script>
+document.querySelectorAll('.drop').forEach(function (boton) {
+    boton.addEventListener('click', function () {
+        document.getElementById('drop1').style.display = 'block';
+    });
+});
+
+document.getElementById('cerrar11').addEventListener('click', function () {
+    document.getElementById('drop1').style.display = 'none';
 });
 </script>
