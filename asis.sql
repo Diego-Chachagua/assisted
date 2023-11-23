@@ -203,6 +203,7 @@ CREATE TABLE asistencia_g(
 
 CREATE TABLE asistencia_m(
     c_asism smallint AUTO_INCREMENT,
+    c_materia smallint not null,
     nie varchar(10) not null,
     c_anio smallint,
     c_turno smallint,
@@ -214,9 +215,11 @@ CREATE TABLE asistencia_m(
     asm_ai char(1),
     PRIMARY KEY(c_asism),
     INDEX(nie),
+    INDEX(c_materia),
     INDEX(c_anio),
     INDEX(c_turno),
     FOREIGN KEY(nie) REFERENCES estudiantes(nie),
+    FOREIGN KEY(c_materia) REFERENCES materia(c_materia),
     FOREIGN KEY(c_anio) REFERENCES anio(c_anio),
     FOREIGN KEY(c_turno) REFERENCES turno(c_turno)
 );
