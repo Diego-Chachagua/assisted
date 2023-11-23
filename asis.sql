@@ -2,7 +2,7 @@ CREATE TABLE estudiantes(
     nie varchar(10),
     nombre varchar(70) not null,
     genero char(1) not null,
-    foto varchar(70) not null,
+    foto mediumblob not null,
     descriptores longblob not null,
     PRIMARY KEY(nie)
 );
@@ -191,7 +191,7 @@ CREATE TABLE asistencia_g(
     asisg char(1),
     asg_j char(1),
     asig_in char(1),
-    asg_ai char(1),
+    asg_ai char(2),
     PRIMARY KEY(c_asisg),
     INDEX(nie),
     INDEX(c_anio),
