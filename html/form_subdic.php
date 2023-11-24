@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <script>
         function aceptar() {
@@ -48,7 +48,7 @@ if(isset($_POST['registro'])) {//Evaluea si hay datos
         $consulta=mysqli_query($conexion,$query);
         $cantidad=mysqli_num_rows($consulta);
         if($cantidad>0){
-            header("location: ./materias.html");
+            header("location: ../php/camara.php");
         }else{
            echo "Datos incorrectos";
         }

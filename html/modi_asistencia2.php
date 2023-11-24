@@ -17,8 +17,8 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
     $consulta3=mysqli_query($conexion,"SELECT grado.c_grado,seccion.c_se FROM grado INNER JOIN aula_grado ON aula_grado.c_grado=grado.c_grado INNER JOIN seccion ON seccion.c_se=aula_grado.c_se INNER JOIN anio ON anio.c_anio=aula_grado.c_anio WHERE grado.grado='$_SESSION[grado]' AND seccion.seccion='$_SESSION[seccion]'");
     if($mostrar=mysqli_fetch_assoc($consulta3)){
 
-        $cod_seccion=$mostrar['c_se'];
-       $cod_grado=$mostrar['c_grado'];
+        $_SESSION['c_se']=$mostrar['c_se'];
+       $_SESSION['c_grado']=$mostrar['c_grado'];
       $numeroMes = date("m", strtotime($_SESSION['fecha']));
     $mesesEnEspanol = array(
         "01" => "enero",
@@ -41,14 +41,13 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
         echo "Número de mes no válido.";
     }
 
-       $consulta=mysqli_query ($conexion,"SELECT estudiantes.nombre FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se WHERE alum_seccion.c_se='$cod_seccion' AND alum_grado.c_grado='$cod_grado'");
+       $consulta=mysqli_query ($conexion,"SELECT estudiantes.nombre,asistencia_g.asisg FROM estudiantes INNER JOIN alum_seccion ON alum_seccion.nie=estudiantes.nie INNER JOIN alum_grado ON alum_grado.nie=estudiantes.nie INNER JOIN seccion ON seccion.c_se=alum_seccion.c_se INNER JOIN asistencia_g ON asistencia_g.nie=estudiantes.nie WHERE alum_seccion.c_se='$_SESSION[c_se]' AND alum_grado.c_grado='$_SESSION[c_grado]'");
     }else{
         $consulta=null;
     }
 } else {
 }
 ?>
-<?php include('verjusti.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -75,7 +74,6 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
         <button class="modifi" onclick="insertarImagen()">Asistido</button><br><br><br>
         <button class="modifi" onclick="insertarImagen2()">No Asistido</button><br><br><br>
         <button class="modifi" id="justi" onclick="insertarjusti()">Justificacion</button><br><br><br>
-        <button class="modifi" onclick="">Guardar</button>
 
     </div>
     <div class="table">
@@ -84,7 +82,7 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
 
     <h2 class="aniiio" id="Anio">A&ntilde;o:<?php echo $_SESSION['grado']?></h2><h2 class="seccion" id="Seccion">Seccion:<?php echo $_SESSION['seccion']?></h2><h2 class="mes" id="Mes">Mes:<?php echo $nombreMes?></h2><br>
 
-    <table>
+    <table id="tablaAsistencia">
         <thead>
             <tr>
             <th class="num">N°</th>
@@ -140,48 +138,149 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
 
         $contador=1;
 
-         while($mostrar2=mysqli_fetch_assoc($consulta)) {?>
+         while($mostrar2=mysqli_fetch_assoc($consulta)) {
+            $_SESSION['nombre']=$mostrar2['nombre']?>
         <tr>
         <th ><?php echo $contador?></th>
-        <th ><?php echo $mostrar2['nombre'] ?></th>
+        <th ><?php echo $_SESSION['nombre'] ?></th>
         <th class=".semana2"> <table class="minitabla">
                 <tr>
-                <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
+                <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
                 </tr>
                 </table></th>
         <th class=".semana2">
         <table class="minitabla">
                 <tr>
-                <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia"onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
+                <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia"onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
                 </tr>
                 </table>
         </th>
         <th class=".semana2">
         <table class="minitabla">
                 <tr>
-                <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
+                <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
                 </table>
         </th>
         <th class=".semana2">
         <table class="minitabla">
                 <tr>
-                <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
-                    <td class="dia" onclick="habilitarEdicion(this)"></td>
+                <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
+                    <td class="dia" onclick="habilitarEdicion(this)"><?php 
+                if($mostrar2['asisg'] == 'A'){
+                    echo '<img class="cheq" src=/assisted/img/chequesito.png >';
+                }else{
+                    echo '<img class="cancel" src=/assisted/img/cancelar.png >';
+                }?></td>
                 </tr>
                 </table>
         </th>
@@ -193,7 +292,7 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
         </tr>
         </tbody>
     </table>
-    </div>
+    </div><br><br>
     <div class="escr">
     <h2 class="fec_nie">Escribe la fecha, nie y nombre del alumno a consultar justificacion:</h2><br>
     <input class="fecc" type="date" name="fecha" id="" placeholder=""> 
@@ -210,6 +309,24 @@ if (isset($_POST['fecha'], $_POST['grado'], $_POST['seccion'])) {
         <button id="guardar1" type="submit">
               <img class="gua12" src="/assisted/img/chequesito.png">
               <p class="ca2">Aceptar</p>
+            </button>
+            
+</div>
+<div class="ventanaflotante" id="ventana">
+        <div class="contenedor">
+            <br>
+            <p class="escusa">Escriba la justificacion:</p>
+            <form action="guardar.php" method="post" onsubmit="">
+            <textarea type="text" name="justifi" class="chambre"></textarea>
+        </div>
+        <button id="guardar" type="submit">
+              <img class="gua12" src="/assisted/img/chequesito.png">
+              <p class="ca2">Aceptar</p>
+            </button>
+            </form>
+        <button id="cerrar">
+              <img  class="cancel12" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
             </button>
             
 </div>
@@ -236,6 +353,35 @@ document.getElementById('cerrar').addEventListener('click', function () {
 });
 </script>
 <script>
+    function enviarJustificacion() {
+    // Obtén los datos del formulario
+    var justificacion = document.getElementsByName('justifi')[0].value;
+
+    // Realiza una petición AJAX para enviar la justificación al servidor
+    // Aquí deberías usar una biblioteca como jQuery o la API Fetch
+
+    // Por ejemplo, usando Fetch:
+    fetch('tu_script_de_procesamiento.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'justificacion=' + encodeURIComponent(justificacion),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Aquí puedes manejar la respuesta del servidor, si es necesario
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error al enviar la justificación:', error);
+    });
+
+    // Cierra la ventana flotante
+    document.getElementById('ventana').style.display = 'none';
+}
+</script>
+<script>
      var celdaEditable = null;
 
 function habilitarEdicion(celda) {
@@ -249,6 +395,7 @@ function habilitarEdicion(celda) {
 
 function insertarImagen() {
     if (celdaEditable !== null) {
+        
         var imagenPredeterminada = document.createElement("img");
         imagenPredeterminada.src = "/assisted/img/chequesito.png"; // Reemplaza "URL_DE_LA_IMAGEN" con la URL de la imagen que desees utilizar.
         imagenPredeterminada.alt = "Imagen predeterminada";
@@ -260,6 +407,7 @@ function insertarImagen() {
         celdaEditable.appendChild(imagenPredeterminada);
         celdaEditable.contentEditable = false;
         celdaEditable = null;
+        ajustarTamanioImagen(celda);
     }
 }
 function insertarImagen2() {
@@ -268,13 +416,14 @@ function insertarImagen2() {
         imagenPredeterminada.src = "/assisted/img/cancelar.png"; // Reemplaza "URL_DE_LA_IMAGEN" con la URL de la imagen que desees utilizar.
         imagenPredeterminada.alt = "Imagen predeterminada";
         imagenPredeterminada.height = 10;
-        imagenPredeterminada.style.width = "60%";
+        imagenPredeterminada.style.width = "50%";
         imagenPredeterminada.style.display = "block"; // Alinear el contenido como bloque
         imagenPredeterminada.style.margin = "0 auto";
         celdaEditable.innerHTML = ""; // Limpia cualquier contenido existente en la celda.
         celdaEditable.appendChild(imagenPredeterminada);
         celdaEditable.contentEditable = false;
         celdaEditable = null;
+        ajustarTamanioImagen(celda);
     }
 }
 
@@ -286,6 +435,20 @@ function insertarjusti() {
                 celdaEditable = null;
             }
         }
+
+        function ajustarTamanioImagen(celda) {
+    var imagen = celda.querySelector('img'); // Obtener la imagen dentro de la celda
+
+    if (imagen) {
+        // Obtener las dimensiones de la celda
+        var anchoCelda = celda.offsetWidth;
+        var altoCelda = celda.offsetHeight;
+
+        // Ajustar el tamaño de la imagen al tamaño de la celda
+        imagen.style.width = anchoCelda + 'px';
+        imagen.style.height = altoCelda + 'px';
+    }
+}
 </script>
 
 </html>
