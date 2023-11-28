@@ -1,7 +1,7 @@
 <?php
 require ('conexion.php');
 
-$nombre = $_POST['nombre'];
+$nombre = $_POST['nombres'];
 $apellido = $_POST['apellidos'];
 $usuario = $_POST['usuario'];
 $contra = $_POST['contrasenia'];

@@ -397,6 +397,16 @@ font-size: 16px;
 color: #333; 
 position: relative;
     }
+
+    .nombree2{
+      width: 330px; 
+padding: 5px; 
+border: 2px solid #ccc; 
+border-radius: 10px; 
+font-size: 16px; 
+color: #333; 
+position: relative;
+    }
     
     .materi{
         height: 50px; /* Altura máxima del contenedor */
