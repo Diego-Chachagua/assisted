@@ -23,6 +23,53 @@ $insertar=mysqli_query($conexion,"INSERT INTO profesor (c_profe,nombre_p) VALUES
 
 $insertar2=mysqli_query($conexion,"INSERT INTO usuario (c_d,c_profe,usu_p,contra_p) VALUES('$cod_u','$c_prof','$usuario','$contra')"); //inserta el usuario
 
+foreach ($materias as $materia) {
+    $insertar3=mysqli_query($conexion, "INSERT INTO profe_materia (c_mp, c_profe, c_materia) VALUES (null, '$c_prof', '$materia')");
+}
+
+foreach ($grado as $grados){
+    if( $grados == '1 y 2'){
+        $anios = [1,2];
+        foreach ($anios as $anio) {
+            $consulta4 = mysqli_query($conexion, "INSERT INTO grado_profe (c_gp, c_profe, c_grado) VALUES (null, '$c_prof', '$anio')");
+        }
+    }else {
+        $consulta4 = mysqli_query($conexion, "INSERT INTO grado_profe (c_gp, c_profe, c_grado) VALUES (null, '$c_prof', '$grados')");
+    }
+}
+if (!is_array($seccion)) {
+    // Si no es un array, conviértelo en un array
+    $seccion = array($seccion);
+}
+foreach ($seccion as $secciones) {
+    $secc = [
+        'A' => 1,
+        'E' => 2,
+        'K' => 3,
+        'G' => 4,
+        'D' => 5,
+        'O' => 6,
+        'L' => 7,
+        'M' => 8,
+        'N' => 9,
+        'F' => 10,
+        'H' => 11,
+        'B' => 12
+    ];
+
+    if (array_key_exists($secciones, $secc)) {
+        $c_seccion = $secc[$secciones];
+    }
+    echo $c_seccion . "<br>";
+            $consulta5 = mysqli_query($conexion, "INSERT INTO seccion_profe (c_sp, c_se, c_profe) VALUES (null, '$c_seccion', '$c_prof')");
+            if ($consulta5) {
+                echo "Registro exitoso";
+            } else {
+                echo "Error en la consulta: " . mysqli_error($conexion);
+            }            
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
