@@ -10,9 +10,15 @@ $consulta=mysqli_query($conexion,"SELECT c_profe FROM profesor WHERE nombre_p='$
 $mostrar=mysqli_fetch_assoc($consulta);
 $cod_p=$mostrar['c_profe'];
 
+$eliminar=mysqli_query($conexion,"DELETE FROM grado_profe WHERE c_profe='$cod_p'");
+
+$eliminar2=mysqli_query($conexion,"DELETE FROM profe_materia WHERE c_profe='$cod_p'");
+
+$eliminar3=mysqli_query($conexion,"DELETE FROM seccion_profe WHERE c_profe='$cod_p'");
+
 $drop=mysqli_query($conexion,"DELETE FROM usuario WHERE c_profe='$cod_p'");
 
-$drop2=mysqli_query($conexion,"DELETE FROM profesor WHERE nombre_p='$nombre_completo'");
+$drop2=mysqli_query($conexion,"DELETE FROM profesor WHERE c_profe='$cod_p'");
 ?>
 <!DOCTYPE html>
 <html lang="es">
