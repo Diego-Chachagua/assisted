@@ -83,17 +83,17 @@ $consulta3=mysqli_query($conexion,"SELECT profesor.nombre_p,usuario.usu_p,usuari
                 <select name="seccion[]" class="seccc" multiple>
                     <option value="" disabled selected>Seccion</option>
                     <option>A</option>
-                <option>E</option>
-                <option>K</option>
-                <option>G</option>
-                <option>D</option>
-                <option>O</option>
-                <option>L</option>
-                <option>M</option>
-                <option>N</option>
-                <option>F</option>
-                <option>H</option>
-                <option>B</option>
+                    <option>E</option>
+                    <option>K</option>
+                    <option>G</option>
+                    <option>D</option>
+                    <option>O</option>
+                    <option>L</option>
+                    <option>M</option>
+                    <option>N</option>
+                    <option>F</option>
+                    <option>H</option>
+                    <option>B</option>
                 </select>
                 </div>
                 <br>
