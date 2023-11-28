@@ -60,13 +60,7 @@ foreach ($seccion as $secciones) {
     if (array_key_exists($secciones, $secc)) {
         $c_seccion = $secc[$secciones];
     }
-    echo $c_seccion . "<br>";
             $consulta5 = mysqli_query($conexion, "INSERT INTO seccion_profe (c_sp, c_se, c_profe) VALUES (null, '$c_seccion', '$c_prof')");
-            if ($consulta5) {
-                echo "Registro exitoso";
-            } else {
-                echo "Error en la consulta: " . mysqli_error($conexion);
-            }            
 }
 
 
