@@ -36,7 +36,7 @@ $consulta3=mysqli_query($conexion,"SELECT profesor.nombre_p,usuario.usu_p,usuari
                <td class="nie"><?php echo $mostrar3['usu_p'] ?></td>
                <td  class="gen"><?php echo $mostrar3['contra_p'] ?></td>
                <td class="edit">
-                   <button class="editar">
+                   <button class="editar" onclick="mostrarVentana34('actualizar','<?php echo $mostrar3['nombre_p']?>','<?php echo $mostrar3['usu_p']?>','<?php echo $mostrar3['contra_p']?>')">
                        <img class="ed" src="/assisted/img/lapiz.png">
                    </button>
                    <button class="drop" id="elimi">
@@ -146,4 +146,26 @@ document.getElementById('cerrar10').addEventListener('click', function () {
     document.getElementById('drop').style.display = 'none';
 });
 
+</script>
+<script>
+    function mostrarVentana34(idVentana,nombre, usuario, contraseña) {
+  var modal = document.getElementById(idVentana);
+    modal.style.display = "block";
+    var datosaula = {
+        nombre: nombre,
+        usuario: usuario,
+        contraseña: contraseña
+    };  
+    fetch('procesar3.php', {
+        method: 'POST',
+        body: JSON.stringify({ nombre: nombre, usuario: usuario, contraseña: contraseña}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("datosMostrados").innerHTML = data;
+    });
+}
 </script>
