@@ -9,7 +9,7 @@ $contra_n = $_POST['contrasenia'];
 
 if(isset($_POST['nombres'])){
     $nombre_n = $_POST['nombres'];
-    $update=mysqli_query($conexion,"UPDATE admin SET nombre_a ='$nombre_n' WHERE nombre_a='$nombre_v'");
+    $update=mysqli_query($conexion,"UPDATE 'admin' SET nombre_a ='$nombre_n' WHERE nombre_a='$nombre_v'");
 }
 
 if(isset($_POST['usuario'])){
