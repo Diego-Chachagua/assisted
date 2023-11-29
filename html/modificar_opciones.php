@@ -17,7 +17,7 @@ require ('conexion.php');
         <header>
             <div class="cabecera">
                 <img class="as" src="/assisted/img/asis.png">
-                <a  id="i" href="#">Inicio</a>
+                <a id="i" href="../index.html">Inicio</a>
                 <img id="c" src="/assisted/img/us.png">
                 <p id="tit">Control de asistencia</p>
                 <a href="cerrarsesion.php">
