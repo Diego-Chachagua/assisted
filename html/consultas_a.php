@@ -89,25 +89,15 @@ $total=$datos['hombres']+$datos1['mujer'];
             <p class="ma">este archivo incluye la asistencia general de: 
                 (Dias,semanas Y mes seleccionado)</p>
 
-            
-            <select class="mess">
-                <option disabled selected="">Seleccione el mes</option>
-                <option>Enero</option>
-                <option>Febrero</option>
-                <option>Marzo</option>
-                <option>Abril</option>
-                <option>Mayo</option>
-                <option>Junio</option>
-                <option>Julio</option>
-                <option>Agosto</option>
-                <option>Setiembre</option>
-                <option>Octubre</option>
-                <option>Noviembre</option>
-            </select>
-            
-            <a href="#">
-                <button class="modi" type="button">Imprimir Reporte</button>
-        </a>
+                <form action="procesar1.php" method="post">
+                    <input type="number" class="nie" name="nie" placeholder="Nie del estudiante" required>
+                    <label for="mes">Escriba el numero de mes que desea ver si es menor a 10 poner un cero antes ej: 01, 02 y 03</label>
+                    <input type="number" class="mes" name="mes" maxlength="2" placeholder="Mes que desea ver" required>
+                    <input type="number" class="año" name="año" maxlength="2" placeholder="Mes que desea ver" required>
+                    <input type="submit" value="ENVIAR">
+                </form>
+
+
         </div>
         
         <br><br>
