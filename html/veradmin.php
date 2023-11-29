@@ -36,7 +36,7 @@ $consulta3=mysqli_query($conexion,"SELECT admin.nombre_a,usuario.usu_a,usuario.c
                <td class="nie"><?php echo $mostrar3['usu_a'] ?></td>
                <td  class="gen"><?php echo $mostrar3['contra_a'] ?></td>
                <td class="edit">
-                   <button class="editar">
+                <button class="editar" onclick="mostrarVentana12('actualizar','<?php echo $mostrar3['nombre_a'] ?>', '<?php echo $mostrar3['usu_a'] ?>', '<?php echo $mostrar3['contra_a']?>')">
                        <img class="ed" src="/assisted/img/lapiz.png">
                    </button>
                    <button class="drop3">
@@ -85,8 +85,16 @@ $consulta3=mysqli_query($conexion,"SELECT admin.nombre_a,usuario.usu_a,usuario.c
             </button>
                 </div>
             </div>
-
-        <script>
+            <div class="registro1" id="actualizar">
+                <div class="contenido">
+                    <div id="datosMostrados"></div>
+                    <button id="cerrar10" onclick="cerrarVentana('actualizar')">
+              <img  class="cancel" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
+            </button>
+                </div>
+            </div>
+<script>
     document.getElementById('agregar3').addEventListener('click', function () {
     document.getElementById('registro3').style.display = 'block';
 });
@@ -105,4 +113,26 @@ document.querySelectorAll('.drop3').forEach(function (boton) {
 document.getElementById('cerrar12').addEventListener('click', function () {
     document.getElementById('drop3').style.display = 'none';
 });
+</script>
+<script>
+function mostrarVentana12(idVentana,nombre, usuario, contraseña) {
+    var modal = document.getElementById(idVentana);
+    modal.style.display = "block";
+    var datosaula = {
+        nombre: nombre,
+        usuario: usuario,
+        contraseña: contraseña
+    };  
+    fetch('procesar4.php', {
+        method: 'POST',
+        body: JSON.stringify({ nombre: nombre, usuario: usuario, contraseña: contraseña}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("datosMostrados").innerHTML = data;
+    });
+}
 </script>
