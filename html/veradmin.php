@@ -36,7 +36,7 @@ $consulta3=mysqli_query($conexion,"SELECT admin.nombre_a,usuario.usu_a,usuario.c
                <td class="nie"><?php echo $mostrar3['usu_a'] ?></td>
                <td  class="gen"><?php echo $mostrar3['contra_a'] ?></td>
                <td class="edit">
-                <button class="editar" onclick="mostrarVentana12('actualizar','<?php echo $mostrar3['nombre_a'] ?>', '<?php echo $mostrar3['usu_a'] ?>', '<?php echo $mostrar3['contra_a']?>')">
+                <button class="editar" onclick="mostrarVentana12('actualizar5','<?php echo $mostrar3['nombre_a'] ?>', '<?php echo $mostrar3['usu_a'] ?>', '<?php echo $mostrar3['contra_a']?>')">
                        <img class="ed" src="/assisted/img/lapiz.png">
                    </button>
                    <button class="drop3">
@@ -85,10 +85,10 @@ $consulta3=mysqli_query($conexion,"SELECT admin.nombre_a,usuario.usu_a,usuario.c
             </button>
                 </div>
             </div>
-            <div class="registro1" id="actualizar">
+            <div class="registro1" id="actualizar5">
                 <div class="contenido">
-                    <div id="datosMostrados"></div>
-                    <button id="cerrar10" onclick="cerrarVentana('actualizar')">
+                    <div id="datosMostrados2"></div>
+                    <button id="cerrar10" onclick="cerrarVentana('actualizar5')">
               <img  class="cancel" src="/assisted/img/cancelar.png">
               <p class="ca">Cancelar</p>
             </button>
@@ -132,7 +132,7 @@ function mostrarVentana12(idVentana,nombre, usuario, contraseña) {
     })
     .then(response => response.text())
     .then(data => {
-        document.getElementById("datosMostrados").innerHTML = data;
+        document.getElementById("datosMostrados2").innerHTML = data;
     });
 }
 </script>

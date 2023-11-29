@@ -1,3 +1,4 @@
+<?php  ob_start(); ?>
 <style>
 
 .tab{
@@ -112,4 +113,27 @@ if ($resultado->num_rows > 0) {
 }
 
 $conexion->close();
+?>
+<?php
+
+$html= ob_get_clean();
+
+require_once '../libreria/dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+
+
+$options = $dompdf->getOptions();
+$options->set(array('isRemoteEnabled' => true));
+$dompdf->setOptions($options);
+
+$dompdf->loadHtml($html);
+
+$dompdf->setPaper('A4','landscape'); 
+
+$dompdf->render();
+
+$dompdf->stream("porcentaje.pdf", array("Attachment" =>false));
 ?>

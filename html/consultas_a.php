@@ -93,7 +93,7 @@ $total=$datos['hombres']+$datos1['mujer'];
                     <input type="number" class="nie" name="nie" placeholder="Nie del estudiante" required>
                     <label for="mes">Escriba el numero de mes que desea ver si es menor a 10 poner un cero antes ej: 01, 02 y 03</label>
                     <input type="number" class="mes" name="mes" maxlength="2" placeholder="Mes que desea ver" required>
-                    <input type="number" class="año" name="año" maxlength="2" placeholder="Mes que desea ver" required>
+                    <input type="number" class="año" name="año" maxlength="2" placeholder="Año que desea ver" required>
                     <input type="submit" value="ENVIAR">
                 </form>
 
