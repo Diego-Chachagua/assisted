@@ -11,16 +11,23 @@ if(isset($_POST['nombres'])){
     $nombre_n = $_POST['nombres'];
     $update=mysqli_query($conexion,"UPDATE 'admin' SET nombre_a ='$nombre_n' WHERE nombre_a='$nombre_v'");
 }
+echo $nombre_n . "<br>";
+echo $nombre_v . "<br>";
 
 if(isset($_POST['usuario'])){
     $usuario_n = $_POST['usuario'];
-    $update2=mysqli_query($conexion,"UPDATE usuario SET usu_a='$usuario_n' WHERE usu_a'$usu_v'");
+    $update2=mysqli_query($conexion,"UPDATE usuario SET usu_a='$usuario_n' WHERE usu_a ='$usu_v'");
+
 }
+echo $usuario_n . "<br>";
+echo $usu_v . "<br>";
 
 if(isset($_POST['contrasenia'])){
     $contra_n = $_POST['contrasenia'];
     $update3=mysqli_query($conexion,"UPDATE usuario SET contra_a='$contra_n' WHERE contra_a='$contra_v'");
 }
+echo $contra_n . "<br>";
+echo $contra_v . "<br>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
