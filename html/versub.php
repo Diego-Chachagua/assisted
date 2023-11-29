@@ -36,7 +36,7 @@ $consulta3=mysqli_query($conexion,"SELECT subdirector.nombre_s,usuario.usu_s,usu
                <td class="nie"><?php echo $mostrar3['usu_s'] ?></td>
                <td  class="gen"><?php echo $mostrar3['contra_s'] ?></td>
                <td class="edit">
-                   <button class="editar">
+                   <button class="editar" onclick="mostrarVentana('actualizar','<?php echo $mostrar3['nombre_s']?>','<?php echo $mostrar3['usu_s']?>','<?php echo $mostrar3['contra_s']?>')">
                        <img class="ed" src="/assisted/img/lapiz.png">
                    </button>
                    <button class="drop2">
@@ -86,6 +86,16 @@ $consulta3=mysqli_query($conexion,"SELECT subdirector.nombre_s,usuario.usu_s,usu
             </button>
                 </div>
             </div>
+
+            <div class="registro1" id="actualizar">
+                <div class="contenido">
+                    <div id="datosMostrados"></div>
+                    <button id="cerrar10" onclick="cerrarVentana('actualizar')">
+              <img  class="cancel" src="/assisted/img/cancelar.png">
+              <p class="ca">Cancelar</p>
+            </button>
+                </div>
+            </div>
         <script>
     document.getElementById('agregar2').addEventListener('click', function () {
     document.getElementById('registro2').style.display = 'block';
@@ -106,3 +116,34 @@ document.getElementById('cerrar11').addEventListener('click', function () {
     document.getElementById('drop1').style.display = 'none';
 });
 </script>
+<script> // Función para mostrar la ventana flotante
+      // Función para mostrar una ventana flotante
+function mostrarVentana(idVentana,nombre, usuario, contraseña) {
+  var modal = document.getElementById(idVentana);
+    modal.style.display = "block";
+    var datosaula = {
+        nombre: nombre,
+        usuario: usuario,
+        contraseña: contraseña
+    };  
+    fetch('procesar2.php', {
+        method: 'POST',
+        body: JSON.stringify({ nombre: nombre, usuario: usuario, contraseña: contraseña}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("datosMostrados").innerHTML = data;
+    });
+}
+
+
+
+// Función para cerrar una ventana flotante
+function cerrarVentana(idVentana) {
+
+    document.getElementById(idVentana).style.display = "none";
+}
+    </script>
