@@ -13,10 +13,10 @@ session_start();
     <header>
         <div class="cabecera">
             <img class="as" src="/assisted/img/asis.png">
-            <a  id="i" href="#">Inicio</a>
+            <a id="i" href="../index.html">Inicio</a>
             <img id="c" src="/assisted/img/us.png">
             <p id="tit">Control de asistencia</p>
-            <a href="#">
+            <a href="cerrarsesion.php">
                 <img id="e" src="/assisted/img/salida.png">
             </a>
             <p class="sesion">Cerrar sesi&oacute;n</p>
@@ -257,7 +257,7 @@ function ciencia() {
         
     }
     var dato = "ciencia";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 
 function lenguaje() {
@@ -284,7 +284,7 @@ function lenguaje() {
         
     }
     var dato = "lenguaje";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function sociales() {
     
@@ -310,7 +310,7 @@ function sociales() {
         
     }
     var dato = "sociales";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function ingles() {
     
@@ -336,7 +336,7 @@ function ingles() {
         
     }
     var dato = "ingles";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function informatica() {
     
@@ -362,7 +362,7 @@ function informatica() {
         
     }
     var dato = "informatica";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function oplv() {
     
@@ -388,7 +388,7 @@ function oplv() {
         
     }
     var dato = "oplv";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function ceminario() {
     
@@ -414,7 +414,7 @@ function ceminario() {
         
     }
     var dato = "ceminario";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function hpp() {
     
@@ -440,7 +440,7 @@ function hpp() {
         
     }
     var dato = "hpp";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function muci() {
     
@@ -466,7 +466,7 @@ function muci() {
         
     }
     var dato = "muci";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function matematica() {
     
@@ -492,7 +492,7 @@ function matematica() {
         
     }
     var dato = "matematica";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function elctricidad() {
     
@@ -518,7 +518,7 @@ function elctricidad() {
         
     }
     var dato = "electricidad";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function agropecuario() {
     
@@ -544,7 +544,7 @@ function agropecuario() {
         
     }
     var dato = "agropecuario";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function turismo() {
     
@@ -570,7 +570,7 @@ function turismo() {
         
     }
     var dato = "turismo";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function software() {
     
@@ -596,7 +596,7 @@ function software() {
         
     }
     var dato = "software";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 function contaduria() {
     
@@ -622,7 +622,7 @@ function contaduria() {
         
     }
     var dato = "contaduria";
-    window.location.href = "./modificar_opciones.php?dato="+dato;
+    window.location.href = "./option.html?dato="+dato;
 }
 
 

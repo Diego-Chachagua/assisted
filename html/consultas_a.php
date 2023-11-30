@@ -61,10 +61,10 @@ $total=$datos['hombres']+$datos1['mujer'];
     <header>
         <h2 class="logo"><img id="logo" src="/assisted/img/logo1.png" ></h2>
         <nav class="navigation">
-        <a href="#" class="active">Inicio<span></span></a>
-        <a href="#">Asistencia<span></span></a>
-        <a href="#">Secciones<span></span></a>
-        <a href="#">Usuarios<span></span></a>
+        <a href="../index.html" class="active">Inicio<span></span></a>
+        <a href="../html/modificar_opciones.php">Asistencia<span></span></a>
+        <a href="../html/secciones.php">Secciones<span></span></a>
+        <a href="../html/verusuarios.php">Usuarios<span></span></a>
         </nav>
         </header>
 
