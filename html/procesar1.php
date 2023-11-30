@@ -3,7 +3,7 @@
 
 .tab{
     margin-top: 30px;
-    margin-left:5px;
+    margin-left: 180px;
     background: white;
     text-align: center;
 }
@@ -16,7 +16,7 @@ th{
 }
 
 td{
-    width: 70px;
+    width: 90px;
     font-size: 13px;
 }
 
@@ -96,21 +96,28 @@ if ($resultado->num_rows > 0) {
     
     // Muestra los datos en columnas
     $info_columnas = $resultado->fetch_fields();
+
+    // Primero, imprime los encabezados de las columnas
+    echo "<tr>";
     foreach ($info_columnas as $columna) {
-        echo "<tr>";
         echo "<th>{$columna->name}</th>";
-        while ($fila = $resultado->fetch_assoc()) {
+    }
+    echo "</tr>";
+
+    // Luego, imprime los datos de cada fila
+    while ($fila = $resultado->fetch_assoc()) {
+        echo "<tr>";
+        foreach ($info_columnas as $columna) {
             echo "<td>{$fila[$columna->name]}</td>";
         }
         echo "</tr>";
-        // Reinicia el puntero de resultados para la próxima columna
-        $resultado->data_seek(0);
     }
 
     echo "</table>";
 } else {
     echo "No se encontraron resultados.";
 }
+
 
 $conexion->close();
 ?>

@@ -84,7 +84,6 @@ $total=$datos['hombres']+$datos1['mujer'];
             <p class="ra1">Creacion de archivos informativo </p>
             <p class="ra1">sobre la asistencia:</p>
             <br>
-            <br>
             <p class="ma"> </p>
             <p class="ma">este archivo incluye la asistencia general de: 
                 (Dias,semanas Y mes seleccionado)</p>
@@ -95,9 +94,14 @@ $total=$datos['hombres']+$datos1['mujer'];
                     <input type="number" class="mes" name="mes" maxlength="2" placeholder="Mes que desea ver" required>
                     <input type="number" class="año" name="año" maxlength="2" placeholder="Año que desea ver" required>
                     <input type="submit" value="ENVIAR">
-                </form>
-
-
+                </form><br>
+                <p class="ma">Aqui puede ver en un archivo el porcentaje<br>
+        de cada estudiante al año</p>
+        <form action="porcentaje.php" method="post">
+        <input type="text" name="nie" class="mess" placeholder="NIE">
+        <button class="modi" type="button">Ver Informe</button>
+        </form>
+        </div>
         </div>
         
         <br><br>
