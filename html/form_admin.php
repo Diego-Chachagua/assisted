@@ -20,14 +20,9 @@
                         <input type="password" required name="contrasena">
                         <label for="">Contrase&ntilde;a</label>
                     </div>
-                    <div class="forget">
-                        <label for=""><input type="checkbox">Olvidastes <a href="#">tu contrase&ntilde;a</a></label>
-                      
-                    </div>
+                   
                     <button type="submit" name="registro">Log in</button>
-                    <div class="register">
-                        <p>No tienes una cuenta? <a href="#">Registrarse</a></p>
-                    </div>
+                    
                 </form>
             </div>
         </div>

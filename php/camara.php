@@ -33,10 +33,10 @@ if ($result->num_rows > 0) {
 <header>
     <img class="logo" src="/assisted/img/logo1.png" >
     <nav class="navigation">
-        <a href="#" class="active">Inicio<span></span></a>
-        <a href="#">Asistencia<span></span></a>
-        <a href="#">Secciones<span></span></a>
-        <a href="#">Usuarios<span></span></a>
+        <a href="../index.html" class="active">Inicio<span></span></a>
+        <a href="../html/consultas_a.php">Consulta<span></span></a>
+        <a href="../html/modificar_opciones.php">Modificar<span></span></a>
+        <a href="../html/manual.html">Manual<span></span></a>
     </nav>
 </header><br>
 <div class="container">
