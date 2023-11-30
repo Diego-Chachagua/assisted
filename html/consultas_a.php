@@ -95,13 +95,13 @@ $total=$datos['hombres']+$datos1['mujer'];
                     <input type="number" class="año" name="año" maxlength="2" placeholder="Año que desea ver" required>
                     <input type="submit" value="ENVIAR">
                 </form><br>
+
                 <p class="ma">Aqui puede ver en un archivo el porcentaje<br>
         de cada estudiante al año</p>
         <form action="porcentaje.php" method="post">
         <input type="text" name="nie" class="mess" placeholder="NIE">
         <button class="modi" type="button">Ver Informe</button>
         </form>
-        </div>
         </div>
         
         <br><br>
@@ -138,8 +138,15 @@ $total=$datos['hombres']+$datos1['mujer'];
             </select>
             <input class="modii2" type="submit" value="Consultar">
                 </form>
+                <br>
+                <p class="ma">Aqui puede ver en un archivo el porcentaje<br>
+        de cada estudiante al año</p>
+        <form action="porcentaje.php" method="post">
+        <input type="text" name="nie" class="mess" placeholder="NIE">
+        <button class="modi" type="button">Ver Informe</button>
+        </form>
+        </div>
 
-        <script src="/assisted/JS/script.js"></script>
-
+</body>
 </html>
 

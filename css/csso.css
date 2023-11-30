@@ -118,3 +118,12 @@ body{
     height: 220px; /* Define la altura deseada del contenedor con desplazamiento */
     overflow: auto; /* Habilita la barra de desplazamiento cuando el contenido excede las dimensiones del contenedor */
 }
+
+.ayuda{
+    background-color: blue;
+    color: white;
+    height: 50px;
+    width: 90px;
+    font-size: 20px;
+    cursor: pointer;
+}
