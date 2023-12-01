@@ -100,7 +100,7 @@ $total=$datos['hombres']+$datos1['mujer'];
         de cada estudiante al año</p>
         <form action="porcentaje.php" method="post">
         <input type="text" name="nie" class="mess" placeholder="NIE">
-        <button class="modi" type="button">Ver Informe</button>
+        <input class="modi" type="button" value="Ver Informe">
         </form>
         </div>
         
